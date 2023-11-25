@@ -3,6 +3,7 @@ import 'package:moneyapp/core/network/cache_helper.dart';
 import 'package:moneyapp/core/resources/app_colors.dart';
 import 'package:moneyapp/core/resources/assets_manager.dart';
 import 'package:moneyapp/core/resources/font_manager.dart';
+import 'package:moneyapp/core/resources/routes_manager.dart';
 import 'package:moneyapp/core/resources/strings.dart';
 import 'package:moneyapp/core/resources/values_manager.dart';
 import 'package:moneyapp/core/utils/app_constance.dart';
@@ -29,7 +30,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     )!.then((value)
     {
       if (value) {
-
+        Navigator.popAndPushNamed(context, Routes.loginRoute);
       }
     });
   }
@@ -117,9 +118,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     boardController.nextPage(
                         duration: Duration(milliseconds: 750),
                         curve: Curves.fastLinearToSlowEaseIn);
+
                   }
                 },
-                text: AppStrings.next,
+                text: islast?AppStrings.getStart:AppStrings.next,
                 isUpperCase: false),
           ],
         ),

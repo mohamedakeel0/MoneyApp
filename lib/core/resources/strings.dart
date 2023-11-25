@@ -14,5 +14,9 @@ class AppStrings {
   static const        skip = 'Skip';
   static const        back = 'Back';
   static const        next = 'Next';
+  static const        login = 'LOG IN';
+  static const        titleLogin = 'Enter your credentials to access your account';
+  static const        getStart = 'Get Start';
+  static const        email = 'Email';
 
 }
