@@ -36,7 +36,7 @@ class _SplashWidgetState extends State<SplashWidget> {
               child: Image(
                 image:widget.isChange==true?  AssetImage(ImageAssets.secondLogoApp):AssetImage(ImageAssets.logoApp),
                 width: MediaQuery.of(context).size.width/3,
-                height: MediaQuery.of(context).size.height/AppResponsiveHeigh.h100,
+                height: MediaQuery.of(context).size.height/AppResponsiveHeigh.h150,
               ),
             ),
 
@@ -46,7 +46,7 @@ class _SplashWidgetState extends State<SplashWidget> {
                   TextSpan(
                     text: AppStrings.currency,
                     style: TextStyle(
-                        fontSize: AppSize.s28, color:widget.isChange==true?   AppColors.black: AppColors.white,
+                        fontSize: AppSize.s30, color:widget.isChange==true?   AppColors.black: AppColors.white,
                         fontWeight: FontWeight.bold,
                         fontFamily: 'DancingScript'
                     ),
@@ -55,7 +55,7 @@ class _SplashWidgetState extends State<SplashWidget> {
                   TextSpan(
                       text: AppStrings.checker,
                     style: TextStyle(color:widget.isChange==true?   AppColors.colorPrimary:AppColors.black,
-                        fontSize: AppSize.s28,
+                        fontSize: AppSize.s30,
                         fontWeight: FontWeight.bold,
                         fontFamily: 'DancingScript'
                     ),

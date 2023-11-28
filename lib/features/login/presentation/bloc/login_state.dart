@@ -8,4 +8,6 @@ class LoginState extends Equatable {
   List<Object?> get props => [];
 }
 class LoginInitailState extends LoginState{}
+class LodaingChangeSelectBoxState extends LoginState{}
+class SuccesChangeSelectBoxState extends LoginState{}
 

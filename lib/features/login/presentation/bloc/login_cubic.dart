@@ -10,5 +10,17 @@ class LoginCubic extends Cubit<LoginState> {
   static LoginCubic get(context) => BlocProvider.of(context);
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  bool isSelect = false;
 
+  void changeSelectBox() {
+    if (!isClosed) {
+      emit(LodaingChangeSelectBoxState());
+    }
+
+    isSelect = !isSelect;
+
+    if (!isClosed) {
+      emit(SuccesChangeSelectBoxState());
+    }
+  }
 }

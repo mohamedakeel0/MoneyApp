@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moneyapp/core/resources/app_colors.dart';
 import 'package:moneyapp/core/resources/assets_manager.dart';
 import 'package:moneyapp/core/resources/font_manager.dart';
-import 'package:moneyapp/core/resources/routes_manager.dart';
 import 'package:moneyapp/core/resources/strings.dart';
 import 'package:moneyapp/core/resources/values_manager.dart';
 import 'package:moneyapp/core/utils/app_constance.dart';
@@ -12,23 +11,26 @@ import 'package:moneyapp/features/login/presentation/bloc/login_state.dart';
 import 'package:moneyapp/features/login/presentation/widget/image_white_background.dart';
 import 'package:moneyapp/features/login/presentation/widget/two_underline_text.dart';
 import 'package:moneyapp/features/login/presentation/widget/under_line_text.dart';
+import 'package:moneyapp/features/regisiter/presentation/bloc/regisiter_cubic.dart';
+import 'package:moneyapp/features/regisiter/presentation/bloc/regisiter_state.dart';
+import 'package:moneyapp/features/regisiter/presentation/widget/text_form_and_title.dart';
 import 'package:moneyapp/shared/default_button.dart';
 import 'package:moneyapp/shared/default_form_field.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class RegisiterScreen extends StatefulWidget {
+  const RegisiterScreen({Key? key}) : super(key: key);
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegisiterScreen> createState() => _RegisiterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegisiterScreenState extends State<RegisiterScreen> {
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<LoginCubic, LoginState>(listener: (context, state) {
+    return BlocConsumer<RegisiterCubic, RegisiterState>(listener: (context, state) {
 
     },builder: (context, state) {
-      var cubic = LoginCubic.get(context);
+      var cubic = RegisiterCubic.get(context);
       return  Scaffold(
         backgroundColor: AppColors.white,
         body: SizedBox(
@@ -38,7 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
             child:
             Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
               const Text(
-                AppStrings.login,
+                AppStrings.signUpTitle,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: AppSize.s25,
@@ -46,7 +48,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               const Text(
-                AppStrings.titleLogin,
+                AppStrings.titleRegisiter,
                 style: TextStyle(
                   fontWeight: FontWeight.w300,
                   fontSize: AppSize.s16,
@@ -68,6 +70,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 30.0,horizontal: 35.0),
                   child: Column(crossAxisAlignment: CrossAxisAlignment.start,children:  [
+                    Row(mainAxisAlignment: MainAxisAlignment.start,children: [
+                      buildTextFormAndTitle(context,fristText:AppStrings.fristName ,textEditingControllerFrist:  cubic.fristNameController),
+                      SizedBox(width: MediaQuery.of(context).size.width /
+                          AppResponsiveWidth.w20,),
+                      buildTextFormAndTitle(context,fristText:AppStrings.lastName ,textEditingControllerFrist:  cubic.secondNameController),
+
+                    ],),
                     const Text(
                       AppStrings.email,
                       style: TextStyle(
@@ -78,11 +87,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     Container(
                       height:
-                           MediaQuery.of(context)
+                      MediaQuery.of(context)
                           .size
                           .height /
                           AppResponsiveHeigh.h40
-                          ,clipBehavior: Clip.antiAliasWithSaveLayer,decoration: BoxDecoration(color:AppColors.white, borderRadius: BorderRadius.circular(AppSize.s10), ),
+                      ,clipBehavior: Clip.antiAliasWithSaveLayer,decoration: BoxDecoration(color:AppColors.white, borderRadius: BorderRadius.circular(AppSize.s10), ),
                       child: defaultFormField(
                         context: context,
                         onTap: () {},
@@ -149,42 +158,162 @@ class _LoginScreenState extends State<LoginScreen> {
                         },
                       ),
                     ),
+                    const Text(
+                      AppStrings.comfirmPassword,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w300,
+                        fontSize: AppSize.s16,
+                        color: AppColors.colorPrimaryDark,
+                      ),
+                    ),
+                    Container(
+                      height:
+                      MediaQuery.of(context)
+                          .size
+                          .height /
+                          AppResponsiveHeigh.h40
+                      ,clipBehavior: Clip.antiAliasWithSaveLayer,decoration: BoxDecoration(color:AppColors.white, borderRadius: BorderRadius.circular(AppSize.s10), ),
+                      child: defaultFormField(
+                        context: context,
+                        onTap: () {},hintText: AppStrings.enterYourPassword,
+                        prefix: null,
+                        prefixIsImage: false,
+                        textStyle: Theme.of(context)
+                            .textTheme
+                            .titleLarge,
+                        iconSize: MediaQuery.of(context)
+                            .size
+                            .height /
+                            AppResponsiveHeigh.h10,
+                        isEnabled: true,
+                        isError: true,
+                        isFocusBorder: true,
+                        controller: cubic.comfirmPasswordController,
+                        isPassword: true,
+                        type: TextInputType.emailAddress,
+                        validate: (value) {
+                          if (value!.isEmpty) {
+
+                          }
+                          return null;
+                        },
+                      ),
+                    ),
                     SizedBox(
                       height: MediaQuery.of(context)
                           .size
                           .height /
                           AppResponsiveHeigh.h10,
                     ),
-                    Row(
-                      children: [
-                        InkWell(
-                            onTap: () {
-                              cubic.changeSelectBox();
-                            },
-                            child:  Icon(
-                              cubic.isSelect==false?  Icons.check_box_outline_blank:Icons.check_box_rounded,
-                              color: cubic.isSelect==false? AppColors.gray2:AppColors.colorPrimary,
-                              size: 25,
-                            )),
-                        SizedBox(
-                          width: MediaQuery.of(context)
-                              .size
-                              .width /
-                              AppResponsiveWidth.w10,
+
+
+                    const   Center(
+                      child:  Text(
+                        AppStrings.setYourPriorities,
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: AppSize.s16,
+                          color: AppColors.colorPrimaryDark,
                         ),
-                        Text(
-                          AppStrings.rememberMe,
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleLarge!
-                              .copyWith(
-                              color: AppColors.gray2,
-                              fontSize: FontSize.s16,
-                              fontFamily:
-                              'DancingScript'),
-                        ),
-                      ],
+                      ),
                     ),
+                    SizedBox(
+                      height: MediaQuery.of(context)
+                          .size
+                          .height /
+                          AppResponsiveHeigh.h20,
+                    ),
+                    Row(children: [
+                      Row(
+                        children: [
+                          InkWell(
+                              onTap: () {
+                                cubic.changeSelectBox();
+                              },
+                              child:  Icon(
+                                cubic.isSelect==false?  Icons.check_box_outline_blank:Icons.check_box_rounded,
+                                color: cubic.isSelect==false? AppColors.gray2:AppColors.colorPrimary,
+                                size: 25,
+                              )),
+                          SizedBox(
+                            width: MediaQuery.of(context)
+                                .size
+                                .width /
+                                AppResponsiveWidth.w5,
+                          ),
+                          Text(
+                            AppStrings.scanMoney,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w300,
+                              fontSize: AppSize.s14,
+                              color: AppColors.gray2,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          InkWell(
+                              onTap: () {
+                                cubic.changeSelectBox();
+                              },
+                              child:  Icon(
+                                cubic.isSelect==false?  Icons.check_box_outline_blank:Icons.check_box_rounded,
+                                color: cubic.isSelect==false? AppColors.gray2:AppColors.colorPrimary,
+                                size: 25,
+                              )),
+                          SizedBox(
+                            width: MediaQuery.of(context)
+                                .size
+                                .width /
+                                AppResponsiveWidth.w5,
+                          ),
+                          Text(
+                            AppStrings.checkYourArea,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w300,
+                              fontSize: AppSize.s14,
+                              color: AppColors.gray2,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          InkWell(
+                              onTap: () {
+                                cubic.changeSelectBox();
+                              },
+                              child:  Icon(
+                                cubic.isSelect==false?  Icons.check_box_outline_blank:Icons.check_box_rounded,
+                                color: cubic.isSelect==false? AppColors.gray2:AppColors.colorPrimary,
+                                size: 25,
+                              )),
+                          SizedBox(
+                            width: MediaQuery.of(context)
+                                .size
+                                .width /
+                                AppResponsiveWidth.w5,
+                          ),
+                           Text(
+                            AppStrings.exchangeHere,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w300,
+                              fontSize: AppSize.s14,
+                              color: AppColors.gray2,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],),
+                    SizedBox(
+                      height: MediaQuery.of(context)
+                          .size
+                          .height /
+                          AppResponsiveHeigh.h20,
+                    ),
+                    twoTextWithUnderline(fristText: AppStrings.HaveAn,secondText: AppStrings.signIn ),
+
                     SizedBox(
                       height: MediaQuery.of(context)
                           .size
@@ -224,74 +353,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           text: AppStrings.loginScreen,
                           isUpperCase: false),
                     ),
-                    SizedBox(
-                      height: MediaQuery.of(context)
-                          .size
-                          .height /
-                          AppResponsiveHeigh.h20,
-                    ),
-                    buildUnderLineText(text: AppStrings.forgetYourPassword ),
-                    SizedBox(
-                      height: MediaQuery.of(context)
-                          .size
-                          .height /
-                          AppResponsiveHeigh.h20,
-                    ),
-                    Row(
-                      children: [
-                        Container(
-                          color: AppColors.gray2,
-                          width: MediaQuery.of(context).size.width /
-                              AppResponsiveWidth.w100,
-                          height: 1,
-                        ),
-                        const Text(
-                          AppStrings.orContinue,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w300,
-                            fontSize: AppSize.s14,
-                            color: AppColors.gray2,
-                          ),
-                        ),
-                        Container(
-                          color: AppColors.gray2,
-                          width: MediaQuery.of(context).size.width /
-                              AppResponsiveWidth.w100,
-                          height: 1,
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: MediaQuery.of(context)
-                          .size
-                          .height /
-                          AppResponsiveHeigh.h25,
-                    ),
-                    Row(mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        buildItemImageContiener(context,AppColors.white,ImageAssets.google),
 
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width /
-                              AppResponsiveWidth.w10,
-                        ),
-                        buildItemImageContiener(context,AppColors.white,ImageAssets.vector),
 
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width /
-                              AppResponsiveWidth.w10,
-                        ),
-                        buildItemImageContiener(context,AppColors.white,ImageAssets.facebook),
-
-                      ],
-                    ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height /
-                          AppResponsiveHeigh.h40,
-                    ),
-                    GestureDetector(child: twoTextWithUnderline(fristText: AppStrings.dontHaveAn,secondText: AppStrings.signUp ),onTap: () {
-                      Navigator.popAndPushNamed(context, Routes.regisiterRoute);
-                    },),
 
                   ],),
                 ),

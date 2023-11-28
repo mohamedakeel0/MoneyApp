@@ -77,10 +77,10 @@ Widget defaultFormField({
           fontFamily: 'DancingScript'),
         hintText: hintText,
         hintStyle: const TextStyle(
-            fontSize: FontSize.s15,
-            color: AppColors.black,
+            fontSize: FontSize.s13,
+            color: AppColors.grayMedium2,
 
-            fontWeight: FontWeight.w400,
+            fontWeight: FontWeight.w300,
             fontFamily: 'DancingScript'),
         enabledBorder: isEnabled
             ? enabledBorder

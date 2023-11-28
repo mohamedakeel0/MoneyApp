@@ -15,8 +15,34 @@ class AppStrings {
   static const        back = 'Back';
   static const        next = 'Next';
   static const        login = 'LOG IN';
+  static const        signUpTitle = 'SIGN UP';
   static const        titleLogin = 'Enter your credentials to access your account';
+  static const        titleRegisiter = 'Enter your info to create account';
   static const        getStart = 'Get Start';
+  static const        loginScreen = 'Login';
   static const        email = 'Email';
+  static const        fristName = 'Frist Name';
+  static const        lastName = 'Last Name';
+  static const       password = 'Password';
+  static const       comfirmPassword = 'Comfirm Password';
+  static const       setYourPriorities = '"Set your priorities"';
+  static const       enterYourEmail = 'Enter your email';
+  static const       enterYourPassword = 'Enter your password';
+  static const  rememberMe = "Remember Me";
+  static const  scanMoney = "Scan Money";
+  static const  checkYourArea = "Check Your Area";
+  static const  exchangeHere = "Exchange Here";
 
+  static const        titleForget = 'Don‘t Worry! It occurs. please enter the email address linked with your account.';
+
+  static const        forgetYourPassword = 'Forget your password?';
+  static const        orContinue = ' Or continue with ';
+  static const        dontHaveAn = 'Don’t have an account?';
+  static const       HaveAn = 'I already have an account?';
+  static const        signUp = ' SignUp';
+  static const        signIn= ' SignIn';
+  static const        forgetPassword = 'Forget Password';
+  static const        sendCode = 'Send Code';
+  static const        rememberPassword = 'Remember password?';
+  static const        loginNow = 'Login Now';
 }
