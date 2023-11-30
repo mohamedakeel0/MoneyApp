@@ -43,6 +43,9 @@ dependencies:
   dio:
   smooth_page_indicator:
   flutter_bloc:
+  flutter_verification_code: ^1.1.6
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

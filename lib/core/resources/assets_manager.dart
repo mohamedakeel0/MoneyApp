@@ -12,6 +12,7 @@ class ImageAssets{
   static const String vector='$IMAGE_PATH/Vector.png';
   static const String google='$IMAGE_PATH/Google.png';
   static const String forgotpassword='$IMAGE_PATH/Forgotpassword.png';
+  static const String varification='$IMAGE_PATH/varification.png';
 
 
 }

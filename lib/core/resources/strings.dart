@@ -30,10 +30,11 @@ class AppStrings {
   static const       enterYourPassword = 'Enter your password';
   static const  rememberMe = "Remember Me";
   static const  scanMoney = "Scan Money";
-  static const  checkYourArea = "Check Your Area";
+  static const  checkYourArea = "Check Area";
   static const  exchangeHere = "Exchange Here";
 
   static const        titleForget = 'Don‘t Worry! It occurs. please enter the email address linked with your account.';
+  static const        titleVarification = 'Enter the verification code we just senton your email address.';
 
   static const        forgetYourPassword = 'Forget your password?';
   static const        orContinue = ' Or continue with ';
@@ -42,7 +43,12 @@ class AppStrings {
   static const        signUp = ' SignUp';
   static const        signIn= ' SignIn';
   static const        forgetPassword = 'Forget Password';
+  static const        varification = 'Varification';
   static const        sendCode = 'Send Code';
+  static const        verify = 'Verify';
+  static const        clearAll = 'Clear All';
   static const        rememberPassword = 'Remember password?';
+  static const        didReceived = 'Didn’t received code? ';
   static const        loginNow = 'Login Now';
+  static const        resend = 'Resend';
 }

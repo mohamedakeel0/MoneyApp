@@ -230,7 +230,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           .height /
                           AppResponsiveHeigh.h20,
                     ),
-                    buildUnderLineText(text: AppStrings.forgetYourPassword ),
+                    GestureDetector(onTap: () {
+                      Navigator.pushNamed(context, Routes.forgetPasswordRoute);
+                    },child: buildUnderLineText(text: AppStrings.forgetYourPassword )),
                     SizedBox(
                       height: MediaQuery.of(context)
                           .size
