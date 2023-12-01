@@ -10,6 +10,8 @@ class ForgetPasswordCubic extends Cubit<ForgetPasswordState> {
   static ForgetPasswordCubic get(context) => BlocProvider.of(context);
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController newPasswordController = TextEditingController();
+  TextEditingController comfirmPasswordController = TextEditingController();
 
 
 }

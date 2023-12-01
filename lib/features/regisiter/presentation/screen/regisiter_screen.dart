@@ -357,7 +357,10 @@ class _RegisiterScreenState extends State<RegisiterScreen> {
                                       AppResponsiveWidth.w300,
                                   background: AppColors.colorPrimary,
                                   context: context,
-                                  function: () {},
+                                  function: () {
+                                    Navigator.popAndPushNamed(
+                                        context, Routes.doneRegisiterScreenRoute);
+                                  },
                                   text: AppStrings.signUp,
                                   isUpperCase: false),
                             ),

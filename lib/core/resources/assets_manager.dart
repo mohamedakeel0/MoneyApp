@@ -13,6 +13,10 @@ class ImageAssets{
   static const String google='$IMAGE_PATH/Google.png';
   static const String forgotpassword='$IMAGE_PATH/Forgotpassword.png';
   static const String varification='$IMAGE_PATH/varification.png';
+  static const String changePassword='$IMAGE_PATH/changepasswword.png';
+  static const String done='$IMAGE_PATH/done.png';
+  static const String doneRegisiter='$IMAGE_PATH/doneregisiter.png';
+  static const String backgroundDoneRegisiter='$IMAGE_PATH/backgroundDoneRegisiter.png';
 
 
 }

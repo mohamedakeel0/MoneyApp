@@ -25,6 +25,7 @@ class AppResponsiveHeigh{
   static const double h145 =5.69;
   static const double h86 =9.59;
   static const double h56 =14.74;
+  static const double h400 =2.063;
   static const double h57 =14.38;
   static const double h195 =4.23;
   static const double h370 =2.23;

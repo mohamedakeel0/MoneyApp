@@ -21,10 +21,12 @@ class AppStrings {
   static const        getStart = 'Get Start';
   static const        loginScreen = 'Login';
   static const        email = 'Email';
+  static const        newPassword = 'New Password';
   static const        fristName = 'Frist Name';
   static const        lastName = 'Last Name';
   static const       password = 'Password';
   static const       comfirmPassword = 'Comfirm Password';
+  static const       enterComfirmPassword = 'Enter Comfirm Password';
   static const       setYourPriorities = '"Set your priorities"';
   static const       enterYourEmail = 'Enter your email';
   static const       enterYourPassword = 'Enter your password';
@@ -35,6 +37,10 @@ class AppStrings {
 
   static const        titleForget = 'Don‘t Worry! It occurs. please enter the email address linked with your account.';
   static const        titleVarification = 'Enter the verification code we just senton your email address.';
+  static const        titleSuccessfully = 'Your password has been updated.';
+  static const        accountCreate = 'Account Created ';
+  static const        accountCreateTitle = 'Your account had been created successfully.';
+  static const        accountCreateTitleSecond = 'Please log in to use your account and use features.';
 
   static const        forgetYourPassword = 'Forget your password?';
   static const        orContinue = ' Or continue with ';
@@ -44,11 +50,15 @@ class AppStrings {
   static const        signIn= ' SignIn';
   static const        forgetPassword = 'Forget Password';
   static const        varification = 'Varification';
+  static const        successfully = 'Successfully';
   static const        sendCode = 'Send Code';
+  static const        done = 'Done';
   static const        verify = 'Verify';
+  static const        goToLoin = 'Go To Sign in';
   static const        clearAll = 'Clear All';
   static const        rememberPassword = 'Remember password?';
   static const        didReceived = 'Didn’t received code? ';
   static const        loginNow = 'Login Now';
   static const        resend = 'Resend';
+  static const        changePassword = 'Change Password';
 }

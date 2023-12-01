@@ -125,7 +125,11 @@ class _VarificationScreenState extends State<VarificationScreen> {
                                   AppResponsiveWidth.w300,
                               background: AppColors.colorPrimary,
                               context: context,
-                              function: () {},
+                              function: () {
+
+                                Navigator.pushReplacementNamed(
+                                    context, Routes.changePasswordRoute);
+                              },
                               text: AppStrings.verify,
                               isUpperCase: false),
                           SizedBox(
@@ -137,8 +141,6 @@ class _VarificationScreenState extends State<VarificationScreen> {
                                 fristText: AppStrings.didReceived,
                                 secondText: AppStrings.resend),
                             onTap: () {
-                              Navigator.pushReplacementNamed(
-                                  context, Routes.loginRoute);
                             },
                           ),
                         ],

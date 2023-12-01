@@ -4,10 +4,13 @@
 import 'package:flutter/material.dart';
 
 import 'package:moneyapp/core/resources/strings.dart';
+import 'package:moneyapp/features/forget_password/presentation/screen/change_password_screen.dart';
 import 'package:moneyapp/features/forget_password/presentation/screen/forget_password_screen.dart';
+import 'package:moneyapp/features/forget_password/presentation/screen/successfully.dart';
 import 'package:moneyapp/features/forget_password/presentation/screen/varification_screen.dart';
 import 'package:moneyapp/features/login/presentation/screen/login_screen.dart';
 import 'package:moneyapp/features/onboarding/presentation/screen/on_boarding_screen.dart';
+import 'package:moneyapp/features/regisiter/presentation/screen/done_regisiter_screen.dart';
 import 'package:moneyapp/features/regisiter/presentation/screen/regisiter_screen.dart';
 import 'package:moneyapp/features/splash/presentation/pages/second_splash~_screen.dart';
 import 'package:moneyapp/features/splash/presentation/pages/splash_screen.dart';
@@ -19,6 +22,9 @@ class Routes{
   static const String regisiterRoute ='/regisiter';
   static const String forgetPasswordRoute ='/forgetPassword';
   static const String varificationRoute ='/varification';
+  static const String changePasswordRoute ='/changePassword';
+  static const String successfullyRoute ='/successfully';
+  static const String doneRegisiterScreenRoute ='/doneRegisiterScreen';
 
 
 
@@ -42,6 +48,12 @@ class RouteGenerator{
         return MaterialPageRoute(builder: (_)=> const ForgetPasswordScreen());
         case Routes.varificationRoute:
         return MaterialPageRoute(builder: (_)=> const VarificationScreen());
+        case Routes.changePasswordRoute:
+        return MaterialPageRoute(builder: (_)=> const ChangePasswordScreen());
+        case Routes.successfullyRoute:
+        return MaterialPageRoute(builder: (_)=> const SuccessfullyScreen());
+        case Routes.doneRegisiterScreenRoute:
+        return MaterialPageRoute(builder: (_)=> const DoneRegisiterScreen());
 
 
       default:

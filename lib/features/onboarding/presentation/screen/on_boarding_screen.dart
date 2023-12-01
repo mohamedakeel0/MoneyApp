@@ -48,6 +48,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         child: Column(
           children: [
             itemTopOnBoardingWidget(boardController,context),
+
             Expanded(
               child: PageView.builder(
                 onPageChanged: (index) {
@@ -64,13 +65,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 physics: const BouncingScrollPhysics(),
                 controller: boardController,
                 itemBuilder: (context, index) => buildBoardingItem(
-                    boarding[index], height / 27.5, height / 55.03),
+                    boarding[index], height / 27.5, height / 55.03,width),
                 itemCount: boarding.length,
               ),
             ),
             SizedBox(
               height: height / AppResponsiveHeigh.h10,
             ),
+
             SmoothPageIndicator(
               controller: boardController,
               count: boarding.length,
