@@ -219,7 +219,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           background: AppColors.colorPrimary,
                           context: context,
                           function: () {
-
+                            Navigator.pushNamed(context, Routes.homeRoute);
                           },
                           text: AppStrings.loginScreen,
                           isUpperCase: false),

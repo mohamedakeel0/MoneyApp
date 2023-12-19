@@ -8,6 +8,7 @@ import 'package:moneyapp/features/forget_password/presentation/screen/change_pas
 import 'package:moneyapp/features/forget_password/presentation/screen/forget_password_screen.dart';
 import 'package:moneyapp/features/forget_password/presentation/screen/successfully.dart';
 import 'package:moneyapp/features/forget_password/presentation/screen/varification_screen.dart';
+import 'package:moneyapp/features/home/presentation/screen/home_screen.dart';
 import 'package:moneyapp/features/login/presentation/screen/login_screen.dart';
 import 'package:moneyapp/features/onboarding/presentation/screen/on_boarding_screen.dart';
 import 'package:moneyapp/features/regisiter/presentation/screen/done_regisiter_screen.dart';
@@ -24,7 +25,8 @@ class Routes{
   static const String varificationRoute ='/varification';
   static const String changePasswordRoute ='/changePassword';
   static const String successfullyRoute ='/successfully';
-  static const String doneRegisiterScreenRoute ='/doneRegisiterScreen';
+  static const String doneRegisiterScreenRoute ='/doneRegisiter';
+  static const String homeRoute ='/home';
 
 
 
@@ -54,6 +56,8 @@ class RouteGenerator{
         return MaterialPageRoute(builder: (_)=> const SuccessfullyScreen());
         case Routes.doneRegisiterScreenRoute:
         return MaterialPageRoute(builder: (_)=> const DoneRegisiterScreen());
+        case Routes.homeRoute:
+        return MaterialPageRoute(builder: (_)=> const HomeScreen());
 
 
       default:
