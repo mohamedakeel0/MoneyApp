@@ -4,13 +4,14 @@ import 'package:moneyapp/core/resources/values_manager.dart';
 import 'package:moneyapp/core/utils/dumy.dart';
 
 
-Widget buildBoardingItem(BoardingModel model, height, height15) => Column(
+Widget buildBoardingItem(BoardingModel model, height, height15,width) => Column(
   crossAxisAlignment: CrossAxisAlignment.center,
   children: [
     Expanded(
         child: Image(
           image: AssetImage('${model.image}'),
         )),
+    Container(height: 2,width: width,color: AppColors.black),
     SizedBox(
       height: height,
     ),
@@ -28,5 +29,6 @@ Widget buildBoardingItem(BoardingModel model, height, height15) => Column(
     SizedBox(
       height: height15,
     ),
+
   ],
 );

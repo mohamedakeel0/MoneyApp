@@ -29,6 +29,10 @@ class AppConstance{
   static const double eighteen=18.0;
   static const int FALSE=0;
   static const int TRUE=1;
+  static const int splashDelay=6;
+  static const int sliderAnimationTime=300;
+  static const int verificationCodeLength=5;
+  static const double verificationUnderlineWidth=1.5;
 
 
 }

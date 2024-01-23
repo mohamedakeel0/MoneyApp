@@ -9,7 +9,7 @@ Widget defaultButton({
   Color textcolor = Colors.white,
   Color colorFristIcon = Colors.black,
   bool isUpperCase = true,
-  double radius = 25.0,
+  double radius = 15.0,
   double radiusTopLeft = 0.0,
   double radiusTopRight = 0.00,
   double radiusBottomRight = 0.0,
