@@ -165,7 +165,7 @@ backgroundColor:  Colors.white,
       //focused Border Style
       focusedBorder: OutlineInputBorder(
         borderSide:
-            BorderSide(color: AppColors.grayMedium, width: AppSize.s1_5),
+            BorderSide(color: AppColors.grayMedium, width: AppSize.s1_5,),
       ),
       //error Border Style
       errorBorder: OutlineInputBorder(

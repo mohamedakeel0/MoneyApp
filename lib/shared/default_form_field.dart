@@ -77,7 +77,7 @@ Widget defaultFormField({
           fontFamily: 'DancingScript'),
         hintText: hintText,
         hintStyle: const TextStyle(
-            fontSize: FontSize.s13,
+            fontSize: FontSize.s20,
             color: AppColors.grayMedium2,
 
             fontWeight: FontWeight.w300,
@@ -100,7 +100,7 @@ Widget defaultFormField({
                     borderSide:
                         BorderSide(width: 5, color: AppColors.grayMedium),
                   )
-                : OutlineInputBorder(borderSide: BorderSide.none),
+                : OutlineInputBorder(borderSide: BorderSide.none,),
         contentPadding: contentPadding,
         errorStyle: errorStyle,
         errorBorder: isError
@@ -114,7 +114,7 @@ Widget defaultFormField({
             ? prefixIsImage == false
                 ? Icon(
                     prefix,
-                    color: AppColors.black.withOpacity(0.6),
+                    color: AppColors.gray2.withOpacity(0.6),
                     size: 30,
                   )
                 : Padding(

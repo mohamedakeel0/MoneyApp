@@ -20,6 +20,7 @@ class AppStrings {
   static const        titleRegisiter = 'Enter your info to create account';
   static const        getStart = 'Get Start';
   static const        loginScreen = 'Login';
+  static const        addReport = 'Add Report';
   static const        email = 'Email';
   static const        newPassword = 'New Password';
   static const        fristName = 'Frist Name';
@@ -49,6 +50,7 @@ class AppStrings {
   static const        signUp = ' SignUp';
   static const        signIn= ' SignIn';
   static const        forgetPassword = 'Forget Password';
+  static const        previousReports = 'Previous Reports';
   static const        varification = 'Varification';
   static const        successfully = 'Successfully';
   static const        sendCode = 'Send Code';
@@ -61,4 +63,5 @@ class AppStrings {
   static const        loginNow = 'Login Now';
   static const        resend = 'Resend';
   static const        changePassword = 'Change Password';
+  static const        search = 'search';
 }
