@@ -108,18 +108,37 @@ class _ReportingScreenState extends State<ReportingScreen> {
                  ),
                ],
                  borderRadius: BorderRadius.circular(25)
-               ),child: const Column(mainAxisAlignment: MainAxisAlignment.start,
-                 children: [
-                 Text(
-                      'Ali',
-                      textAlign: TextAlign.start,
-                      style: TextStyle(
-                        fontWeight: FontWeight.w300,
-                        fontSize: AppSize.s16,
-                        color: AppColors.grayMedium2,
+               ),child: const Padding(
+                 padding:  EdgeInsets.all(15.0),
+                 child:  Column(crossAxisAlignment: CrossAxisAlignment.start,
+                   children: [
+                   Text(
+                        'Ali',
+                        textAlign: TextAlign.start,
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: AppSize.s18
+                          ,
+                          color: AppColors.black,
+                        ),
                       ),
-                    )
-             ]),)
+
+Row(children: [
+  Icon(Icons.location_on,color: AppColors.colorPrimary,size: 30,),
+    Text(
+      'Ali',
+      textAlign: TextAlign.start,
+      style: TextStyle(
+        fontWeight: FontWeight.w600,
+        fontSize: AppSize.s18
+        ,
+        color: AppColors.black,
+      ),
+    ),
+
+],),
+                              ]),
+               ),)
             ]),
           );
         },
