@@ -10,6 +10,7 @@ import 'package:moneyapp/features/forget_password/presentation/screen/successful
 import 'package:moneyapp/features/forget_password/presentation/screen/varification_screen.dart';
 import 'package:moneyapp/features/home/presentation/screen/home_screen.dart';
 import 'package:moneyapp/features/login/presentation/screen/login_screen.dart';
+import 'package:moneyapp/features/notifications/presentation/screen/notifications_screen.dart';
 import 'package:moneyapp/features/onboarding/presentation/screen/on_boarding_screen.dart';
 import 'package:moneyapp/features/regisiter/presentation/screen/done_regisiter_screen.dart';
 import 'package:moneyapp/features/regisiter/presentation/screen/regisiter_screen.dart';
@@ -27,6 +28,7 @@ class Routes{
   static const String successfullyRoute ='/successfully';
   static const String doneRegisiterScreenRoute ='/doneRegisiter';
   static const String homeRoute ='/home';
+  static const String notificationsRoute ='/notifications';
 
 
 
@@ -58,6 +60,8 @@ class RouteGenerator{
         return MaterialPageRoute(builder: (_)=> const DoneRegisiterScreen());
         case Routes.homeRoute:
         return MaterialPageRoute(builder: (_)=> const HomeScreen());
+        case Routes.notificationsRoute:
+        return MaterialPageRoute(builder: (_)=> const NotificationsScreen());
 
 
       default:

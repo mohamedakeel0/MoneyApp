@@ -51,6 +51,7 @@ class AppStrings {
   static const        signIn= ' SignIn';
   static const        forgetPassword = 'Forget Password';
   static const        previousReports = 'Previous Reports';
+  static const        notifications = 'Notifications';
   static const        varification = 'Varification';
   static const        successfully = 'Successfully';
   static const        sendCode = 'Send Code';

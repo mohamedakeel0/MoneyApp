@@ -10,6 +10,9 @@ import 'package:moneyapp/core/utils/app_constance.dart';
 import 'package:moneyapp/features/Reporting/presentation/manager/reporting_cubic.dart';
 import 'package:moneyapp/features/Reporting/presentation/manager/reporting_state.dart';
 import 'package:moneyapp/features/Reporting/presentation/widgets/app_bar_report.dart';
+import 'package:moneyapp/features/Reporting/presentation/widgets/icon_text_widget.dart';
+import 'package:moneyapp/features/Reporting/presentation/widgets/image_border_circle.dart';
+import 'package:moneyapp/features/Reporting/presentation/widgets/item_report.dart';
 import 'package:moneyapp/shared/default_button.dart';
 import 'package:moneyapp/shared/default_form_field.dart';
 
@@ -30,116 +33,95 @@ class _ReportingScreenState extends State<ReportingScreen> {
           var cubic = ReportingCubic.get(context);
           return Scaffold(
             backgroundColor: AppColors.white,
-            appBar: appbarReport(),
-            body: Column(children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                    SizedBox(
-                      width: (MediaQuery.of(context).size.width-25) / 2,
-                      height: MediaQuery.of(context).size.height /
-                          AppResponsiveHeigh.h40,
-                      child: defaultFormField(
-                        context: context,
-                        onTap: () {},
-                        prefixIsImage: false,
-                        textStyle: Theme.of(context).textTheme.titleLarge,
-                        prefix: Icons.search,
-                        iconSize: MediaQuery.of(context).size.height /
-                            AppResponsiveHeigh.h10,
-                        isEnabled: true,
-                        hintText: AppStrings.search,
-                        isError: true,
-                        myfocusborder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(25.0),
-                          borderSide: BorderSide(
-                            color: AppColors.colorPrimary,
-                            width: 2.0,
-                          ),
-                        ),
-                        isFocusBorder: true,
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(25.0),
-                          borderSide: BorderSide(
-                            color: Colors.black,
-                            width: 2.0,
-                          ),
-                        ),
-                        controller: cubic.reportingController,
-                        type: TextInputType.emailAddress,
-                        validate: (value) {
-                          if (value!.isEmpty) {}
-                          return null;
-                        },
-                      ),
-                    ),
-                    Spacer(),
-                    defaultButton(
+            appBar: appbarReport(context),
+            body: SingleChildScrollView(physics: NeverScrollableScrollPhysics(),
+              child: Column(children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: (MediaQuery.of(context).size.width-25) / 2,
                         height: MediaQuery.of(context).size.height /
                             AppResponsiveHeigh.h40,
-                        radius: AppConstance.twentyFive,
-                        textStyle: const TextStyle(
-                          fontSize: FontSize.s16,
-                          fontFamily: 'DancingScript',
-                          color: AppColors.white,
-                          fontWeight: FontWeight.w400,
-                        ),
-                        shape: false,
-                        width: (MediaQuery.of(context).size.width-25) /
-                            2,
-                        background: AppColors.colorPrimary,
-                        context: context,
-                        function: () {},
-                        text: AppStrings.addReport,
-                        isUpperCase: false),
-                  ],
-                ),
-              ),
-             Container(
-               height: MediaQuery.of(context).size.height / AppResponsiveHeigh.h150,
-               width:MediaQuery.of(context).size.width  ,
-               decoration: BoxDecoration(
-                 color:AppColors.white,boxShadow: [
-                 BoxShadow(
-                   offset: Offset(0, 1),
-                   blurRadius: 5,
-                   color: Colors.black.withOpacity(0.3),
-                 ),
-               ],
-                 borderRadius: BorderRadius.circular(25)
-               ),child: const Padding(
-                 padding:  EdgeInsets.all(15.0),
-                 child:  Column(crossAxisAlignment: CrossAxisAlignment.start,
-                   children: [
-                   Text(
-                        'Ali',
-                        textAlign: TextAlign.start,
-                        style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: AppSize.s18
-                          ,
-                          color: AppColors.black,
+                        child: defaultFormField(
+                          context: context,
+                          onTap: () {},
+                          prefixIsImage: false,
+                          textStyle: Theme.of(context).textTheme.titleLarge,
+                          prefix: Icons.search,
+                          iconSize: MediaQuery.of(context).size.height /
+                              AppResponsiveHeigh.h10,
+                          isEnabled: true,
+                          hintText: AppStrings.search,
+                          isError: true,
+                          myfocusborder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(25.0),
+                            borderSide: const BorderSide(
+                              color: AppColors.colorPrimary,
+                              width: 2.0,
+                            ),
+                          ),
+                          isFocusBorder: true,
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(25.0),
+                            borderSide: const BorderSide(
+                              color: Colors.black,
+                              width: 2.0,
+                            ),
+                          ),
+                          controller: cubic.reportingController,
+                          type: TextInputType.emailAddress,
+                          validate: (value) {
+                            if (value!.isEmpty) {}
+                            return null;
+                          },
                         ),
                       ),
+                      const Spacer(),
+                      defaultButton(
+                          height: MediaQuery.of(context).size.height /
+                              AppResponsiveHeigh.h40,
+                          radius: AppConstance.twentyFive,
+                          textStyle: const TextStyle(
+                            fontSize: FontSize.s16,
+                            fontFamily: 'DancingScript',
+                            color: AppColors.white,
+                            fontWeight: FontWeight.w400,
+                          ),
+                          shape: false,
+                          width: (MediaQuery.of(context).size.width-25) /
+                              2,
+                          background: AppColors.colorPrimary,
+                          context: context,
+                          function: () {},
+                          text: AppStrings.addReport,
+                          isUpperCase: false),
+                    ],
+                  ),
+                ),
+                SizedBox(height: MediaQuery.of(context).size.height-100,
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 8.0),
+                    child: ListView.separated(
+                        itemBuilder: (context, index) {
 
-Row(children: [
-  Icon(Icons.location_on,color: AppColors.colorPrimary,size: 30,),
-    Text(
-      'Ali',
-      textAlign: TextAlign.start,
-      style: TextStyle(
-        fontWeight: FontWeight.w600,
-        fontSize: AppSize.s18
-        ,
-        color: AppColors.black,
-      ),
-    ),
-
-],),
-                              ]),
-               ),)
-            ]),
+                          return
+                            itemReport(
+                                context,MediaQuery.of(context).size.height,
+                                MediaQuery.of(context).size.width,
+                                secondName:'11:55' ,firstName:'sammnoud , elgarbiy , eygpt'  ,
+                                icon: Icons.image );
+                        },
+                        separatorBuilder: (context, index) {
+                          return   SizedBox(height: 1,);
+                        },
+                        itemCount: 10),
+                  ),
+                ),
+              
+              ]),
+            ),
           );
         },
         listener: (context, state) {},
