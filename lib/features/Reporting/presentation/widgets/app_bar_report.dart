@@ -10,7 +10,7 @@ PreferredSizeWidget appbarReport(context){
         AppStrings.previousReports,
         style: TextStyle(
           fontWeight: FontWeight.bold,
-          fontSize: AppSize.s25,
+          fontSize: AppSize.s20,
           color: AppColors.black,
         ),
       ),centerTitle: true,backgroundColor: Colors.white,actions:  [

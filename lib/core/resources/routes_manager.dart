@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:moneyapp/core/resources/strings.dart';
+import 'package:moneyapp/features/Reporting/presentation/screen/view_image_screen.dart';
 import 'package:moneyapp/features/forget_password/presentation/screen/change_password_screen.dart';
 import 'package:moneyapp/features/forget_password/presentation/screen/forget_password_screen.dart';
 import 'package:moneyapp/features/forget_password/presentation/screen/successfully.dart';
@@ -12,6 +13,7 @@ import 'package:moneyapp/features/home/presentation/screen/home_screen.dart';
 import 'package:moneyapp/features/login/presentation/screen/login_screen.dart';
 import 'package:moneyapp/features/notifications/presentation/screen/notifications_screen.dart';
 import 'package:moneyapp/features/onboarding/presentation/screen/on_boarding_screen.dart';
+import 'package:moneyapp/features/profile/presentation/screen/profile_screen.dart';
 import 'package:moneyapp/features/regisiter/presentation/screen/done_regisiter_screen.dart';
 import 'package:moneyapp/features/regisiter/presentation/screen/regisiter_screen.dart';
 import 'package:moneyapp/features/splash/presentation/pages/second_splash~_screen.dart';
@@ -29,6 +31,8 @@ class Routes{
   static const String doneRegisiterScreenRoute ='/doneRegisiter';
   static const String homeRoute ='/home';
   static const String notificationsRoute ='/notifications';
+  static const String profileRoute ='/profile';
+  static const String viewImageRoute ='/viewImage';
 
 
 
@@ -62,6 +66,10 @@ class RouteGenerator{
         return MaterialPageRoute(builder: (_)=> const HomeScreen());
         case Routes.notificationsRoute:
         return MaterialPageRoute(builder: (_)=> const NotificationsScreen());
+        case Routes.profileRoute:
+        return MaterialPageRoute(builder: (_)=> const ProfileScreen());
+        case Routes.viewImageRoute:
+        return MaterialPageRoute(builder: (_)=>  ViewImageScreen(image: settings.arguments.toString(),));
 
 
       default:

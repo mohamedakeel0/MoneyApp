@@ -24,3 +24,39 @@ class BoardingModel {
 
   BoardingModel({required this.image, required this.title, required this.body});
 }
+List ImageNotifi=[
+  ImageAssets.notifi1,
+  ImageAssets.information,
+  ImageAssets.receipt,
+];
+List<BoardingModel> moreList = [
+  BoardingModel(
+    image: ImageAssets.profile,
+    title: AppStrings.profile,
+    body:  AppStrings.body1,),
+  BoardingModel(
+    image: ImageAssets.epSetting,
+
+    title: AppStrings.setting,
+    body:  AppStrings.body2,),
+  BoardingModel(
+    image: ImageAssets.chartEvaluation,
+    title: AppStrings.topFiveCoin,
+    body:  AppStrings.body3,),
+  BoardingModel(
+    image: ImageAssets.currency,
+    title: AppStrings.digitalCurrency,
+    body:  AppStrings.body3,),
+  BoardingModel(
+    image: ImageAssets.lock,
+    title: AppStrings.privacyPolicy,
+    body:  AppStrings.body3,),
+  BoardingModel(
+    image: ImageAssets.help,
+    title: AppStrings.help,
+    body:  AppStrings.body3,),
+  BoardingModel(
+    image: ImageAssets.logout,
+    title: AppStrings.logOut,
+    body:  AppStrings.body3,),
+];

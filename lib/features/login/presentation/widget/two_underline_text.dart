@@ -19,7 +19,7 @@ Widget twoTextWithUnderline({String? fristText,String? secondText})=> Row(mainAx
       style: TextStyle(
         fontWeight: FontWeight.bold,
         decoration: TextDecoration.underline,
-        fontSize: AppSize.s16,
+        fontSize: AppSize.s15,
         color: AppColors.black,
       ),
     ),

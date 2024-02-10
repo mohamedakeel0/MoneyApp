@@ -2,19 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:moneyapp/core/resources/app_colors.dart';
 import 'package:moneyapp/core/resources/values_manager.dart';
 
-Widget buildItemImageContiener(context,color,image)=> Container(
-  width: MediaQuery.of(context).size.width /
+Widget buildItemImageContiener(context,color,image,{bool? isImageWithRadius,double? widthImage,double? heightImage})=> Container(
+  width:isImageWithRadius==true? null:MediaQuery.of(context).size.width /
       AppResponsiveWidth.w95,
-  height: MediaQuery.of(context).size.height /
+  height:isImageWithRadius==true? null: MediaQuery.of(context).size.height /
       AppResponsiveHeigh.h50,
   decoration: BoxDecoration(
       color: color,
       borderRadius: BorderRadius.all(
           Radius.circular(AppSize.s15))),
   child: Center(
-    child: Image(height: MediaQuery.of(context).size.height /
-        AppResponsiveHeigh.h25,width: MediaQuery.of(context).size.width /
-        AppResponsiveWidth.w25,
+    child: Image(height: heightImage,width: widthImage,
       image: AssetImage(image,),
     ),
   ),

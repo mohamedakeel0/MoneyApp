@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moneyapp/core/resources/app_colors.dart';
+import 'package:moneyapp/core/resources/routes_manager.dart';
 import 'package:moneyapp/core/resources/values_manager.dart';
 import 'package:moneyapp/features/Reporting/presentation/widgets/icon_text_widget.dart';
 import 'package:moneyapp/features/Reporting/presentation/widgets/image_border_circle.dart';
@@ -44,9 +45,13 @@ Widget itemReport(context,height,width,{String?firstName,String?secondName,IconD
                   Spacer(),
                   iconTextWidget(color:AppColors.redDark ,text: secondName ,icon:Icons.watch_later_outlined),
                   Spacer(),
-                  imageBorderCircle(context,height/ AppResponsiveHeigh.h40,
-                      width/AppResponsiveWidth.w40
-                      ,icon: icon ),
+                  GestureDetector(onTap: () {
+                    Navigator.pushNamed(context, Routes.viewImageRoute,arguments: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt5sxD9d_AKu_UQWgmPcXnCEFJs8vT6ha0aw&usqp=CAU');
+                  },
+                    child: imageBorderCircle(context,height/ AppResponsiveHeigh.h40,
+                        width/AppResponsiveWidth.w40,isimage: false
+                        ,icon: icon ),
+                  ),
 
                 ],)
 

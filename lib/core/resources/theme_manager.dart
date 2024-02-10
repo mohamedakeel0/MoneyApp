@@ -15,7 +15,7 @@ ThemeData getApplicationTheme() {
       FontWeight.w400,
     ),
     unselectedItemColor:  AppColors.gray2,unselectedIconTheme: IconThemeData(color:  AppColors.gray2),
-  backgroundColor: Colors.white,selectedItemColor: AppColors.colorPrimary,
+    backgroundColor: Colors.white,selectedItemColor: AppColors.colorPrimary,
     selectedLabelStyle: TextStyle(
       fontSize: FontSize.s16,
       fontFamily:
@@ -39,7 +39,7 @@ ThemeData getApplicationTheme() {
     scaffoldBackgroundColor: Colors.white,
 //main colors
     primaryColor: AppColors.white,
-backgroundColor:  Colors.white,
+    backgroundColor:  Colors.white,
     splashColor: AppColors.graySoft2,
     //cardview theme
     cardTheme: CardTheme(
@@ -50,7 +50,7 @@ backgroundColor:  Colors.white,
     appBarTheme:  AppBarTheme(
 
       systemOverlayStyle: SystemUiOverlayStyle(
-          statusBarColor: Colors.white,
+          statusBarColor: AppColors.colorPrimary,
           statusBarIconBrightness: Brightness.dark,
           statusBarBrightness: Brightness.dark),
       centerTitle: true,
@@ -71,7 +71,7 @@ backgroundColor:  Colors.white,
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         textStyle:
-            const TextStyle(color: AppColors.black, fontSize: FontSize.s17),
+        const TextStyle(color: AppColors.black, fontSize: FontSize.s17),
         primary: AppColors.graySoft2,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(AppSize.s12)),
@@ -160,12 +160,12 @@ backgroundColor:  Colors.white,
       //enabled Border Style
       enabledBorder: OutlineInputBorder(
         borderSide:
-            BorderSide(color: AppColors.grayMedium, width: AppSize.s1_5),
+        BorderSide(color: AppColors.grayMedium, width: AppSize.s1_5),
       ),
       //focused Border Style
       focusedBorder: OutlineInputBorder(
         borderSide:
-            BorderSide(color: AppColors.grayMedium, width: AppSize.s1_5,),
+        BorderSide(color: AppColors.grayMedium, width: AppSize.s1_5,),
       ),
       //error Border Style
       errorBorder: OutlineInputBorder(
@@ -173,7 +173,7 @@ backgroundColor:  Colors.white,
       ),
       focusedErrorBorder: OutlineInputBorder(
         borderSide:
-            BorderSide(color: AppColors.grayMedium, width: AppSize.s1_5),
+        BorderSide(color: AppColors.grayMedium, width: AppSize.s1_5),
       ),
     ),
   );

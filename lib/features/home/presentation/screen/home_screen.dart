@@ -3,6 +3,7 @@ import 'package:moneyapp/core/resources/app_colors.dart';
 import 'package:moneyapp/core/resources/assets_manager.dart';
 import 'package:moneyapp/core/resources/font_manager.dart';
 import 'package:moneyapp/features/Reporting/presentation/screen/reporting_screen.dart';
+import 'package:moneyapp/features/more/presentation/screen/more_screen.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -49,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
       Container(color: Colors.white),
       ReportingScreen(),
       Container(color: Colors.green),
-      Container(color: Colors.red),
+      MoreScreen(),
     ];
   }
 

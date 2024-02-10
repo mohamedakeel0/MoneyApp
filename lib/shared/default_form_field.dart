@@ -77,7 +77,7 @@ Widget defaultFormField({
           fontFamily: 'DancingScript'),
         hintText: hintText,
         hintStyle: const TextStyle(
-            fontSize: FontSize.s20,
+            fontSize: FontSize.s15,
             color: AppColors.grayMedium2,
 
             fontWeight: FontWeight.w300,

@@ -46,12 +46,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     color: AppColors.black,
                   ),
                 ),
-                const Text(
-                  AppStrings.titleLogin,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w300,
-                    fontSize: AppSize.s16,
-                    color: AppColors.grayMedium2,
+                SizedBox(width:  MediaQuery.of(context).size.width-20,
+                  child: const Text(
+                    AppStrings.titleLogin,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w300,
+                      fontSize: AppSize.s15,
+                      color: AppColors.grayMedium2,
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -60,20 +62,20 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height - 215,
+                  height: MediaQuery.of(context).size.height - 190,
                   decoration: const BoxDecoration(
                       color: AppColors.backGroundPrimary,
                       borderRadius: BorderRadius.only(
                           topRight: Radius.circular(AppSize.s30),
                           topLeft: Radius.circular(AppSize.s30))),
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 30.0,horizontal: 35.0),
+                    padding: const EdgeInsets.symmetric(vertical: 25.0,horizontal: 30.0),
                     child: Column(crossAxisAlignment: CrossAxisAlignment.start,children:  [
                       const Text(
                         AppStrings.email,
                         style: TextStyle(
                           fontWeight: FontWeight.w300,
-                          fontSize: AppSize.s16,
+                          fontSize: AppSize.s14,
                           color: AppColors.colorPrimaryDark,
                         ),
                       ),
@@ -113,7 +115,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         AppStrings.password,
                         style: TextStyle(
                           fontWeight: FontWeight.w300,
-                          fontSize: AppSize.s16,
+                          fontSize: AppSize.s14,
                           color: AppColors.colorPrimaryDark,
                         ),
                       ),
@@ -180,7 +182,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 .titleLarge!
                                 .copyWith(
                                 color: AppColors.gray2,
-                                fontSize: FontSize.s16,
+                                fontSize: FontSize.s14,
                                 fontFamily:
                                 'DancingScript'),
                           ),
@@ -240,26 +242,26 @@ class _LoginScreenState extends State<LoginScreen> {
                             .height /
                             AppResponsiveHeigh.h20,
                       ),
-                      Row(
+                      Row(crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(
                             color: AppColors.gray2,
                             width: MediaQuery.of(context).size.width /
-                                AppResponsiveWidth.w100,
+                                AppResponsiveWidth.w70,
                             height: 1,
                           ),
                           const Text(
                             AppStrings.orContinue,
                             style: TextStyle(
                               fontWeight: FontWeight.w300,
-                              fontSize: AppSize.s14,
+                              fontSize: AppSize.s12,
                               color: AppColors.gray2,
                             ),
                           ),
                           Container(
                             color: AppColors.gray2,
                             width: MediaQuery.of(context).size.width /
-                                AppResponsiveWidth.w100,
+                                AppResponsiveWidth.w70,
                             height: 1,
                           ),
                         ],
@@ -272,25 +274,36 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       Row(mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          buildItemImageContiener(context,AppColors.white,ImageAssets.google),
+
+                          buildItemImageContiener(isImageWithRadius: false,
+                              context,AppColors.white,
+                              ImageAssets.google, heightImage:MediaQuery.of(context).size.height /
+                              AppResponsiveHeigh.h25 ,widthImage: MediaQuery.of(context).size.width /
+                              AppResponsiveWidth.w25 ),
           
                           SizedBox(
                             width: MediaQuery.of(context).size.width /
                                 AppResponsiveWidth.w10,
                           ),
-                          buildItemImageContiener(context,AppColors.white,ImageAssets.vector),
-          
-                          SizedBox(
+                          buildItemImageContiener(context,AppColors.white,ImageAssets.vector, heightImage:MediaQuery.of(context).size.height /
+                              AppResponsiveHeigh.h25 ,widthImage: MediaQuery.of(context).size.width /
+                      AppResponsiveWidth.w25,isImageWithRadius: false, ),
+
+
+                  SizedBox(
                             width: MediaQuery.of(context).size.width /
                                 AppResponsiveWidth.w10,
                           ),
-                          buildItemImageContiener(context,AppColors.white,ImageAssets.facebook),
-          
-                        ],
+                          buildItemImageContiener(context,AppColors.white,ImageAssets.facebook ,heightImage:MediaQuery.of(context).size.height /
+                              AppResponsiveHeigh.h25 ,widthImage: MediaQuery.of(context).size.width /
+                    AppResponsiveWidth.w25,isImageWithRadius: false, ),
+
+
+              ],
                       ),
                       SizedBox(
                         height: MediaQuery.of(context).size.height /
-                            AppResponsiveHeigh.h40,
+                            AppResponsiveHeigh.h30,
                       ),
                       GestureDetector(child: twoTextWithUnderline(fristText: AppStrings.dontHaveAn,secondText: AppStrings.signUp ),onTap: () {
                         Navigator.popAndPushNamed(context, Routes.regisiterRoute);
