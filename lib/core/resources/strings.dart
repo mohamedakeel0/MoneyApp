@@ -18,6 +18,7 @@ class AppStrings {
   static const        back = 'Back';
   static const        help = 'Help';
   static const        logOut = 'Log out';
+  static const        phone = 'Phone';
   static const        profile = 'your profile';
   static const        setting = 'Setting';
   static const        next = 'Next';
@@ -29,6 +30,7 @@ class AppStrings {
   static const        loginScreen = 'Login';
   static const        addReport = 'Add Report';
   static const        email = 'Email';
+  static const        userName = 'User Name';
   static const        newPassword = 'New Password';
   static const        fristName = 'Frist Name';
   static const        lastName = 'Last Name';
@@ -37,6 +39,8 @@ class AppStrings {
   static const       enterComfirmPassword = 'Enter Comfirm Password';
   static const       setYourPriorities = '"Set your priorities"';
   static const       enterYourEmail = 'Enter your email';
+  static const       enterYourPhone = 'Enter your Phone';
+  static const       enterYourUserName = 'Enter your User Name';
   static const       enterYourPassword = 'Enter your password';
   static const  rememberMe = "Remember Me";
   static const  scanMoney = "Scan Money";
