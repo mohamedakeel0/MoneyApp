@@ -5,12 +5,14 @@ import 'package:flutter/material.dart';
 
 import 'package:moneyapp/core/resources/strings.dart';
 import 'package:moneyapp/features/Reporting/presentation/screen/view_image_screen.dart';
+import 'package:moneyapp/features/add_report/presentation/screen/add_report_screen.dart';
 import 'package:moneyapp/features/forget_password/presentation/screen/change_password_screen.dart';
 import 'package:moneyapp/features/forget_password/presentation/screen/forget_password_screen.dart';
 import 'package:moneyapp/features/forget_password/presentation/screen/successfully.dart';
 import 'package:moneyapp/features/forget_password/presentation/screen/varification_screen.dart';
 import 'package:moneyapp/features/home/presentation/screen/home_screen.dart';
 import 'package:moneyapp/features/login/presentation/screen/login_screen.dart';
+import 'package:moneyapp/features/more/presentation/screen/privacy_policy_screen.dart';
 import 'package:moneyapp/features/notifications/presentation/screen/notifications_screen.dart';
 import 'package:moneyapp/features/onboarding/presentation/screen/on_boarding_screen.dart';
 import 'package:moneyapp/features/profile/presentation/screen/profile_screen.dart';
@@ -33,6 +35,8 @@ class Routes{
   static const String notificationsRoute ='/notifications';
   static const String profileRoute ='/profile';
   static const String viewImageRoute ='/viewImage';
+  static const String privacyPolicyRoute ='/privacyPolicy';
+  static const String addReportRoute ='/addReport';
 
 
 
@@ -68,6 +72,10 @@ class RouteGenerator{
         return MaterialPageRoute(builder: (_)=> const NotificationsScreen());
         case Routes.profileRoute:
         return MaterialPageRoute(builder: (_)=> const ProfileScreen());
+        case Routes.privacyPolicyRoute:
+        return MaterialPageRoute(builder: (_)=> const PrivacyPolicyScreen());
+        case Routes.addReportRoute:
+        return MaterialPageRoute(builder: (_)=> const AddReportScreen());
         case Routes.viewImageRoute:
         return MaterialPageRoute(builder: (_)=>  ViewImageScreen(image: settings.arguments.toString(),));
 

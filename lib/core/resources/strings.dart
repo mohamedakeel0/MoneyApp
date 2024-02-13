@@ -65,6 +65,7 @@ class AppStrings {
   static const        more = 'More';
   static const        notifications = 'Notifications';
   static const        viewImage = 'View Image';
+
   static const        save = 'Save';
   static const        profileMor = 'Profile';
   static const        today = 'Today';

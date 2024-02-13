@@ -50,7 +50,12 @@ class _MoreScreenState extends State<MoreScreen> {
                           color: AppColors.black,
                         ),
                       ),onTap: () {
-                        Navigator.pushNamed(context, Routes.profileRoute);
+                          if(index==6){
+                            Navigator.pushReplacementNamed(context, moreList[index].body);
+                          }else{
+                            Navigator.pushNamed(context, moreList[index].body);
+                          }
+
                       },
 
                       ),

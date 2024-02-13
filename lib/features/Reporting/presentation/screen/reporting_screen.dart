@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moneyapp/core/resources/app_colors.dart';
 import 'package:moneyapp/core/resources/font_manager.dart';
+import 'package:moneyapp/core/resources/routes_manager.dart';
 import 'package:moneyapp/core/resources/strings.dart';
 
 import 'package:moneyapp/core/resources/values_manager.dart';
@@ -94,7 +95,10 @@ class _ReportingScreenState extends State<ReportingScreen> {
                               2,
                           background: AppColors.colorPrimary,
                           context: context,
-                          function: () {},
+                          function: () {
+                            Navigator.pushNamed(context, Routes.addReportRoute);
+
+                          },
                           text: AppStrings.addReport,
                           isUpperCase: false),
                     ],

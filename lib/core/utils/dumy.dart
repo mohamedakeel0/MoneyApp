@@ -1,4 +1,5 @@
 import 'package:moneyapp/core/resources/assets_manager.dart';
+import 'package:moneyapp/core/resources/routes_manager.dart';
 import 'package:moneyapp/core/resources/strings.dart';
 import 'package:moneyapp/features/onboarding/presentation/screen/on_boarding_screen.dart';
 
@@ -33,30 +34,30 @@ List<BoardingModel> moreList = [
   BoardingModel(
     image: ImageAssets.profile,
     title: AppStrings.profile,
-    body:  AppStrings.body1,),
+    body:   Routes.profileRoute,),
   BoardingModel(
     image: ImageAssets.epSetting,
 
     title: AppStrings.setting,
-    body:  AppStrings.body2,),
+    body:   Routes.privacyPolicyRoute,),
   BoardingModel(
     image: ImageAssets.chartEvaluation,
     title: AppStrings.topFiveCoin,
-    body:  AppStrings.body3,),
+    body:   Routes.profileRoute,),
   BoardingModel(
     image: ImageAssets.currency,
     title: AppStrings.digitalCurrency,
-    body:  AppStrings.body3,),
+    body:   Routes.profileRoute,),
   BoardingModel(
     image: ImageAssets.lock,
     title: AppStrings.privacyPolicy,
-    body:  AppStrings.body3,),
+    body:   Routes.privacyPolicyRoute,),
   BoardingModel(
     image: ImageAssets.help,
     title: AppStrings.help,
-    body:  AppStrings.body3,),
+    body:   Routes.privacyPolicyRoute),
   BoardingModel(
     image: ImageAssets.logout,
     title: AppStrings.logOut,
-    body:  AppStrings.body3,),
+    body:   Routes.loginRoute,),
 ];

@@ -17,6 +17,19 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  late ProfileCubic cubic;
+  @override
+void initState() {
+    cubic = ProfileCubic.get(context);
+    WidgetsBinding.instance.addPostFrameCallback((_){
+
+      cubic.informationUser();
+
+
+    });
+
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(backgroundColor: AppColors.colorPrimary,
