@@ -29,6 +29,8 @@ class AppStrings {
   static const        getStart = 'Get Start';
   static const        loginScreen = 'Login';
   static const        addReport = 'Add Report';
+  static const        addLocation= 'Add Location';
+  static const        insertImage = 'Insert Image';
   static const        email = 'Email';
   static const        userName = 'User Name';
   static const        newPassword = 'New Password';
@@ -65,8 +67,11 @@ class AppStrings {
   static const        more = 'More';
   static const        notifications = 'Notifications';
   static const        viewImage = 'View Image';
+  static const        buying = 'Buy';
+  static const        sell = 'Sell';
 
   static const        save = 'Save';
+
   static const        profileMor = 'Profile';
   static const        today = 'Today';
   static const        yesterday = 'Yesterday';

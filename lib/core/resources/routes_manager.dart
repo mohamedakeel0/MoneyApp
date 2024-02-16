@@ -20,6 +20,7 @@ import 'package:moneyapp/features/regisiter/presentation/screen/done_regisiter_s
 import 'package:moneyapp/features/regisiter/presentation/screen/regisiter_screen.dart';
 import 'package:moneyapp/features/splash/presentation/pages/second_splash~_screen.dart';
 import 'package:moneyapp/features/splash/presentation/pages/splash_screen.dart';
+import 'package:moneyapp/features/top_five_coin/screen/top_five_coin_screen.dart';
 class Routes{
   static const String splashRoute ='/';
   static const String secondSplashRoute ='/second';
@@ -37,6 +38,7 @@ class Routes{
   static const String viewImageRoute ='/viewImage';
   static const String privacyPolicyRoute ='/privacyPolicy';
   static const String addReportRoute ='/addReport';
+  static const String topFiveCoinRoute ='/topFiveCoin';
 
 
 
@@ -76,6 +78,8 @@ class RouteGenerator{
         return MaterialPageRoute(builder: (_)=> const PrivacyPolicyScreen());
         case Routes.addReportRoute:
         return MaterialPageRoute(builder: (_)=> const AddReportScreen());
+        case Routes.topFiveCoinRoute:
+        return MaterialPageRoute(builder: (_)=> const TopFiveCoinScreen());
         case Routes.viewImageRoute:
         return MaterialPageRoute(builder: (_)=>  ViewImageScreen(image: settings.arguments.toString(),));
 

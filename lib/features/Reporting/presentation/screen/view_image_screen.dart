@@ -6,6 +6,7 @@ import 'package:moneyapp/core/resources/values_manager.dart';
 import 'package:moneyapp/core/utils/dumy.dart';
 import 'package:moneyapp/features/login/presentation/widget/image_white_background.dart';
 import 'package:moneyapp/features/notifications/presentation/widget/item_notification_widget.dart';
+import 'package:moneyapp/shared/default_app_bar.dart';
 
 class ViewImageScreen extends StatefulWidget {
   String image;
@@ -19,23 +20,7 @@ class _ViewImageScreenState extends State<ViewImageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        foregroundColor: Colors.white,
-        title: const Text(
-          AppStrings.viewImage,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: AppSize.s20,
-            color: AppColors.black,
-          ),
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.white,
-        leading: IconButton(
-          icon: new Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-      ),
+      appBar: defaultAppBar(context,AppStrings.viewImage,),
       body: Padding(
         padding: const EdgeInsets.only(top: 15.0, ),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [

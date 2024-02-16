@@ -6,6 +6,7 @@ import 'package:moneyapp/core/resources/values_manager.dart';
 import 'package:moneyapp/core/utils/dumy.dart';
 import 'package:moneyapp/features/login/presentation/widget/image_white_background.dart';
 import 'package:moneyapp/features/notifications/presentation/widget/item_notification_widget.dart';
+import 'package:moneyapp/shared/default_app_bar.dart';
 
 class NotificationsScreen extends StatefulWidget {
   const NotificationsScreen({Key? key}) : super(key: key);
@@ -18,23 +19,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        foregroundColor: Colors.white,
-        title: const Text(
-          AppStrings.notifications,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: AppSize.s20,
-            color: AppColors.black,
-          ),
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.white,
-        leading: IconButton(
-          icon: new Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-      ),
+      appBar:defaultAppBar(context,AppStrings.notifications,) ,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(top: 15.0, left: 15, right: 15),
@@ -47,7 +32,8 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                 color: AppColors.black,
               ),
             ),
-            SizedBox(height: MediaQuery.of(context).size.height-480,
+            SizedBox(
+              height: MediaQuery.of(context).size.height-480,
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 8.0),
                 child: ListView.separated(physics: NeverScrollableScrollPhysics(),

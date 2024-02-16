@@ -17,6 +17,10 @@ class ImageAssets{
   static const String epSetting='$IMAGE_PATH/ep_setting.png';
   static const String profile='$IMAGE_PATH/profile.png';
   static const String person='$IMAGE_PATH/person.png';
+  static const String dinar='$IMAGE_PATH/dinar.png';
+  static const String dolar='$IMAGE_PATH/dolar.png';
+  static const String rayal='$IMAGE_PATH/rayal.png';
+  static const String yoro='$IMAGE_PATH/yoro.png';
 
   static const String facebook='$IMAGE_PATH/Facebook.png';
   static const String vector='$IMAGE_PATH/Vector.png';

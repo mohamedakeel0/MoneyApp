@@ -43,11 +43,11 @@ List<BoardingModel> moreList = [
   BoardingModel(
     image: ImageAssets.chartEvaluation,
     title: AppStrings.topFiveCoin,
-    body:   Routes.profileRoute,),
+    body:   Routes.topFiveCoinRoute,),
   BoardingModel(
     image: ImageAssets.currency,
     title: AppStrings.digitalCurrency,
-    body:   Routes.profileRoute,),
+    body:   Routes.topFiveCoinRoute,),
   BoardingModel(
     image: ImageAssets.lock,
     title: AppStrings.privacyPolicy,

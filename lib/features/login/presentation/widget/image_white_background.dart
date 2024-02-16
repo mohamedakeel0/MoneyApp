@@ -6,7 +6,7 @@ Widget buildItemImageContiener(context,color,image,{bool? isImageWithRadius,doub
   width:isImageWithRadius==true? null:MediaQuery.of(context).size.width /
       AppResponsiveWidth.w95,
   height:isImageWithRadius==true? null: MediaQuery.of(context).size.height /
-      AppResponsiveHeigh.h50,
+      AppResponsiveHeigh.h50,clipBehavior: Clip.antiAliasWithSaveLayer,
   decoration: BoxDecoration(
       color: color,
       borderRadius: BorderRadius.all(
