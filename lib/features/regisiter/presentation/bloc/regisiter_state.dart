@@ -10,4 +10,6 @@ class RegisiterState extends Equatable {
 class RegisiterInitailState extends RegisiterState{}
 class LodaingChangeSelectBoxState extends RegisiterState{}
 class SuccesChangeSelectBoxState extends RegisiterState{}
+class InitailChangePasswordVisibilityState extends RegisiterState{}
+class SuccesChangePasswordVisibilityState extends RegisiterState{}
 

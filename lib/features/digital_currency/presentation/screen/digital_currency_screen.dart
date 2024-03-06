@@ -6,23 +6,23 @@ import 'package:moneyapp/core/resources/values_manager.dart';
 import 'package:moneyapp/features/login/presentation/widget/image_white_background.dart';
 import 'package:moneyapp/features/top_five_coin/widgets/item_top_five_cion.dart';
 import 'package:moneyapp/shared/default_app_bar.dart';
-class TopFiveCoinScreen extends StatefulWidget {
-  const TopFiveCoinScreen({Key? key}) : super(key: key);
+class DigitalCurrencyScreen extends StatefulWidget {
+  const DigitalCurrencyScreen({Key? key}) : super(key: key);
 
   @override
-  State<TopFiveCoinScreen> createState() => _TopFiveCoinScreenState();
+  State<DigitalCurrencyScreen> createState() => _DigitalCurrencyScreenState();
 }
 
-class _TopFiveCoinScreenState extends State<TopFiveCoinScreen> {
+class _DigitalCurrencyScreenState extends State<DigitalCurrencyScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:defaultAppBar(context,
-          AppStrings.topFiveCoin,color:
+          AppStrings.digitalCurrency,color:
           AppColors.colorPrimary,
           colorText:AppColors.white ) ,
-    body:
+      body:
 
-    itemTopFiveCoin(context),);
+      itemTopFiveCoin(context),);
   }
 }

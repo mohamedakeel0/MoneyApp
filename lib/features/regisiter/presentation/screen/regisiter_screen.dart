@@ -34,341 +34,430 @@ class _RegisiterScreenState extends State<RegisiterScreen> {
         var cubic = RegisiterCubic.get(context);
         return Scaffold(
           backgroundColor: AppColors.white,
-          body: SizedBox(
-            width: double.infinity,
-            child: Padding(
-              padding: const EdgeInsets.only(top: 100.0),
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Text(
-                      AppStrings.signUpTitle,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: AppSize.s25,
-                        color: AppColors.black,
+          body: SingleChildScrollView(
+            child: SizedBox(
+              width: double.infinity,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 100.0),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const Text(
+                        AppStrings.signUpTitle,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: AppSize.s25,
+                          color: AppColors.black,
+                        ),
                       ),
-                    ),
-                    const Text(
-                      AppStrings.titleRegisiter,
-                      style: TextStyle(
-                        fontWeight: FontWeight.w300,
-                        fontSize: AppSize.s16,
-                        color: AppColors.grayMedium2,
+                      const Text(
+                        AppStrings.titleRegisiter,
+                        style: TextStyle(
+                          fontWeight: FontWeight.w300,
+                          fontSize: AppSize.s16,
+                          color: AppColors.grayMedium2,
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height /
-                          AppResponsiveHeigh.h35,
-                    ),
-                    Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height - 215,
-                      decoration: const BoxDecoration(
-                          color: AppColors.backGroundPrimary,
-                          borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(AppSize.s30),
-                              topLeft: Radius.circular(AppSize.s30))),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 30.0, horizontal: 35.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                buildTextFormAndTitle(context,
-                                    fristText: AppStrings.fristName,
-                                    textEditingControllerFrist:
-                                        cubic.fristNameController),
-                                SizedBox(
-                                  width: MediaQuery.of(context).size.width /
-                                      AppResponsiveWidth.w20,
-                                ),
-                                buildTextFormAndTitle(context,
-                                    fristText: AppStrings.lastName,
-                                    textEditingControllerFrist:
-                                        cubic.secondNameController),
-                              ],
-                            ),
-                            const Text(
-                              AppStrings.email,
-                              style: TextStyle(
-                                fontWeight: FontWeight.w300,
-                                fontSize: AppSize.s16,
-                                color: AppColors.colorPrimaryDark,
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height /
+                            AppResponsiveHeigh.h35,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height - MediaQuery.of(context).size.height /
+                            AppResponsiveHeigh.h190,
+                        decoration: const BoxDecoration(
+                            color: AppColors.backGroundPrimary,
+                            borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(AppSize.s30),
+                                topLeft: Radius.circular(AppSize.s30))),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 30.0, horizontal: 35.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  buildTextFormAndTitle(context,
+                                      fristText: AppStrings.fristName,
+                                      textEditingControllerFrist:
+                                          cubic.fristNameController),
+                                  SizedBox(
+                                    width: MediaQuery.of(context).size.width /
+                                        AppResponsiveWidth.w20,
+                                  ),
+                                  buildTextFormAndTitle(context,
+                                      fristText: AppStrings.lastName,
+                                      textEditingControllerFrist:
+                                          cubic.secondNameController),
+                                ],
                               ),
-                            ),
-                            Container(
-                              height: MediaQuery.of(context).size.height /
-                                  AppResponsiveHeigh.h40,
-                              clipBehavior: Clip.antiAliasWithSaveLayer,
-                              decoration: BoxDecoration(
-                                color: AppColors.white,
-                                borderRadius:
-                                    BorderRadius.circular(AppSize.s10),
+                              SizedBox(
+                                height: MediaQuery.of(context).size.height /
+                                    AppResponsiveHeigh.h2,
                               ),
-                              child: defaultFormField(
-                                context: context,
-                                onTap: () {},
-                                prefix: null,
-                                prefixIsImage: false,
-                                textStyle:
-                                    Theme.of(context).textTheme.titleLarge,
-                                iconSize: MediaQuery.of(context).size.height /
-                                    AppResponsiveHeigh.h10,
-                                isEnabled: true,
-                                hintText: AppStrings.enterYourEmail,
-                                isError: true,
-                                isFocusBorder: true,
-                                controller: cubic.emailController,
-                                type: TextInputType.emailAddress,
-                                validate: (value) {
-                                  if (value!.isEmpty) {}
-                                  return null;
-                                },
-                              ),
-                            ),
-                            const Text(
-                              AppStrings.password,
-                              style: TextStyle(
-                                fontWeight: FontWeight.w300,
-                                fontSize: AppSize.s16,
-                                color: AppColors.colorPrimaryDark,
-                              ),
-                            ),
-                            Container(
-                              height: MediaQuery.of(context).size.height /
-                                  AppResponsiveHeigh.h40,
-                              clipBehavior: Clip.antiAliasWithSaveLayer,
-                              decoration: BoxDecoration(
-                                color: AppColors.white,
-                                borderRadius:
-                                    BorderRadius.circular(AppSize.s10),
-                              ),
-                              child: defaultFormField(
-                                context: context,
-                                onTap: () {},
-                                hintText: AppStrings.enterYourPassword,
-                                prefix: null,
-                                prefixIsImage: false,
-                                textStyle:
-                                    Theme.of(context).textTheme.titleLarge,
-                                iconSize: MediaQuery.of(context).size.height /
-                                    AppResponsiveHeigh.h10,
-                                isEnabled: true,
-                                isError: true,
-                                isFocusBorder: true,
-                                controller: cubic.passwordController,
-                                isPassword: true,
-                                type: TextInputType.emailAddress,
-                                validate: (value) {
-                                  if (value!.isEmpty) {}
-                                  return null;
-                                },
-                              ),
-                            ),
-                            const Text(
-                              AppStrings.comfirmPassword,
-                              style: TextStyle(
-                                fontWeight: FontWeight.w300,
-                                fontSize: AppSize.s16,
-                                color: AppColors.colorPrimaryDark,
-                              ),
-                            ),
-                            Container(
-                              height: MediaQuery.of(context).size.height /
-                                  AppResponsiveHeigh.h40,
-                              clipBehavior: Clip.antiAliasWithSaveLayer,
-                              decoration: BoxDecoration(
-                                color: AppColors.white,
-                                borderRadius:
-                                    BorderRadius.circular(AppSize.s10),
-                              ),
-                              child: defaultFormField(
-                                context: context,
-                                onTap: () {},
-                                hintText: AppStrings.enterYourPassword,
-                                prefix: null,
-                                prefixIsImage: false,
-                                textStyle:
-                                    Theme.of(context).textTheme.titleLarge,
-                                iconSize: MediaQuery.of(context).size.height /
-                                    AppResponsiveHeigh.h10,
-                                isEnabled: true,
-                                isError: true,
-                                isFocusBorder: true,
-                                controller: cubic.comfirmPasswordController,
-                                isPassword: true,
-                                type: TextInputType.emailAddress,
-                                validate: (value) {
-                                  if (value!.isEmpty) {}
-                                  return null;
-                                },
-                              ),
-                            ),
-                            SizedBox(
-                              height: MediaQuery.of(context).size.height /
-                                  AppResponsiveHeigh.h10,
-                            ),
-                            const Center(
-                              child: Text(
-                                AppStrings.setYourPriorities,
+                              const Text(
+                                AppStrings.email,
                                 style: TextStyle(
-                                  fontWeight: FontWeight.w400,
+                                  fontWeight: FontWeight.w300,
                                   fontSize: AppSize.s16,
                                   color: AppColors.colorPrimaryDark,
                                 ),
                               ),
-                            ),
-                            SizedBox(
-                              height: MediaQuery.of(context).size.height /
-                                  AppResponsiveHeigh.h20,
-                            ),
-                            Row(
-                              children: [
-                                Row(
-                                  children: [
-                                    InkWell(
-                                        onTap: () {
-                                          cubic.changeSelectBox();
-                                        },
-                                        child: Icon(
-                                          cubic.isSelect == false
-                                              ? Icons.check_box_outline_blank
-                                              : Icons.check_box_rounded,
-                                          color: cubic.isSelect == false
-                                              ? AppColors.gray2
-                                              : AppColors.colorPrimary,
-                                          size: 20,
-                                        )),
-                                    SizedBox(
-                                      width: MediaQuery.of(context).size.width /
-                                          AppResponsiveWidth.w2,
-                                    ),
-                                    Text(
-                                      AppStrings.scanMoney,
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w300,
-                                        fontSize: AppSize.s14,
-                                        color: AppColors.gray2,
-                                      ),
-                                    ),
-                                  ],
+                              SizedBox(
+                                height: MediaQuery.of(context).size.height /
+                                    AppResponsiveHeigh.h2,
+                              ),
+                              Container(
+                                height: MediaQuery.of(context).size.height /
+                                    AppResponsiveHeigh.h40,
+                                clipBehavior: Clip.antiAliasWithSaveLayer,
+                                decoration: BoxDecoration(
+                                  color: AppColors.white,
+                                  borderRadius:
+                                      BorderRadius.circular(AppSize.s10),
                                 ),
-                                SizedBox(
-                                  width: MediaQuery.of(context).size.width /
-                                      AppResponsiveWidth.w2,
-                                ),
-                                Row(
-                                  children: [
-                                    InkWell(
-                                        onTap: () {
-                                          cubic.changeSelectBox();
-                                        },
-                                        child: Icon(
-                                          cubic.isSelect == false
-                                              ? Icons.check_box_outline_blank
-                                              : Icons.check_box_rounded,
-                                          color: cubic.isSelect == false
-                                              ? AppColors.gray2
-                                              : AppColors.colorPrimary,
-                                          size: 20,
-                                        )),
-                                    SizedBox(
-                                      width: MediaQuery.of(context).size.width /
-                                          AppResponsiveWidth.w2,
-                                    ),
-                                    Text(
-                                      AppStrings.checkYourArea,
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w300,
-                                        fontSize: AppSize.s14,
-                                        color: AppColors.gray2,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: MediaQuery.of(context).size.width /
-                                      AppResponsiveWidth.w2,
-                                ),
-                                Row(
-                                  children: [
-                                    InkWell(
-                                        onTap: () {
-                                          cubic.changeSelectBox();
-                                        },
-                                        child: Icon(
-                                          cubic.isSelect == false
-                                              ? Icons.check_box_outline_blank
-                                              : Icons.check_box_rounded,
-                                          color: cubic.isSelect == false
-                                              ? AppColors.gray2
-                                              : AppColors.colorPrimary,
-                                          size: 20,
-                                        )),
-                                    SizedBox(
-                                      width: MediaQuery.of(context).size.width /
-                                          AppResponsiveWidth.w2,
-                                    ),
-                                    Text(
-                                      AppStrings.exchangeHere,
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w300,
-                                        fontSize: AppSize.s14,
-                                        color: AppColors.gray2,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: MediaQuery.of(context).size.height /
-                                  AppResponsiveHeigh.h20,
-                            ),
-                            GestureDetector(
-                                onTap: () {
-                                  Navigator.popAndPushNamed(
-                                      context, Routes.loginRoute);
-                                },
-                                child: twoTextWithUnderline(
-                                    fristText: AppStrings.HaveAn,
-                                    secondText: AppStrings.signIn)),
-                            SizedBox(
-                              height: MediaQuery.of(context).size.height /
-                                  AppResponsiveHeigh.h20,
-                            ),
-                            Center(
-                              child: defaultButton(
-                                  height: MediaQuery.of(context).size.height /
-                                      AppResponsiveHeigh.h40,
-                                  radius: AppConstance.ten,
-                                  textStyle: const TextStyle(
-                                    fontSize: FontSize.s16,
-                                    fontFamily: 'DancingScript',
-                                    color: AppColors.white,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                  shape: false,
-                                  width: MediaQuery.of(context).size.width /
-                                      AppResponsiveWidth.w300,
-                                  background: AppColors.colorPrimary,
+                                child: defaultFormField(
                                   context: context,
-                                  function: () {
-                                    Navigator.popAndPushNamed(
-                                        context, Routes.doneRegisiterScreenRoute);
+                                  onTap: () {},
+                                  prefix: null,
+                                  prefixIsImage: false,
+                                  textStyle:
+                                      Theme.of(context).textTheme.titleLarge,
+                                  iconSize: MediaQuery.of(context).size.height /
+                                      AppResponsiveHeigh.h10,
+                                  isEnabled: true,
+                                  hintText: AppStrings.enterYourEmail,
+                                  isError: true,
+                                  isFocusBorder: true,
+                                  controller: cubic.emailController,
+                                  type: TextInputType.emailAddress,
+                                  validate: (value) {
+                                    if (value!.isEmpty) {}
+                                    return null;
                                   },
-                                  text: AppStrings.signUp,
-                                  isUpperCase: false),
-                            ),
-                          ],
+                                ),
+                              ),
+                              SizedBox(
+                                height: MediaQuery.of(context).size.height /
+                                    AppResponsiveHeigh.h2,
+                              ),
+                              const Text(
+                                AppStrings.phone,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w300,
+                                  fontSize: AppSize.s16,
+                                  color: AppColors.colorPrimaryDark,
+                                ),
+                              ),
+                              SizedBox(
+                                height: MediaQuery.of(context).size.height /
+                                    AppResponsiveHeigh.h2,
+                              ),
+                              Container(
+                                height: MediaQuery.of(context).size.height /
+                                    AppResponsiveHeigh.h40,
+                                clipBehavior: Clip.antiAliasWithSaveLayer,
+                                decoration: BoxDecoration(
+                                  color: AppColors.white,
+                                  borderRadius:
+                                  BorderRadius.circular(AppSize.s10),
+                                ),
+                                child: defaultFormField(
+                                  context: context,
+                                  onTap: () {},
+                                  prefix: null,
+                                  prefixIsImage: false,
+                                  textStyle:
+                                  Theme.of(context).textTheme.titleLarge,
+                                  iconSize: MediaQuery.of(context).size.height /
+                                      AppResponsiveHeigh.h10,
+                                  isEnabled: true,
+                                  hintText: AppStrings.enterYourPhone,
+                                  isError: true,
+                                  isFocusBorder: true,
+                                  controller: cubic.phoneController,
+                                  type: TextInputType.phone,
+                                  validate: (value) {
+                                    if (value!.isEmpty) {}
+                                    return null;
+                                  },
+                                ),
+                              ), SizedBox(
+                                height: MediaQuery.of(context).size.height /
+                                    AppResponsiveHeigh.h2,
+                              ),
+                              const Text(
+                                AppStrings.password,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w300,
+                                  fontSize: AppSize.s16,
+                                  color: AppColors.colorPrimaryDark,
+                                ),
+                              ), SizedBox(
+                                height: MediaQuery.of(context).size.height /
+                                    AppResponsiveHeigh.h2,
+                              ),
+                              Container(
+                                height: MediaQuery.of(context).size.height /
+                                    AppResponsiveHeigh.h40,
+                                clipBehavior: Clip.antiAliasWithSaveLayer,
+                                decoration: BoxDecoration(
+                                  color: AppColors.white,
+                                  borderRadius:
+                                      BorderRadius.circular(AppSize.s10),
+                                ),
+                                child: defaultFormField(
+                                  context: context,
+                                  onTap: () {},
+                                  hintText: AppStrings.enterYourPassword,
+                                  prefix: null,
+                                  prefixIsImage: false,
+                                  textStyle:
+                                      Theme.of(context).textTheme.titleLarge,
+                                  iconSize: MediaQuery.of(context).size.height /
+                                      AppResponsiveHeigh.h10,
+                                  isEnabled: true,
+                                  isError: true,
+                                  isFocusBorder: true,
+                                  controller: cubic.passwordController,
+                                  isPassword: cubic.isNewPassword,
+            
+                                  suffix:cubic.isNewPassword? Icons.visibility_outlined
+                                      : Icons.visibility_off,
+                                  suffixPressed: () {
+            
+                                    cubic.changePasswordVisibility(AppStrings.newPassword);
+                                  },
+                                  type: TextInputType.emailAddress,
+                                  validate: (value) {
+                                    if (value!.isEmpty) {}
+                                    return null;
+                                  },
+                                ),
+                              ), SizedBox(
+                                height: MediaQuery.of(context).size.height /
+                                    AppResponsiveHeigh.h2,
+                              ),
+                              const Text(
+                                AppStrings.comfirmPassword,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w300,
+                                  fontSize: AppSize.s16,
+                                  color: AppColors.colorPrimaryDark,
+                                ),
+                              ), SizedBox(
+                                height: MediaQuery.of(context).size.height /
+                                    AppResponsiveHeigh.h2,
+                              ),
+                              Container(
+                                height: MediaQuery.of(context).size.height /
+                                    AppResponsiveHeigh.h40,
+                                clipBehavior: Clip.antiAliasWithSaveLayer,
+                                decoration: BoxDecoration(
+                                  color: AppColors.white,
+                                  borderRadius:
+                                      BorderRadius.circular(AppSize.s10),
+                                ),
+                                child: defaultFormField(
+                                  context: context,
+                                  onTap: () {},
+                                  hintText: AppStrings.enterYourPassword,
+                                  prefix: null,
+                                  prefixIsImage: false,
+                                  textStyle:
+                                      Theme.of(context).textTheme.titleLarge,
+                                  iconSize: MediaQuery.of(context).size.height /
+                                      AppResponsiveHeigh.h10,
+                                  isEnabled: true,
+                                  isError: true,
+                                  isFocusBorder: true,
+                                  controller: cubic.comfirmPasswordController,
+                                  isPassword: cubic.isComfiremPassword,
+            
+                                  suffix:cubic.isComfiremPassword? Icons.visibility_outlined
+                                      : Icons.visibility_off,
+                                  suffixPressed: () {
+            
+                                    cubic.changePasswordVisibility(AppStrings.comfirmPassword);
+                                  },
+                                  type: TextInputType.emailAddress,
+                                  validate: (value) {
+                                    if (value!.isEmpty) {}
+                                    return null;
+                                  },
+                                ),
+                              ), SizedBox(
+                                height: MediaQuery.of(context).size.height /
+                                    AppResponsiveHeigh.h2,
+                              ),
+                              SizedBox(
+                                height: MediaQuery.of(context).size.height /
+                                    AppResponsiveHeigh.h10,
+                              ), SizedBox(
+                                height: MediaQuery.of(context).size.height /
+                                    AppResponsiveHeigh.h2,
+                              ),
+                              const Center(
+                                child: Text(
+                                  AppStrings.setYourPriorities,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: AppSize.s16,
+                                    color: AppColors.colorPrimaryDark,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                height: MediaQuery.of(context).size.height /
+                                    AppResponsiveHeigh.h20,
+                              ),
+                              Row(
+                                children: [
+                                  Row(
+                                    children: [
+                                      InkWell(
+                                          onTap: () {
+                                            cubic.changeSelectBox();
+                                          },
+                                          child: Icon(
+                                            cubic.isSelect == false
+                                                ? Icons.check_box_outline_blank
+                                                : Icons.check_box_rounded,
+                                            color: cubic.isSelect == false
+                                                ? AppColors.gray2
+                                                : AppColors.colorPrimary,
+                                            size: 20,
+                                          )),
+                                      SizedBox(
+                                        width: MediaQuery.of(context).size.width /
+                                            AppResponsiveWidth.w2,
+                                      ),
+                                      Text(
+                                        AppStrings.scanMoney,
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w300,
+                                          fontSize: AppSize.s14,
+                                          color: AppColors.gray2,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    width: MediaQuery.of(context).size.width /
+                                        AppResponsiveWidth.w2,
+                                  ),
+                                  Row(
+                                    children: [
+                                      InkWell(
+                                          onTap: () {
+                                            cubic.changeSelectBox();
+                                          },
+                                          child: Icon(
+                                            cubic.isSelect == false
+                                                ? Icons.check_box_outline_blank
+                                                : Icons.check_box_rounded,
+                                            color: cubic.isSelect == false
+                                                ? AppColors.gray2
+                                                : AppColors.colorPrimary,
+                                            size: 20,
+                                          )),
+                                      SizedBox(
+                                        width: MediaQuery.of(context).size.width /
+                                            AppResponsiveWidth.w2,
+                                      ),
+                                      Text(
+                                        AppStrings.checkYourArea,
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w300,
+                                          fontSize: AppSize.s14,
+                                          color: AppColors.gray2,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    width: MediaQuery.of(context).size.width /
+                                        AppResponsiveWidth.w2,
+                                  ),
+                                  Row(
+                                    children: [
+                                      InkWell(
+                                          onTap: () {
+                                            cubic.changeSelectBox();
+                                          },
+                                          child: Icon(
+                                            cubic.isSelect == false
+                                                ? Icons.check_box_outline_blank
+                                                : Icons.check_box_rounded,
+                                            color: cubic.isSelect == false
+                                                ? AppColors.gray2
+                                                : AppColors.colorPrimary,
+                                            size: 20,
+                                          )),
+                                      SizedBox(
+                                        width: MediaQuery.of(context).size.width /
+                                            AppResponsiveWidth.w2,
+                                      ),
+                                      Text(
+                                        AppStrings.exchangeHere,
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w300,
+                                          fontSize: AppSize.s14,
+                                          color: AppColors.gray2,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                height: MediaQuery.of(context).size.height /
+                                    AppResponsiveHeigh.h20,
+                              ),
+                              GestureDetector(
+                                  onTap: () {
+                                    Navigator.popAndPushNamed(
+                                        context, Routes.loginRoute);
+                                  },
+                                  child: twoTextWithUnderline(
+                                      fristText: AppStrings.HaveAn,
+                                      secondText: AppStrings.signIn)),
+                              SizedBox(
+                                height: MediaQuery.of(context).size.height /
+                                    AppResponsiveHeigh.h20,
+                              ),
+                              Center(
+                                child: defaultButton(
+                                    height: MediaQuery.of(context).size.height /
+                                        AppResponsiveHeigh.h40,
+                                    radius: AppConstance.ten,
+                                    textStyle: const TextStyle(
+                                      fontSize: FontSize.s16,
+                                      fontFamily: 'DancingScript',
+                                      color: AppColors.white,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                    shape: false,
+                                    width: MediaQuery.of(context).size.width /
+                                        AppResponsiveWidth.w300,
+                                    background: AppColors.colorPrimary,
+                                    context: context,
+                                    function: () {
+                                      Navigator.popAndPushNamed(
+                                          context, Routes.doneRegisiterScreenRoute);
+                                    },
+                                    text: AppStrings.signUp,
+                                    isUpperCase: false),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    )
-                  ]),
+                      )
+                    ]),
+              ),
             ),
           ),
         );

@@ -44,7 +44,10 @@ dependencies:
   smooth_page_indicator:
   flutter_bloc:
   flutter_verification_code: ^1.1.6
-
+  geolocator:
+  geocoding:
+  google_maps_flutter:
+  image_picker:
 
 dev_dependencies:
   flutter_test:

@@ -23,6 +23,7 @@ class AppStrings {
   static const        setting = 'Setting';
   static const        next = 'Next';
   static const        login = 'LOG IN';
+  static const        currentPassword = 'Current Password';
   static const        signUpTitle = 'SIGN UP';
   static const        titleLogin = 'Enter your credentials to access your account';
   static const        titleRegisiter = 'Enter your info to create account';

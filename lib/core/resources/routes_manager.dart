@@ -4,9 +4,12 @@
 import 'package:flutter/material.dart';
 
 import 'package:moneyapp/core/resources/strings.dart';
+import 'package:moneyapp/core/utils/dumy.dart';
 import 'package:moneyapp/features/Reporting/presentation/screen/view_image_screen.dart';
 import 'package:moneyapp/features/add_report/presentation/screen/add_report_screen.dart';
-import 'package:moneyapp/features/forget_password/presentation/screen/change_password_screen.dart';
+import 'package:moneyapp/features/add_report/presentation/screen/map_screen.dart';
+import 'package:moneyapp/features/digital_currency/presentation/screen/digital_currency_screen.dart';
+import 'package:moneyapp/features/change_password/presentation/screen/change_password_screen.dart';
 import 'package:moneyapp/features/forget_password/presentation/screen/forget_password_screen.dart';
 import 'package:moneyapp/features/forget_password/presentation/screen/successfully.dart';
 import 'package:moneyapp/features/forget_password/presentation/screen/varification_screen.dart';
@@ -39,6 +42,8 @@ class Routes{
   static const String privacyPolicyRoute ='/privacyPolicy';
   static const String addReportRoute ='/addReport';
   static const String topFiveCoinRoute ='/topFiveCoin';
+  static const String digitalCurrencyRoute ='/digitalCurrency';
+  static const String mapRoute ='/Map';
 
 
 
@@ -63,7 +68,7 @@ class RouteGenerator{
         case Routes.varificationRoute:
         return MaterialPageRoute(builder: (_)=> const VarificationScreen());
         case Routes.changePasswordRoute:
-        return MaterialPageRoute(builder: (_)=> const ChangePasswordScreen());
+        return MaterialPageRoute(builder: (_)=>  ChangePasswordScreen(isProfile: settings.arguments as bool,));
         case Routes.successfullyRoute:
         return MaterialPageRoute(builder: (_)=> const SuccessfullyScreen());
         case Routes.doneRegisiterScreenRoute:
@@ -80,8 +85,12 @@ class RouteGenerator{
         return MaterialPageRoute(builder: (_)=> const AddReportScreen());
         case Routes.topFiveCoinRoute:
         return MaterialPageRoute(builder: (_)=> const TopFiveCoinScreen());
+        case Routes.digitalCurrencyRoute:
+        return MaterialPageRoute(builder: (_)=> const DigitalCurrencyScreen());
         case Routes.viewImageRoute:
         return MaterialPageRoute(builder: (_)=>  ViewImageScreen(image: settings.arguments.toString(),));
+        case Routes.mapRoute:
+        return MaterialPageRoute(builder: (_)=>  MapScreen(mapModel: settings.arguments as MapModel,));
 
 
       default:

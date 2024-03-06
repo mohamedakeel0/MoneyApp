@@ -35,11 +35,7 @@ List<BoardingModel> moreList = [
     image: ImageAssets.profile,
     title: AppStrings.profile,
     body:   Routes.profileRoute,),
-  BoardingModel(
-    image: ImageAssets.epSetting,
 
-    title: AppStrings.setting,
-    body:   Routes.privacyPolicyRoute,),
   BoardingModel(
     image: ImageAssets.chartEvaluation,
     title: AppStrings.topFiveCoin,
@@ -47,7 +43,7 @@ List<BoardingModel> moreList = [
   BoardingModel(
     image: ImageAssets.currency,
     title: AppStrings.digitalCurrency,
-    body:   Routes.topFiveCoinRoute,),
+    body:   Routes.digitalCurrencyRoute,),
   BoardingModel(
     image: ImageAssets.lock,
     title: AppStrings.privacyPolicy,
@@ -61,3 +57,19 @@ List<BoardingModel> moreList = [
     title: AppStrings.logOut,
     body:   Routes.loginRoute,),
 ];
+class TopFiveModel {
+  final String image;
+  final String title;
+  final String buy;
+  final String sell;
+
+  TopFiveModel({required this.image, required this.title, required this.buy,required this.sell,});
+}
+class MapModel{
+  String? comeFrom;
+  double? lat;
+  double? lon;
+
+
+  MapModel({this.comeFrom, this.lat,this.lon});
+}

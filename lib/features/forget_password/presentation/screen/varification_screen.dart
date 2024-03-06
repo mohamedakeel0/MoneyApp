@@ -76,8 +76,8 @@ class _VarificationScreenState extends State<VarificationScreen> {
                   ),
                   Container(
                     width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height /
-                        AppResponsiveHeigh.h327,
+                    height: MediaQuery.of(context).size.height -MediaQuery.of(context).size.height /
+                        AppResponsiveHeigh.h300,
                     decoration: const BoxDecoration(
                         color: AppColors.backGroundPrimary,
                         borderRadius: BorderRadius.only(
@@ -128,7 +128,7 @@ class _VarificationScreenState extends State<VarificationScreen> {
                               function: () {
 
                                 Navigator.pushReplacementNamed(
-                                    context, Routes.changePasswordRoute);
+                                    context, Routes.changePasswordRoute,arguments: false);
                               },
                               text: AppStrings.verify,
                               isUpperCase: false),

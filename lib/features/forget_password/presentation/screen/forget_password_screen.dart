@@ -70,8 +70,8 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                       ),
                       Container(
                         width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height /
-                            AppResponsiveHeigh.h327,
+                        height: MediaQuery.of(context).size.height -MediaQuery.of(context).size.height /
+                          AppResponsiveHeigh.h300,
                         decoration: const BoxDecoration(
                             color: AppColors.backGroundPrimary,
                             borderRadius: BorderRadius.only(

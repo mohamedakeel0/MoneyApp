@@ -7,6 +7,8 @@ import 'package:moneyapp/core/resources/routes_manager.dart';
 import 'package:moneyapp/core/resources/strings.dart';
 import 'package:moneyapp/core/resources/values_manager.dart';
 import 'package:moneyapp/core/utils/app_constance.dart';
+import 'package:moneyapp/features/change_password/presentation/bloc/change_password_cubic.dart';
+import 'package:moneyapp/features/change_password/presentation/bloc/change_password_state.dart';
 import 'package:moneyapp/features/forget_password/presentation/bloc/forget_password_cubic.dart';
 import 'package:moneyapp/features/forget_password/presentation/bloc/forget_password_state.dart';
 import 'package:moneyapp/features/login/presentation/bloc/login_cubic.dart';
@@ -16,7 +18,8 @@ import 'package:moneyapp/shared/default_button.dart';
 import 'package:moneyapp/shared/default_form_field.dart';
 
 class ChangePasswordScreen extends StatefulWidget {
-  const ChangePasswordScreen({Key? key}) : super(key: key);
+  bool? isProfile;
+   ChangePasswordScreen({required this.isProfile,Key? key}) : super(key: key);
 
   @override
   State<ChangePasswordScreen> createState() => _ChangePasswordScreenState();
@@ -26,10 +29,10 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
   @override
   Widget build(BuildContext context) {
     print(MediaQuery.of(context).size.height);
-    return BlocConsumer<ForgetPasswordCubic, ForgetPasswordState>(
+    return BlocConsumer<ChangePasswordCubic, ChangePasswordState>(
       listener: (context, state) {},
       builder: (context, state) {
-        var cubic = ForgetPasswordCubic.get(context);
+        var cubic = ChangePasswordCubic.get(context);
         return Scaffold(appBar: AppBar(title:  const Text(
           AppStrings.changePassword,
           style: TextStyle(
@@ -72,6 +75,61 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                       widget.isProfile==true?       const Text(
+                                AppStrings.currentPassword,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w300,
+                                  fontSize: AppSize.s16,
+                                  color: AppColors.colorPrimaryDark,
+                                ),
+                              ):SizedBox(),
+                              widget.isProfile==true?    SizedBox(
+                                height: MediaQuery.of(context).size.height /
+                                    AppResponsiveHeigh.h2,
+                              ):SizedBox(),
+                              widget.isProfile==true?    Container(
+                                height:
+                                MediaQuery.of(context)
+                                    .size
+                                    .height /
+                                    AppResponsiveHeigh.h40
+                                ,clipBehavior: Clip.antiAliasWithSaveLayer,decoration: BoxDecoration(color:AppColors.white, borderRadius: BorderRadius.circular(AppSize.s10), ),
+                                child: defaultFormField(
+                                  context: context,
+                                  onTap: () {},isPassword: cubic.isCurrentPassword,
+
+                                  suffix:cubic.isCurrentPassword? Icons.visibility_outlined
+                                      : Icons.visibility_off,
+                                  suffixPressed: () {
+
+                                    cubic.changePasswordVisibility(AppStrings.currentPassword);
+                                  },
+                                  prefix: null,
+                                  prefixIsImage: false,
+                                  textStyle: Theme.of(context)
+                                      .textTheme
+                                      .titleLarge,
+                                  iconSize: MediaQuery.of(context)
+                                      .size
+                                      .height /
+                                      AppResponsiveHeigh.h10,
+                                  isEnabled: true,hintText: AppStrings.enterYourPassword,
+                                  isError: true,
+                                  isFocusBorder: true,
+                                  controller: cubic.passwordController,
+                                  type: TextInputType.emailAddress,
+                                  validate: (value) {
+                                    if (value!.isEmpty) {
+
+                                    }
+                                    return null;
+                                  },
+                                ),
+                              ):SizedBox(),
+                              widget.isProfile==true?     SizedBox(
+                                height: MediaQuery.of(context).size.height /
+                                    AppResponsiveHeigh.h2,
+                              ):SizedBox(),
                               const Text(
                                 AppStrings.newPassword,
                                 style: TextStyle(
@@ -79,6 +137,10 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                                   fontSize: AppSize.s16,
                                   color: AppColors.colorPrimaryDark,
                                 ),
+                              ),
+                              SizedBox(
+                                height: MediaQuery.of(context).size.height /
+                                    AppResponsiveHeigh.h2,
                               ),
                               Container(
                                 height:
@@ -88,8 +150,15 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                                     AppResponsiveHeigh.h40
                                 ,clipBehavior: Clip.antiAliasWithSaveLayer,decoration: BoxDecoration(color:AppColors.white, borderRadius: BorderRadius.circular(AppSize.s10), ),
                                 child: defaultFormField(
-                                  context: context,
-                                  onTap: () {},
+                                  context: context,   onTap: () {},
+                                  isPassword: cubic.isNewPassword,
+
+                                  suffix:cubic.isNewPassword? Icons.visibility_outlined
+                                      : Icons.visibility_off,
+                                  suffixPressed: () {
+
+                                    cubic.changePasswordVisibility(AppStrings.newPassword);
+                                  },
                                   prefix: null,
                                   prefixIsImage: false,
                                   textStyle: Theme.of(context)
@@ -112,6 +181,10 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                                   },
                                 ),
                               ),
+                              SizedBox(
+                                height: MediaQuery.of(context).size.height /
+                                    AppResponsiveHeigh.h2,
+                              ),
                               const Text(
                                 AppStrings.comfirmPassword,
                                 style: TextStyle(
@@ -119,6 +192,10 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                                   fontSize: AppSize.s16,
                                   color: AppColors.colorPrimaryDark,
                                 ),
+                              ),
+                              SizedBox(
+                                height: MediaQuery.of(context).size.height /
+                                    AppResponsiveHeigh.h2,
                               ),
                               Container(
                                 height:
@@ -141,7 +218,14 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                                       AppResponsiveHeigh.h10,
                                   isEnabled: true,hintText: AppStrings.enterComfirmPassword,
                                   isError: true,
-                                  isFocusBorder: true,
+                                  isFocusBorder: true,  isPassword: cubic.isComfiremPassword,
+
+                                  suffix:cubic.isComfiremPassword? Icons.visibility_outlined
+                                      : Icons.visibility_off,
+                                  suffixPressed: () {
+
+                                    cubic.changePasswordVisibility(AppStrings.comfirmPassword);
+                                  },
                                   controller: cubic.comfirmPasswordController,
                                   type: TextInputType.emailAddress,
                                   validate: (value) {
