@@ -48,7 +48,7 @@ dependencies:
   geocoding:
   google_maps_flutter:
   image_picker:
-
+  multiple_image_camera:
 dev_dependencies:
   flutter_test:
     sdk: flutter

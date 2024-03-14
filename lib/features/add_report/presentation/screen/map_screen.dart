@@ -31,12 +31,15 @@ class _MapScreenState extends State<MapScreen> {
   LatLng? CurrentLatLng;
   @override
   void initState() {
-
-    context.read<AddReportingCubic>().getLocation();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<AddReportingCubic>().getLocation();
 
       context.read<AddReportingCubic>(). updateLocation(widget.mapModel!.lat!,widget.mapModel!.lon!);
 
-    context.read<AddReportingCubic>().getLocation();
+      context.read<AddReportingCubic>().getLocation();
+    });
+
+
     super.initState();
   }
   @override
@@ -78,7 +81,7 @@ class _MapScreenState extends State<MapScreen> {
                           height: height / AppResponsiveHeigh.h520,
                           width: double.infinity,
                           clipBehavior: Clip.antiAliasWithSaveLayer,
-                          decoration: BoxDecoration(
+                          decoration: BoxDecoration(color: AppColors.white,
                             borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(
                                     height / AppResponsiveHeigh.h15),

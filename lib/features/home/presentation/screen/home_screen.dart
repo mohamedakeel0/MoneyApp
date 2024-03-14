@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moneyapp/core/resources/app_colors.dart';
 import 'package:moneyapp/core/resources/assets_manager.dart';
 import 'package:moneyapp/core/resources/font_manager.dart';
 import 'package:moneyapp/features/Reporting/presentation/screen/reporting_screen.dart';
+import 'package:moneyapp/features/camera/presentation/screen/camera_screen.dart';
+import 'package:moneyapp/features/exchange/presentation/bloc/exchange_state.dart';
+import 'package:moneyapp/features/exchange/presentation/screen/exchange_screen.dart';
 import 'package:moneyapp/features/more/presentation/screen/more_screen.dart';
+
+import '../../../exchange/presentation/bloc/exchange_cubic.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -12,45 +18,62 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
   final PageController _pageController = PageController(initialPage: 0);
   int _pageIndex = 0;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: PageView(
-        children: _buildThreePageViewChildren(),
-        controller: _pageController,
-        physics: const NeverScrollableScrollPhysics(),
-        onPageChanged: (int index) {
-          setState(
-                () {
-              _pageIndex = index;
-            },
-          );
-        },
-      ),
-      bottomNavigationBar: BottomNavigationBar(elevation: 0.0,
-        items: _buildThreeItems(),
-        onTap: (int index) {
-          _pageController.animateToPage(
-            index,
-            duration: const Duration(milliseconds: 200),
-            curve: Curves.easeInOut,
-          );
-        },
-        currentIndex: _pageIndex,unselectedItemColor:  AppColors.gray2,unselectedIconTheme: const IconThemeData(color:  AppColors.gray2),
-        fixedColor: AppColors.colorPrimary,backgroundColor: Colors.white,
+    return BlocConsumer<ExchangeCubic, ExchangeState>(
+      listener: (context, state) {},
+      builder: (context, state) {
+       var cubic = ExchangeCubic.get(context);
 
-      ),
+        double height = MediaQuery.of(context).size.height;
+        double width = MediaQuery.of(context).size.width;
+
+
+
+        return Scaffold(
+          body: PageView(
+            children: _buildThreePageViewChildren(),
+            controller: _pageController,
+            physics: const NeverScrollableScrollPhysics(),
+            onPageChanged: (int index) {
+              setState(
+                    () {
+                  _pageIndex = index;
+
+                  cubic.getLocation();
+                },
+              );
+            },
+          ),
+          bottomNavigationBar: BottomNavigationBar(elevation: 0.0,
+            items: _buildThreeItems(),
+            onTap: (int index) {
+              _pageController.animateToPage(
+                index,
+                duration: const Duration(milliseconds: 200),
+                curve: Curves.easeInOut,
+              );
+            },
+            currentIndex: _pageIndex,unselectedItemColor:  AppColors.gray2,
+            unselectedIconTheme: const IconThemeData(color:  AppColors.gray2),
+            fixedColor: AppColors.colorPrimary,backgroundColor: Colors.white,
+
+          ),
+        );
+      },
     );
+
   }
 
   List<Widget> _buildThreePageViewChildren() {
     return <Widget>[
-      Container(color: Colors.white),
-      ReportingScreen(),
-      Container(color: Colors.green),
-      MoreScreen(),
+      const CameraScreen(),
+      const ReportingScreen(),
+      const ExchangeScreen(),
+      const MoreScreen(),
     ];
   }
 
