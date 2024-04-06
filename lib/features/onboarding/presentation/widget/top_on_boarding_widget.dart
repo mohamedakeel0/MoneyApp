@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:moneyapp/core/resources/app_colors.dart';
 import 'package:moneyapp/core/resources/assets_manager.dart';
 import 'package:moneyapp/core/resources/routes_manager.dart';
@@ -16,10 +17,10 @@ Widget itemTopOnBoardingWidget(PageController boardController,context)=>Padding(
               duration: Duration(milliseconds: 750),
               curve: Curves.fastLinearToSlowEaseIn);
         },
-        child: const Text(
+        child:  Text(
           AppStrings.back,
           style: TextStyle(
-              fontSize: AppSize.s16,
+              fontSize: 16.sp,
               color: AppColors.black,
               fontWeight: FontWeight.bold,
               fontFamily: 'DancingScript'),
@@ -28,10 +29,10 @@ Widget itemTopOnBoardingWidget(PageController boardController,context)=>Padding(
         onPressed: () {
           Navigator.popAndPushNamed(context, Routes.loginRoute);
         },
-        child: const Text(
+        child:  Text(
           AppStrings.skip,
           style: TextStyle(
-              fontSize: AppSize.s16,
+              fontSize: 16.sp,
               color: AppColors.black,
               fontWeight: FontWeight.bold,
               fontFamily: 'DancingScript'),

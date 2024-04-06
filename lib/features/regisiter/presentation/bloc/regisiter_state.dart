@@ -12,4 +12,7 @@ class LodaingChangeSelectBoxState extends RegisiterState{}
 class SuccesChangeSelectBoxState extends RegisiterState{}
 class InitailChangePasswordVisibilityState extends RegisiterState{}
 class SuccesChangePasswordVisibilityState extends RegisiterState{}
-
+class LoadingValidationState extends RegisiterState{}
+class SuccessValidationState extends RegisiterState{}
+class LoadingChangePrioritiesState extends RegisiterState{}
+class SuccessChangePrioritiesState extends RegisiterState{}

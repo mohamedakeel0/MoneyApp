@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:moneyapp/core/resources/app_colors.dart';
 import 'package:moneyapp/core/resources/assets_manager.dart';
 import 'package:moneyapp/core/resources/font_manager.dart';
@@ -84,7 +85,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
         icon: Column(
           children: [
-            _pageIndex==0?  SizedBox(height: 30,width: 80,child: Image.asset(ImageAssets.Union,)):SizedBox(),
+            _pageIndex==0?  SizedBox(height: 30.h,width: 80.w,
+                child: Image.asset(ImageAssets.Union,)):SizedBox(),
             const Icon(Icons.document_scanner_outlined),
           ],
         ),
@@ -95,7 +97,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
         icon: Column(
           children: [
-            _pageIndex==1?  SizedBox(height: 30,width: 80,child: Image.asset(ImageAssets.Union,)):SizedBox(),
+            _pageIndex==1?  SizedBox(height: 30.h,width: 80.w,child:
+            Image.asset(ImageAssets.Union,)):SizedBox(),
             Icon(Icons.location_on_outlined),
           ],
         ),
@@ -106,9 +109,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
         icon: Column(
           children: [
-            _pageIndex==2?  SizedBox(height: 30,width: 80,child: Image.asset(ImageAssets.Union,)):SizedBox(),
+            _pageIndex==2?  SizedBox(height: 30.h,width: 80.w,child: Image.asset(ImageAssets.Union,)):SizedBox(),
 
-            SizedBox(height: 30,width: 35,child: Image.asset(ImageAssets.exchange,)),
+            SizedBox(height: 30.h,width: 35.w,child: Image.asset(ImageAssets.exchange,)),
           ],
         ),
         label: 'Exchange',
@@ -117,7 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
         icon: Column(
           children: [
-            _pageIndex==3?  SizedBox(height: 30,width: 80,child: Image.asset(ImageAssets.Union,)):SizedBox(),
+            _pageIndex==3?  SizedBox(height: 30.h,width: 80.w,child: Image.asset(ImageAssets.Union,)):SizedBox(),
 
             Icon(Icons.menu),
           ],

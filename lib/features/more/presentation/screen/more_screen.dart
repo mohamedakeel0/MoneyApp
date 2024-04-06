@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:moneyapp/core/resources/app_colors.dart';
 import 'package:moneyapp/core/resources/assets_manager.dart';
 import 'package:moneyapp/core/resources/routes_manager.dart';
@@ -19,11 +20,11 @@ class _MoreScreenState extends State<MoreScreen> {
   Widget build(BuildContext context) {
     return Scaffold(    backgroundColor: AppColors.white,
       appBar: AppBar(foregroundColor:Colors.white,
-        title:   const Text(
+        title:    Text(
           AppStrings.more,
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            fontSize: AppSize.s20,
+            fontSize: 20.sp,
             color: AppColors.black,
           ),
         ),centerTitle: true,backgroundColor: Colors.white,),body:
@@ -38,15 +39,17 @@ class _MoreScreenState extends State<MoreScreen> {
                   return Column(
                     children: [
                       ListTile(
-                        leading: Image(height: MediaQuery.of(context).size.height/ AppResponsiveHeigh.h30,
-                          width: MediaQuery.of(context).size.width/AppResponsiveWidth.w30,
+                        leading: Image(height:
+                        30.h,
+                          width:
+                          30.w,
                           image: AssetImage(moreList[index].image),
                         ),
                           title:Text(
                         moreList[index].title,
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
-                          fontSize: AppSize.s18,
+                          fontSize: 18.sp,
                           color: AppColors.black,
                         ),
                       ),onTap: () {
@@ -59,7 +62,8 @@ class _MoreScreenState extends State<MoreScreen> {
                       },
 
                       ),
-                      Container(height: 1,width: MediaQuery.of(context).size.width-50,color: AppColors.graySoft),
+                      Container(height: 1.h,width:
+                      MediaQuery.of(context).size.width-50,color: AppColors.graySoft),
                     ],
                   );
                 },

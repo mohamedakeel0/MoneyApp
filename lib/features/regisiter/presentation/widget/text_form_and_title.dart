@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:moneyapp/core/resources/app_colors.dart';
 import 'package:moneyapp/core/resources/values_manager.dart';
+import 'package:moneyapp/features/regisiter/presentation/bloc/regisiter_cubic.dart';
 import 'package:moneyapp/shared/default_form_field.dart';
 
-Widget buildTextFormAndTitle(context,{String? fristText,TextEditingController?textEditingControllerFrist,})=>   Column(crossAxisAlignment:
+Widget buildTextFormAndTitle(context,{String? fristText,String? validationName,RegisiterCubic?cubit,TextEditingController?textEditingControllerFrist,})=>   Column(crossAxisAlignment:
 CrossAxisAlignment.start ,children: [
   Text(
     fristText!,
@@ -38,12 +39,16 @@ CrossAxisAlignment.start ,children: [
       isFocusBorder: true,
       controller: textEditingControllerFrist!,
       type: TextInputType.emailAddress,
-      validate: (value) {
-        if (value!.isEmpty) {
+validate: (value) {
 
-        }
-        return null;
-      },
+if(  textEditingControllerFrist!.text.trim().isEmpty){
+cubit!.validation(validationName,true);
+}else{
+cubit!.validation(validationName,false);
+
+}
+
+},
     ),
   ),
 ],);

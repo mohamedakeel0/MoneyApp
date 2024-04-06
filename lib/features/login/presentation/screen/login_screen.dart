@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:moneyapp/core/resources/app_colors.dart';
 import 'package:moneyapp/core/resources/assets_manager.dart';
 import 'package:moneyapp/core/resources/font_manager.dart';
@@ -32,287 +33,288 @@ class _LoginScreenState extends State<LoginScreen> {
       return  Scaffold(
         backgroundColor: AppColors.white,
         body: SingleChildScrollView(
-          child: SizedBox(
-            width: double.infinity,
-            child: Padding(
-              padding: const EdgeInsets.only(top: 100.0),
-              child:
-              Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-                const Text(
-                  AppStrings.login,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: AppSize.s25,
-                    color: AppColors.black,
-                  ),
-                ),
-                SizedBox(width:  MediaQuery.of(context).size.width-20,
-                  child: const Text(
-                    AppStrings.titleLogin,
+          child: Form(key: cubic.formkey,
+            child: SizedBox(
+              width: double.infinity,
+              child: Padding(
+                padding:  EdgeInsets.only(top: 100.0.h),
+                child:
+                Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+                   Text(
+                    AppStrings.login,
                     style: TextStyle(
-                      fontWeight: FontWeight.w300,
-                      fontSize: AppSize.s15,
-                      color: AppColors.grayMedium2,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 25.sp,
+                      color: AppColors.black,
                     ),
                   ),
-                ),
-                SizedBox(
-                  height:
-                  MediaQuery.of(context).size.height / AppResponsiveHeigh.h35,
-                ),
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height - 190,
-                  decoration: const BoxDecoration(
-                      color: AppColors.backGroundPrimary,
-                      borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(AppSize.s30),
-                          topLeft: Radius.circular(AppSize.s30))),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 25.0,horizontal: 30.0),
-                    child: Column(crossAxisAlignment: CrossAxisAlignment.start,children:  [
-                      const Text(
-                        AppStrings.email,
-                        style: TextStyle(
-                          fontWeight: FontWeight.w300,
-                          fontSize: AppSize.s14,
-                          color: AppColors.colorPrimaryDark,
-                        ),
+                  SizedBox(width:  MediaQuery.of(context).size.width-20,
+                    child:  Text(
+                      AppStrings.titleLogin,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w300,
+                        fontSize: 15.sp,
+                        color: AppColors.grayMedium2,
                       ),
-                      Container(
-                        height:
-                             MediaQuery.of(context)
-                            .size
-                            .height /
-                            AppResponsiveHeigh.h40
-                            ,clipBehavior: Clip.antiAliasWithSaveLayer,decoration: BoxDecoration(color:AppColors.white, borderRadius: BorderRadius.circular(AppSize.s10), ),
-                        child: defaultFormField(
-                          context: context,
-                          onTap: () {},
-                          prefix: null,
-                          prefixIsImage: false,
-                          textStyle: Theme.of(context)
-                              .textTheme
-                              .titleLarge,
-                          iconSize: MediaQuery.of(context)
-                              .size
-                              .height /
-                              AppResponsiveHeigh.h10,
-                          isEnabled: true,hintText: AppStrings.enterYourEmail,
-                          isError: true,
-                          isFocusBorder: true,
-                          controller: cubic.emailController,
-                          type: TextInputType.emailAddress,
-                          validate: (value) {
-                            if (value!.isEmpty) {
-          
-                            }
-                            return null;
-                          },
-                        ),
-                      ),
-                      const Text(
-                        AppStrings.password,
-                        style: TextStyle(
-                          fontWeight: FontWeight.w300,
-                          fontSize: AppSize.s14,
-                          color: AppColors.colorPrimaryDark,
-                        ),
-                      ),
-                      Container(
-                        height:
-                        MediaQuery.of(context)
-                            .size
-                            .height /
-                            AppResponsiveHeigh.h40
-                        ,clipBehavior: Clip.antiAliasWithSaveLayer,decoration: BoxDecoration(color:AppColors.white, borderRadius: BorderRadius.circular(AppSize.s10), ),
-                        child: defaultFormField(
-                          context: context,
-                          onTap: () {},hintText: AppStrings.enterYourPassword,
-                          prefix: null,
-                          prefixIsImage: false,
-                          textStyle: Theme.of(context)
-                              .textTheme
-                              .titleLarge,
-                          iconSize: MediaQuery.of(context)
-                              .size
-                              .height /
-                              AppResponsiveHeigh.h10,
-                          isEnabled: true,
-                          isError: true,
-                          isFocusBorder: true,
-                          controller: cubic.passwordController,
-                          isPassword: true,
-                          type: TextInputType.emailAddress,
-                          validate: (value) {
-                            if (value!.isEmpty) {
-          
-                            }
-                            return null;
-                          },
-                        ),
-                      ),
-                      SizedBox(
-                        height: MediaQuery.of(context)
-                            .size
-                            .height /
-                            AppResponsiveHeigh.h10,
-                      ),
-                      Row(
-                        children: [
-                          InkWell(
-                              onTap: () {
-                                cubic.changeSelectBox();
-                              },
-                              child:  Icon(
-                                cubic.isSelect==false?  Icons.check_box_outline_blank:Icons.check_box_rounded,
-                                color: cubic.isSelect==false? AppColors.gray2:AppColors.colorPrimary,
-                                size: 25,
-                              )),
-                          SizedBox(
-                            width: MediaQuery.of(context)
-                                .size
-                                .width /
-                                AppResponsiveWidth.w10,
-                          ),
-                          Text(
-                            AppStrings.rememberMe,
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleLarge!
-                                .copyWith(
-                                color: AppColors.gray2,
-                                fontSize: FontSize.s14,
-                                fontFamily:
-                                'DancingScript'),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: MediaQuery.of(context)
-                            .size
-                            .height /
-                            AppResponsiveHeigh.h20,
-                      ),
-                      Center(
-                        child: defaultButton(
-                            height:
-                            MediaQuery.of(context)
-                                .size
-                                .height /
-                                AppResponsiveHeigh
-                                    .h40,
-                            radius: AppConstance
-                                .ten,
-                            textStyle: const TextStyle(
-                              fontSize: FontSize.s16,
-                              fontFamily:
-                              'DancingScript',
-                              color: AppColors.white,
-                              fontWeight:
-                              FontWeight.w400,
-                            ),
-                            shape: false,
-                            width:
-                            MediaQuery.of(context)
-                                .size
-                                .width /
-                                AppResponsiveWidth
-                                    .w300,
-                            background: AppColors.colorPrimary,
-                            context: context,
-                            function: () {
-                              Navigator.pushNamed(context, Routes.homeRoute);
-                            },
-                            text: AppStrings.loginScreen,
-                            isUpperCase: false),
-                      ),
-                      SizedBox(
-                        height: MediaQuery.of(context)
-                            .size
-                            .height /
-                            AppResponsiveHeigh.h20,
-                      ),
-                      GestureDetector(onTap: () {
-                        Navigator.pushNamed(context, Routes.forgetPasswordRoute);
-                      },child: buildUnderLineText(text: AppStrings.forgetYourPassword )),
-                      SizedBox(
-                        height: MediaQuery.of(context)
-                            .size
-                            .height /
-                            AppResponsiveHeigh.h20,
-                      ),
-                      Row(crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            color: AppColors.gray2,
-                            width: MediaQuery.of(context).size.width /
-                                AppResponsiveWidth.w70,
-                            height: 1,
-                          ),
-                          const Text(
-                            AppStrings.orContinue,
-                            style: TextStyle(
-                              fontWeight: FontWeight.w300,
-                              fontSize: AppSize.s12,
-                              color: AppColors.gray2,
-                            ),
-                          ),
-                          Container(
-                            color: AppColors.gray2,
-                            width: MediaQuery.of(context).size.width /
-                                AppResponsiveWidth.w70,
-                            height: 1,
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: MediaQuery.of(context)
-                            .size
-                            .height /
-                            AppResponsiveHeigh.h25,
-                      ),
-                      Row(mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-
-                          buildItemImageContiener(isImageWithRadius: false,
-                              context,AppColors.white,
-                              ImageAssets.google, heightImage:MediaQuery.of(context).size.height /
-                              AppResponsiveHeigh.h25 ,widthImage: MediaQuery.of(context).size.width /
-                              AppResponsiveWidth.w25 ),
-          
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width /
-                                AppResponsiveWidth.w10,
-                          ),
-                          buildItemImageContiener(context,AppColors.white,ImageAssets.vector, heightImage:MediaQuery.of(context).size.height /
-                              AppResponsiveHeigh.h25 ,widthImage: MediaQuery.of(context).size.width /
-                      AppResponsiveWidth.w25,isImageWithRadius: false, ),
-
-
-                  SizedBox(
-                            width: MediaQuery.of(context).size.width /
-                                AppResponsiveWidth.w10,
-                          ),
-                          buildItemImageContiener(context,AppColors.white,ImageAssets.facebook ,heightImage:MediaQuery.of(context).size.height /
-                              AppResponsiveHeigh.h25 ,widthImage: MediaQuery.of(context).size.width /
-                    AppResponsiveWidth.w25,isImageWithRadius: false, ),
-
-
-              ],
-                      ),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height /
-                            AppResponsiveHeigh.h30,
-                      ),
-                      GestureDetector(child: twoTextWithUnderline(fristText: AppStrings.dontHaveAn,secondText: AppStrings.signUp ),onTap: () {
-                        Navigator.popAndPushNamed(context, Routes.regisiterRoute);
-                      },),
-          
-                    ],),
+                    ),
                   ),
-                )
-              ]),
+                  SizedBox(
+                    height:
+                    35.h,
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height - 190,
+                    decoration:  BoxDecoration(
+                        color: AppColors.backGroundPrimary,
+                        borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(30.sp),
+                            topLeft: Radius.circular(30.sp))),
+                    child: Padding(
+                      padding:  EdgeInsets.symmetric(vertical: 25.0.h,horizontal: 30.0.w),
+                      child: Column(crossAxisAlignment: CrossAxisAlignment.start,children:  [
+                         Text(
+                          AppStrings.email,
+                          style: TextStyle(
+                            fontWeight: FontWeight.w300,
+                            fontSize: 14.sp,
+                            color: AppColors.colorPrimaryDark,
+                          ),
+                        ),
+                        Container(
+                          height:
+                               35.h
+                              ,clipBehavior: Clip.antiAliasWithSaveLayer,
+                          decoration: BoxDecoration(color:AppColors.white,
+                            borderRadius: BorderRadius.circular(10.sp), ),
+                          child: defaultFormField(
+                            context: context,
+                            onTap: () {},
+                            prefix: null,
+                            prefixIsImage: false,
+                            textStyle: Theme.of(context)
+                                .textTheme
+                                .titleLarge,
+                            iconSize: 10.sp,
+                            isEnabled: true,hintText: AppStrings.enterYourEmail,
+                            isError: true,
+                            isFocusBorder: true,
+                            controller: cubic.emailController,
+                            type: TextInputType.emailAddress,
+                            validate: (value) {
+
+                              if(  cubic.emailController.text.trim().isEmpty){
+                                cubic.validation(AppStrings.enterYourEmail,true);
+                              }else{
+                                cubic.validation(AppStrings.enterYourEmail,false);
+
+                              }
+
+                            },
+                          ),
+                        ),
+                        cubic.validationEmail==true?  SizedBox(
+                          height:2.h,
+                        ):SizedBox(),
+                        cubic.validationEmail==true?    Text(
+                          AppStrings.enterYourEmail,
+                          style: TextStyle(
+                            fontSize: FontSize.s16,
+                            fontFamily: 'DancingScript',
+                            color: AppColors.red,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ):SizedBox(),
+                         Text(
+                          AppStrings.password,
+                          style: TextStyle(
+                            fontWeight: FontWeight.w300,
+                            fontSize: 14.sp,
+                            color: AppColors.colorPrimaryDark,
+                          ),
+                        ),
+                        Container(
+                          height:
+                          35.h
+                          ,clipBehavior: Clip.antiAliasWithSaveLayer,decoration:
+                        BoxDecoration(color:AppColors.white, borderRadius: BorderRadius.circular(10.sp), ),
+                          child: defaultFormField(
+                            context: context,
+                            onTap: () {},hintText: AppStrings.enterYourPassword,
+                            prefix: null,
+                            prefixIsImage: false,
+                            textStyle: Theme.of(context)
+                                .textTheme
+                                .titleLarge,
+                            iconSize: 10.sp,
+                            isEnabled: true,
+                            isError: true,
+                            isFocusBorder: true,
+                            controller: cubic.passwordController,
+                            isPassword: true,
+                            type: TextInputType.emailAddress,
+                            validate: (value) {
+
+                              if(  cubic.passwordController.text.trim().isEmpty){
+                                cubic.validation(AppStrings.enterYourPassword,true);
+                              }else{
+                                cubic.validation(AppStrings.enterYourPassword,false);
+
+                              }
+
+
+                            },
+                          ),
+                        ),
+                        cubic.validationPassword==true?  SizedBox(
+                          height:2.h,
+                        ):SizedBox(),
+                        cubic.validationPassword==true?    const Text(
+                          AppStrings.enterYourPassword,
+                          style: TextStyle(
+                            fontSize: FontSize.s16,
+                            fontFamily: 'DancingScript',
+                            color: AppColors.red,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ):SizedBox(),
+                        SizedBox(
+                          height: 10.h,
+                        ),
+                        Row(
+                          children: [
+                            InkWell(
+                                onTap: () {
+                                  cubic.changeSelectBox();
+                                },
+                                child:  Icon(
+                                  cubic.isSelect==false?  Icons.check_box_outline_blank:Icons.check_box_rounded,
+                                  color: cubic.isSelect==false? AppColors.gray2:AppColors.colorPrimary,
+                                  size: 25.sp,
+                                )),
+                            SizedBox(
+                              width: 10.w,
+                            ),
+                            Text(
+                              AppStrings.rememberMe,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleLarge!
+                                  .copyWith(
+                                  color: AppColors.gray2,
+                                  fontSize: 14.sp,
+                                  fontFamily:
+                                  'DancingScript'),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 20.h,
+                        ),
+                        Center(
+                          child: defaultButton(
+                              height:
+                              35.h,
+                              radius: AppConstance
+                                  .ten,
+                              textStyle:  TextStyle(
+                                fontSize: 16.sp,
+                                fontFamily:
+                                'DancingScript',
+                                color: AppColors.white,
+                                fontWeight:
+                                FontWeight.w400,
+                              ),
+                              shape: false,
+                              width:
+                             250.w,
+                              background: AppColors.colorPrimary,
+                              context: context,
+                              function: () {
+                                if (cubic.formkey.currentState!.validate()) {
+                                  if(cubic.validationAll!=true){
+                                    Navigator.pushNamed(context, Routes.homeRoute);
+
+                                  }
+                                }
+                              },
+                              text: AppStrings.loginScreen,
+                              isUpperCase: false),
+                        ),
+                        SizedBox(
+                          height: 20.h,
+                        ),
+                        GestureDetector(onTap: () {
+                          Navigator.pushNamed(context, Routes.forgetPasswordRoute);
+                        },child: buildUnderLineText(text: AppStrings.forgetYourPassword )),
+                        SizedBox(
+                          height: 20.h,
+                        ),
+                        Row(crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              color: AppColors.gray2,
+                              width: 70.w,
+                              height:1. h,
+                            ),
+                             Text(
+                              AppStrings.orContinue,
+                              style: TextStyle(
+                                fontWeight: FontWeight.w300,
+                                fontSize: 12.sp,
+                                color: AppColors.gray2,
+                              ),
+                            ),
+                            Container(
+                              color: AppColors.gray2,
+                              width: 70.w,
+                              height: 1.h,
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 25.h,
+                        ),
+                        Row(mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+
+                            buildItemImageContiener(isImageWithRadius: false,
+                                context,AppColors.white,
+                                ImageAssets.google, heightImage:25.h ,
+                                widthImage: 25.w ),
+
+                            SizedBox(
+                              width: 10.w,
+                            ),
+                            buildItemImageContiener(context,AppColors.white,
+                              ImageAssets.vector, heightImage:25.h ,widthImage:
+                              25.w,isImageWithRadius: false, ),
+
+
+                    SizedBox(
+                              width:10.w,
+                            ),
+                            buildItemImageContiener(context,AppColors.white,
+                              ImageAssets.facebook ,heightImage:25.h ,widthImage:
+                              25.w,isImageWithRadius: false, ),
+
+
+                ],
+                        ),
+                        SizedBox(
+                          height: 30.h,
+                        ),
+                        GestureDetector(child: twoTextWithUnderline(fristText:
+                        AppStrings.dontHaveAn,secondText: AppStrings.signUp ),onTap: () {
+                          Navigator.popAndPushNamed(context, Routes.regisiterRoute);
+                        },),
+
+                      ],),
+                    ),
+                  )
+                ]),
+              ),
             ),
           ),
         ),

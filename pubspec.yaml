@@ -49,6 +49,7 @@ dependencies:
   google_maps_flutter:
   image_picker:
   multiple_image_camera:
+  flutter_screenutil:
 dev_dependencies:
   flutter_test:
     sdk: flutter

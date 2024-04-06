@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:moneyapp/core/network/cache_helper.dart';
 import 'package:moneyapp/core/network/dio_helper.dart';
 import 'package:moneyapp/core/resources/routes_manager.dart';
@@ -16,6 +17,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 void main() async{
 
   WidgetsFlutterBinding.ensureInitialized();
+  await ScreenUtil.ensureScreenSize();
   ServicesLocator().init();
   DioHelper.init();
   await CacheHelper.init();
@@ -28,6 +30,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(
+      context,
+
+    );
     return MultiBlocProvider(providers: [
       BlocProvider( create: (context) => sl<LoginCubic>(),),
       BlocProvider( create: (context) => sl<RegisiterCubic>(),),

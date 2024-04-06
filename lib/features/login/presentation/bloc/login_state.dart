@@ -10,4 +10,5 @@ class LoginState extends Equatable {
 class LoginInitailState extends LoginState{}
 class LodaingChangeSelectBoxState extends LoginState{}
 class SuccesChangeSelectBoxState extends LoginState{}
-
+class LoadingValidationState extends LoginState{}
+class SuccessValidationState extends LoginState{}

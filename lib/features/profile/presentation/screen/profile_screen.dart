@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:moneyapp/core/resources/app_colors.dart';
 import 'package:moneyapp/core/resources/assets_manager.dart';
 import 'package:moneyapp/core/resources/font_manager.dart';
@@ -52,18 +53,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     children: [
                       imageBorderCircle(
                           context,
-                          MediaQuery.of(context).size.height /
-                              AppResponsiveHeigh.h140,
-                          MediaQuery.of(context).size.width /
-                              AppResponsiveWidth.w140,
+                          120.h,
+                         120.w,
                           isimage: true,
                           image: ImageAssets.person),
                       imageBorderCircle(
                           context,
-                          MediaQuery.of(context).size.height /
-                              AppResponsiveHeigh.h30,
-                          MediaQuery.of(context).size.width /
-                              AppResponsiveWidth.w30,
+                         30.h,
+                         30.w,
                           isborder: false,
                           color: AppColors.colorPrimary,
                           isimage: false,
@@ -71,42 +68,39 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ],
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height /
-                        AppResponsiveHeigh.h30,
+                    height: 30.h,
                   ),
                   Container(
                     width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height - 260,
-                    decoration: const BoxDecoration(
+                    decoration:  BoxDecoration(
                         color: AppColors.white,
                         borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(AppSize.s30),
-                            topLeft: Radius.circular(AppSize.s30))),
+                            topRight: Radius.circular(30.sp),
+                            topLeft: Radius.circular(30.sp))),
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: AppSize.s25, horizontal: AppSize.s30),
+                      padding:  EdgeInsets.symmetric(
+                          vertical: 25.h, horizontal:30.w),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(
+                           Text(
                             AppStrings.userName,
                             style: TextStyle(
                               fontWeight: FontWeight.w300,
-                              fontSize: AppSize.s14,
+                              fontSize: 14.sp,
                               color: AppColors.colorPrimaryDark,
                             ),
                           ),
                           SizedBox(
-                            height: MediaQuery.of(context).size.height /
-                                AppResponsiveHeigh.h10,
+                            height: 10.h,
                           ),
                           Container(
-                            height: MediaQuery.of(context).size.height /
-                                AppResponsiveHeigh.h40,
+                            height: 40.h,
                             clipBehavior: Clip.antiAliasWithSaveLayer,
                             decoration: BoxDecoration(
                               color: AppColors.white,
-                              borderRadius: BorderRadius.circular(AppSize.s10),
+                              borderRadius: BorderRadius.circular(10.sp),
                             ),
                             child: defaultFormField(
                               context: context,
@@ -114,8 +108,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               prefix: null,
                               prefixIsImage: false,
                               textStyle: Theme.of(context).textTheme.titleLarge,
-                              iconSize: MediaQuery.of(context).size.height /
-                                  AppResponsiveHeigh.h10,
+                              iconSize: 10.sp,
                               isEnabled: true,
                               hintText: AppStrings.enterYourUserName,
                               isError: true,
@@ -129,28 +122,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                           ),
                           SizedBox(
-                            height: MediaQuery.of(context).size.height /
-                                AppResponsiveHeigh.h10,
+                            height: 10.h,
                           ),
-                          const Text(
+                           Text(
                             AppStrings.email,
                             style: TextStyle(
                               fontWeight: FontWeight.w300,
-                              fontSize: AppSize.s14,
+                              fontSize: 14.sp,
                               color: AppColors.colorPrimaryDark,
                             ),
                           ),
                           SizedBox(
-                            height: MediaQuery.of(context).size.height /
-                                AppResponsiveHeigh.h10,
+                            height: 10.h,
                           ),
                           Container(
-                            height: MediaQuery.of(context).size.height /
-                                AppResponsiveHeigh.h40,
+                            height: 40.h,
                             clipBehavior: Clip.antiAliasWithSaveLayer,
                             decoration: BoxDecoration(
                               color: AppColors.white,
-                              borderRadius: BorderRadius.circular(AppSize.s10),
+                              borderRadius: BorderRadius.circular(10.sp),
                             ),
                             child: defaultFormField(
                               context: context,
@@ -158,8 +148,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               prefix: null,
                               prefixIsImage: false,
                               textStyle: Theme.of(context).textTheme.titleLarge,
-                              iconSize: MediaQuery.of(context).size.height /
-                                  AppResponsiveHeigh.h10,
+                              iconSize: 10.sp,
                               isEnabled: true,
                               hintText: AppStrings.enterYourEmail,
                               isError: true,
@@ -173,28 +162,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                           ),
                           SizedBox(
-                            height: MediaQuery.of(context).size.height /
-                                AppResponsiveHeigh.h10,
+                            height: 10.h,
                           ),
-                          const Text(
+                           Text(
                             AppStrings.phone,
                             style: TextStyle(
                               fontWeight: FontWeight.w300,
-                              fontSize: AppSize.s14,
+                              fontSize: 14.sp,
                               color: AppColors.colorPrimaryDark,
                             ),
                           ),
                           SizedBox(
-                            height: MediaQuery.of(context).size.height /
-                                AppResponsiveHeigh.h10,
+                            height:10.h,
                           ),
                           Container(
-                            height: MediaQuery.of(context).size.height /
-                                AppResponsiveHeigh.h40,
+                            height: 40.h,
                             clipBehavior: Clip.antiAliasWithSaveLayer,
                             decoration: BoxDecoration(
                               color: AppColors.white,
-                              borderRadius: BorderRadius.circular(AppSize.s10),
+                              borderRadius: BorderRadius.circular(10.sp),
                             ),
                             child: defaultFormField(
                               context: context,
@@ -202,8 +188,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               prefix: null,
                               prefixIsImage: false,
                               textStyle: Theme.of(context).textTheme.titleLarge,
-                              iconSize: MediaQuery.of(context).size.height /
-                                  AppResponsiveHeigh.h10,
+                              iconSize: 10.sp,
                               isEnabled: true,
                               hintText: AppStrings.enterYourPhone,
                               isError: true,
@@ -217,23 +202,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                           ),
                           SizedBox(
-                            height: MediaQuery.of(context).size.height /
-                                AppResponsiveHeigh.h30,
+                            height: 30.h,
                           ),
                           Center(
                             child: defaultButton(
-                                height: MediaQuery.of(context).size.height /
-                                    AppResponsiveHeigh.h40,
+                                height: 40.h,
                                 radius: AppConstance.ten,
-                                textStyle: const TextStyle(
-                                  fontSize: FontSize.s18,
+                                textStyle:  TextStyle(
+                                  fontSize: 18.sp,
                                   fontFamily: 'DancingScript',
                                   color: AppColors.white,
                                   fontWeight: FontWeight.w500,
                                 ),
                                 shape: false,
                                 width:
-                                (MediaQuery.of(context).size.width - 25) / 2,
+                                180.w,
                                 background: AppColors.orangeLight,
                                 context: context,
                                 function: () {
@@ -243,23 +226,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 isUpperCase: false),
                           ),
                           SizedBox(
-                            height: MediaQuery.of(context).size.height /
-                                AppResponsiveHeigh.h20,
+                            height: 20.h,
                           ),
                           Center(
                             child: defaultButton(
-                                height: MediaQuery.of(context).size.height /
-                                    AppResponsiveHeigh.h40,
+                                height: 40.h,
                                 radius: AppConstance.ten,
-                                textStyle: const TextStyle(
-                                  fontSize: FontSize.s18,
+                                textStyle:  TextStyle(
+                                  fontSize:18.sp,
                                   fontFamily: 'DancingScript',
                                   color: AppColors.white,
                                   fontWeight: FontWeight.w500,
                                 ),
                                 shape: false,
                                 width:
-                                    (MediaQuery.of(context).size.width - 25) / 2,
+                                    180.w,
                                 background: AppColors.colorPrimary,
                                 context: context,
                                 function: () {},

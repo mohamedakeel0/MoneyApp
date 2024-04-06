@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:moneyapp/core/resources/app_colors.dart';
@@ -52,7 +53,7 @@ class _ExchangeScreenState extends State<ExchangeScreen> {
             backgroundColor: AppColors.white,
 
             body:  Padding(
-              padding: const EdgeInsets.only(top: 25.0),
+              padding:  EdgeInsets.only(top: 25.0.sp),
               child: GoogleMap(
                 onTap: (latLng) {
                   setState(() {

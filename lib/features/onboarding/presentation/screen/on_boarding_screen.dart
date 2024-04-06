@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:moneyapp/core/network/cache_helper.dart';
 import 'package:moneyapp/core/resources/app_colors.dart';
 import 'package:moneyapp/core/resources/assets_manager.dart';
@@ -37,6 +38,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
+
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     print(height);
@@ -70,7 +72,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               ),
             ),
             SizedBox(
-              height: height / AppResponsiveHeigh.h10,
+              height:10.h,
             ),
 
             SmoothPageIndicator(
@@ -86,15 +88,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               ),
             ),
             SizedBox(
-              height: height / AppResponsiveHeigh.h25,
+              height: 25.h,
             ),
             defaultButton(
                 height:
-                MediaQuery.of(context)
-                    .size
-                    .height /
-                    AppResponsiveHeigh
-                        .h40,
+                40.h,
                 radius: AppConstance
                     .thirtyPointFive,
                 textStyle: const TextStyle(
@@ -107,11 +105,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
                 shape: false,
                 width:
-                MediaQuery.of(context)
-                    .size
-                    .width /
-                    AppResponsiveWidth
-                        .w300,
+                300.w,
                 background: AppColors.colorPrimary,
                 context: context,
                 function: () {

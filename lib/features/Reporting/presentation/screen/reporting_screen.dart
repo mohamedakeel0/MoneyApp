@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:moneyapp/core/resources/app_colors.dart';
 import 'package:moneyapp/core/resources/font_manager.dart';
 import 'package:moneyapp/core/resources/routes_manager.dart';
@@ -43,32 +44,30 @@ class _ReportingScreenState extends State<ReportingScreen> {
                     children: [
                       SizedBox(
                         width: (MediaQuery.of(context).size.width-25) / 2,
-                        height: MediaQuery.of(context).size.height /
-                            AppResponsiveHeigh.h40,
+                        height: 35.h,
                         child: defaultFormField(
                           context: context,
                           onTap: () {},
                           prefixIsImage: false,
                           textStyle: Theme.of(context).textTheme.titleLarge,
                           prefix: Icons.search,
-                          iconSize: MediaQuery.of(context).size.height /
-                              AppResponsiveHeigh.h10,
+                          iconSize: 10.sp,
                           isEnabled: true,
                           hintText: AppStrings.search,
                           isError: true,
                           myfocusborder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(25.0),
-                            borderSide: const BorderSide(
+                            borderRadius: BorderRadius.circular(25.0.sp),
+                            borderSide:  BorderSide(
                               color: AppColors.colorPrimary,
-                              width: 2.0,
+                              width: 2.0.sp,
                             ),
                           ),
                           isFocusBorder: true,
                           enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(25.0),
-                            borderSide: const BorderSide(
+                            borderRadius: BorderRadius.circular(25.0.sp),
+                            borderSide:  BorderSide(
                               color: Colors.black,
-                              width: 2.0,
+                              width: 2.0.w,
                             ),
                           ),
                           controller: cubic.reportingController,
@@ -81,11 +80,10 @@ class _ReportingScreenState extends State<ReportingScreen> {
                       ),
                       const Spacer(),
                       defaultButton(
-                          height: MediaQuery.of(context).size.height /
-                              AppResponsiveHeigh.h40,
+                          height: 35.h,
                           radius: AppConstance.twentyFive,
-                          textStyle: const TextStyle(
-                            fontSize: FontSize.s16,
+                          textStyle:  TextStyle(
+                            fontSize: 16.sp,
                             fontFamily: 'DancingScript',
                             color: AppColors.white,
                             fontWeight: FontWeight.w400,
@@ -118,7 +116,7 @@ class _ReportingScreenState extends State<ReportingScreen> {
                                 icon: Icons.image );
                         },
                         separatorBuilder: (context, index) {
-                          return   SizedBox(height: 1,);
+                          return   SizedBox(height: 1.h,);
                         },
                         itemCount: 10),
                   ),

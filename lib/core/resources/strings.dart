@@ -45,6 +45,9 @@ class AppStrings {
   static const       enterYourPhone = 'Enter your Phone';
   static const       enterYourUserName = 'Enter your User Name';
   static const       enterYourPassword = 'Enter your password';
+  static const       enterYourComfirmPassword = 'Enter your Comfirm Password';
+  static const        validationFristName = 'Enter Frist Name';
+  static const        validationSecondName = 'Enter Second Name';
   static const  rememberMe = "Remember Me";
   static const  scanMoney = "Scan Money";
   static const  checkYourArea = "Check Area";
@@ -78,6 +81,9 @@ class AppStrings {
   static const        yesterday = 'Yesterday';
   static const        reprot = 'Reprot';
   static const        varification = 'Varification';
+  static const validatePassword     = 'Invalid password!';
+  static const validatePassword2    =  'Password too short!';
+  static const validateEmail        = 'please enter your email';
   static const        successfully = 'Successfully';
   static const        sendCode = 'Send Code';
   static const        done = 'Done';

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:moneyapp/core/resources/app_colors.dart';
 import 'package:moneyapp/core/resources/assets_manager.dart';
 import 'package:moneyapp/core/resources/strings.dart';
@@ -12,16 +13,17 @@ Widget itemTopFiveCoin(context){
     child: SizedBox(
       height: MediaQuery.of(context).size.height-100,
       child: Padding(
-        padding: const EdgeInsets.only(bottom: 8.0,top: 10.0),
+        padding:  EdgeInsets.only(bottom: 8.0.h,top: 10.0.h),
         child: ListView.separated(
             itemBuilder: (context, index) {
 
               return
                 Padding(
-                  padding: const EdgeInsets.only(left: 25.0,right: 25.0,bottom: 2.0),
+                  padding:  EdgeInsets.only(
+                      left: 25.0.w,right: 25.0.w,bottom: 2.0.h),
                   child: Container(
                     height:
-                    MediaQuery.of(context).size.height / AppResponsiveHeigh.h70,
+                    60.h,
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
                         color: AppColors.white,
@@ -48,43 +50,40 @@ Widget itemTopFiveCoin(context){
                                   context,
                                   Colors.white,
                                   ImageAssets.dolar,
-                                  heightImage: MediaQuery.of(context).size.height /
-                                      AppResponsiveHeigh.h50,
-                                  widthImage: MediaQuery.of(context).size.width /
-                                      AppResponsiveWidth.w50,
+                                  heightImage: 50.h,
+                                  widthImage: 50.w,
                                   isImageWithRadius: true,
                                 ),
-                                SizedBox(width: 20,),
+                                SizedBox(width: 20.w,),
                                 Column(mainAxisAlignment: MainAxisAlignment.start,crossAxisAlignment: CrossAxisAlignment.start,children: [
                                   Text(
                                     'dolar',
                                     style: TextStyle(
                                       fontWeight: FontWeight.w600,
-                                      fontSize: AppSize.s18,
+                                      fontSize: 16.sp,
                                       color: AppColors.black,
                                     ),
                                   ),
 
                                   SizedBox(
-                                    height: MediaQuery.of(context).size.height /
-                                        AppResponsiveHeigh.h10,
+                                    height: 10.h,
                                   ),
-                                  const Row(
+                                   Row(
                                     children: [
                                       Text(
                                         '${AppStrings.buying} 71:12 ',
                                         style: TextStyle(
                                           fontWeight: FontWeight.w500,
-                                          fontSize: AppSize.s15,
+                                          fontSize: 15.sp,
                                           color: AppColors.black,
                                         ),
                                       ),
-                                      SizedBox(width: 20,),
+                                      SizedBox(width: 20.w,),
                                       Text(
                                         '${AppStrings.sell} 62:12 ',
                                         style: TextStyle(
                                           fontWeight: FontWeight.w500,
-                                          fontSize: AppSize.s15,
+                                          fontSize: 15.sp,
                                           color: AppColors.black,
                                         ),
                                       ),

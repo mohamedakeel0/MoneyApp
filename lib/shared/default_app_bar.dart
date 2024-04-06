@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:moneyapp/core/resources/app_colors.dart';
 import 'package:moneyapp/core/resources/strings.dart';
 import 'package:moneyapp/core/resources/values_manager.dart';
@@ -9,7 +10,7 @@ PreferredSizeWidget defaultAppBar(context,text,{Color color=Colors.white,Color c
     text,
     style:  TextStyle(
       fontWeight: FontWeight.bold,
-      fontSize: AppSize.s20,
+      fontSize: 20.sp,
       color: colorText,
     ),
   ),

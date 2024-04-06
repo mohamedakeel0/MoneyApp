@@ -17,7 +17,15 @@ class RegisiterCubic extends Cubit<RegisiterState> {
   TextEditingController secondNameController = TextEditingController();
   TextEditingController comfirmPasswordController = TextEditingController();
   bool isSelect = false;
-
+  GlobalKey<FormState> formkey = GlobalKey<FormState>();
+  bool? validationEmail;
+  bool? validationPassword;
+  bool? validationFristName;
+  bool? validationSecondName;
+  bool? validationPhone;
+  bool? validationFirstPassword;
+  bool? validationComfirmPassword;
+  bool? validationAll;
   void changeSelectBox() {
     if (!isClosed) {
       emit(LodaingChangeSelectBoxState());
@@ -46,6 +54,49 @@ class RegisiterCubic extends Cubit<RegisiterState> {
 
     if (!isClosed) {
       emit(SuccesChangePasswordVisibilityState());
+    }
+  }
+
+  void validation(text,value){
+    if (!isClosed) {
+      emit(LoadingValidationState());
+    }
+    if(text== AppStrings.enterYourPassword){
+      validationPassword=value;
+      validationAll=value;
+    }else if(text==AppStrings.enterYourEmail){
+      validationEmail=value;
+      validationAll=value;
+
+    }else if(text==AppStrings.validationFristName){
+      validationFristName=value;
+      validationAll=value;
+
+    }else if(text==AppStrings.validationSecondName){
+      validationSecondName=value;
+      validationAll=value;
+
+    }else if(text==AppStrings.enterYourPhone){
+      validationPhone=value;
+      validationAll=value;
+
+    }else if(text==AppStrings.enterYourComfirmPassword){
+      validationComfirmPassword=value;
+      validationAll=value;
+
+    }
+    if (!isClosed) {
+      emit(SuccessValidationState());
+    }
+  }
+  int?counts=0;
+  void changePriorities(value){
+    if (!isClosed) {
+      emit(LoadingChangePrioritiesState());
+    }
+    counts=value;
+    if (!isClosed) {
+      emit(SuccessChangePrioritiesState());
     }
   }
 }
