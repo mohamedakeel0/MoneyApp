@@ -16,7 +16,7 @@ class _SecondSplashScreenState extends State<SecondSplashScreen> {
   @override
   void initState() {
 
-    Timer(const Duration(seconds: 2),
+    Timer(const Duration(seconds: 3),
             () async{
           Navigator.popAndPushNamed(context, Routes.onboardingRoute);
 

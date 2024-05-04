@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 import 'package:moneyapp/core/resources/app_colors.dart';
 import 'package:moneyapp/core/resources/assets_manager.dart';
@@ -30,25 +31,24 @@ class _DoneRegisiterScreenState extends State<DoneRegisiterScreen> {
   Widget build(BuildContext context) {
     print(MediaQuery.of(context).size.height);
     return Scaffold(
-
       backgroundColor: AppColors.white,
       body: SizedBox(
         width: double.infinity,
         child: Padding(
-          padding: const EdgeInsets.only(top: 10.0),
-          child: Stack(alignment: AlignmentDirectional.center,
+          padding: EdgeInsets.only(top: 10.0.h),
+          child: Stack(
+            alignment: AlignmentDirectional.center,
             children: [
               Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     SizedBox(
-                      height: MediaQuery.of(context).size.height /
-                          AppResponsiveHeigh.h40,
+                      height: 40.h,
                     ),
                     Center(
                       child: Image(
-                        height: MediaQuery.of(context).size.height /
-                            AppResponsiveHeigh.h350,
+                        height: 300.h,
                         width: MediaQuery.of(context).size.width,
                         image: const AssetImage(
                           ImageAssets.doneRegisiter,
@@ -57,9 +57,9 @@ class _DoneRegisiterScreenState extends State<DoneRegisiterScreen> {
                     ),
                     const Spacer(),
                     Center(
-                      child: Image(fit: BoxFit.cover,
-                        height: MediaQuery.of(context).size.height /
-                            AppResponsiveHeigh.h350,
+                      child: Image(
+                        fit: BoxFit.cover,
+                        height: 300.h,
                         width: MediaQuery.of(context).size.width,
                         image: const AssetImage(
                           ImageAssets.backgroundDoneRegisiter,
@@ -68,85 +68,75 @@ class _DoneRegisiterScreenState extends State<DoneRegisiterScreen> {
                     ),
                   ]),
               Padding(
-                padding: const EdgeInsets.only(top: 300.0),
-                child: Container(     width: MediaQuery.of(context).size.width-100,
-                  height: MediaQuery.of(context).size.height /
-                      AppResponsiveHeigh.h280,
+                padding:  EdgeInsets.only(top: 250.sp),
+                child: Container(
+                  width: MediaQuery.of(context).size.width - 50,
+                  height: 310.h,
                   decoration: const BoxDecoration(
                       color: AppColors.colorPrimary,
                       borderRadius: BorderRadius.all(
-                          Radius.circular(AppSize.s30),
-                        )),
-                child: Column(crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment:MainAxisAlignment.center,children:  [
-
-                  const Text(
-                    AppStrings.accountCreate,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: AppSize.s20,
-                      color: AppColors.white,
-                    ),
-
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height /
-                        AppResponsiveHeigh.h20,
-                  ),
-                  const Text(
-                    AppStrings.accountCreateTitle,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontWeight: FontWeight.w300,
-                      fontSize: AppSize.s16,
-                      color: AppColors.white,
-                    ),
-
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height /
-                        AppResponsiveHeigh.h20,
-                  ),
-                  const Text(
-                    AppStrings.accountCreateTitleSecond,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontWeight: FontWeight.w300,
-                      fontSize: AppSize.s16,
-                      color: AppColors.white,
-                    ),
-
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height /
-                        AppResponsiveHeigh.h20,
-                  ),
-                  defaultButton(
-                      height: MediaQuery.of(context).size.height /
-                          AppResponsiveHeigh.h40,
-                      radius: AppConstance.ten,
-                      textStyle: const TextStyle(
-                        fontSize: FontSize.s16,
-                        fontFamily: 'DancingScript',
-                        color: AppColors.black,
-                        fontWeight: FontWeight.w700,
-                      ),
-                      shape: false,
-                      width: MediaQuery.of(context).size.width /
-                          AppResponsiveWidth.w150,
-                      background: AppColors.white,
-                      context: context,
-                      function: () {
-
-                        Navigator.pushReplacementNamed(
-                            context, Routes.loginRoute);
-                      },
-                      text: AppStrings.goToLoin,
-                      isUpperCase: false),
-                ]),
-
-
-
+                        Radius.circular(AppSize.s30),
+                      )),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                         Text(
+                          AppStrings.accountCreate,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize:20.sp,
+                            color: AppColors.white,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20.h,
+                        ),
+                        const Text(
+                          AppStrings.accountCreateTitle,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontWeight: FontWeight.w300,
+                            fontSize: AppSize.s16,
+                            color: AppColors.white,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20.h,
+                        ),
+                         Text(
+                          AppStrings.accountCreateTitleSecond,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontWeight: FontWeight.w300,
+                            fontSize: 16.sp,
+                            color: AppColors.white,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20.h,
+                        ),
+                        defaultButton(
+                            height: 40.h,
+                            radius: AppConstance.ten,
+                            textStyle:  TextStyle(
+                              fontSize: 15.sp,
+                              fontFamily: 'DancingScript',
+                              color: AppColors.black,
+                              fontWeight: FontWeight.w700,
+                            ),
+                            shape: false,
+                            width: 160.w,
+                            background: AppColors.white,
+                            context: context,
+                            function: () {
+                              Navigator.pushReplacementNamed(
+                                  context, Routes.loginRoute);
+                            },
+                            text: AppStrings.goToLoin,
+                            isUpperCase: false),
+                      ]),
                 ),
               )
             ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:moneyapp/core/resources/app_colors.dart';
 import 'package:moneyapp/core/resources/assets_manager.dart';
 import 'package:moneyapp/core/resources/strings.dart';
@@ -22,7 +23,7 @@ class _ViewImageScreenState extends State<ViewImageScreen> {
     return Scaffold(
       appBar: defaultAppBar(context,AppStrings.viewImage,),
       body: Padding(
-        padding: const EdgeInsets.only(top: 15.0, ),
+        padding:  EdgeInsets.only(top: 15.0.h, ),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Padding(
           padding:  EdgeInsets.only(top: MediaQuery.of(context).size.height / AppResponsiveHeigh.h200),

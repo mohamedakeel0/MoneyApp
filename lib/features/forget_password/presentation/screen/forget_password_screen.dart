@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:moneyapp/core/resources/app_colors.dart';
 import 'package:moneyapp/core/resources/assets_manager.dart';
 import 'package:moneyapp/core/resources/font_manager.dart';
@@ -30,30 +31,33 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
       listener: (context, state) {},
       builder: (context, state) {
         var cubic = ForgetPasswordCubic.get(context);
-        return Scaffold(appBar:
-        AppBar(
-          title:  const Text(
-          AppStrings.forgetPassword,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: AppSize.s25,
-            color: AppColors.black,
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text(
+              AppStrings.forgetPassword,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: AppSize.s25,
+                color: AppColors.black,
+              ),
+            ),
+            centerTitle: true,
+            backgroundColor: Colors.white,
           ),
-        ),centerTitle: true,backgroundColor: Colors.white,),
           backgroundColor: AppColors.white,
           body: SingleChildScrollView(
             child: SizedBox(
               width: double.infinity,
               child: Padding(
-                padding: const EdgeInsets.only(top: 10.0),
+                padding: EdgeInsets.only(top: 8.0.h),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-
-                      SizedBox(   width: MediaQuery.of(context).size.width /
-                          AppResponsiveWidth.w325,
+                      SizedBox(
+                        width: 300.w,
                         child: const Text(
-                          AppStrings.titleForget,textAlign: TextAlign.center,
+                          AppStrings.titleForget,
+                          textAlign: TextAlign.center,
                           style: TextStyle(
                             fontWeight: FontWeight.w300,
                             fontSize: AppSize.s16,
@@ -61,25 +65,28 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                           ),
                         ),
                       ),
-
                       Center(
-                        child: Image(height: MediaQuery.of(context).size.height /
-                            AppResponsiveHeigh.h336,width: MediaQuery.of(context).size.width ,
-                          image: const AssetImage(ImageAssets.forgotpassword,),
+                        child: Image(
+                          height: 280.h,
+                          width: MediaQuery.of(context).size.width,
+                          image: const AssetImage(
+                            ImageAssets.forgotpassword,
+                          ),
                         ),
                       ),
                       Container(
                         width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height -MediaQuery.of(context).size.height /
-                          AppResponsiveHeigh.h300,
+                        height: MediaQuery.of(context).size.height -
+                            MediaQuery.of(context).size.height /
+                                AppResponsiveHeigh.h300,
                         decoration: const BoxDecoration(
                             color: AppColors.backGroundPrimary,
                             borderRadius: BorderRadius.only(
                                 topRight: Radius.circular(AppSize.s30),
                                 topLeft: Radius.circular(AppSize.s30))),
                         child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 30.0, horizontal: 35.0),
+                          padding:  EdgeInsets.symmetric(
+                              vertical: 30.0.h, horizontal: 30.0.w),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -91,81 +98,74 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                                   color: AppColors.colorPrimaryDark,
                                 ),
                               ),
+                              SizedBox(
+                                height: 5.h,
+                              ),
                               Container(
-                                height:
-                                MediaQuery.of(context)
-                                    .size
-                                    .height /
-                                    AppResponsiveHeigh.h40
-                                ,clipBehavior: Clip.antiAliasWithSaveLayer,decoration: BoxDecoration(color:AppColors.white, borderRadius: BorderRadius.circular(AppSize.s10), ),
+                                height: 40.h,
+                                clipBehavior: Clip.antiAliasWithSaveLayer,
+                                decoration: BoxDecoration(
+                                  color: AppColors.white,
+                                  borderRadius:
+                                      BorderRadius.circular(AppSize.s10),
+                                ),
                                 child: defaultFormField(
                                   context: context,
                                   onTap: () {},
                                   prefix: null,
                                   prefixIsImage: false,
-                                  textStyle: Theme.of(context)
-                                      .textTheme
-                                      .titleLarge,
-                                  iconSize: MediaQuery.of(context)
-                                      .size
-                                      .height /
+                                  textStyle:
+                                      Theme.of(context).textTheme.titleLarge,
+                                  iconSize: MediaQuery.of(context).size.height /
                                       AppResponsiveHeigh.h10,
-                                  isEnabled: true,hintText: AppStrings.enterYourEmail,
+                                  isEnabled: true,
+                                  hintText: AppStrings.enterYourEmail,
                                   isError: true,
                                   isFocusBorder: true,
                                   controller: cubic.emailController,
                                   type: TextInputType.emailAddress,
                                   validate: (value) {
-                                    if (value!.isEmpty) {
-
-                                    }
+                                    if (value!.isEmpty) {}
                                     return null;
                                   },
                                 ),
                               ),
                               SizedBox(
-                                height: MediaQuery.of(context).size.height /
-                                    AppResponsiveHeigh.h20,
+                                height: 20.h,
                               ),
-                              defaultButton(
-                                  height:
-                                  MediaQuery.of(context)
-                                      .size
-                                      .height /
-                                      AppResponsiveHeigh
-                                          .h40,
-                                  radius: AppConstance
-                                      .ten,
-                                  textStyle: const TextStyle(
-                                    fontSize: FontSize.s16,
-                                    fontFamily:
-                                    'DancingScript',
-                                    color: AppColors.white,
-                                    fontWeight:
-                                    FontWeight.w400,
-                                  ),
-                                  shape: false,
-                                  width:
-                                  MediaQuery.of(context)
-                                      .size
-                                      .width /
-                                      AppResponsiveWidth
-                                          .w300,
-                                  background: AppColors.colorPrimary,
-                                  context: context,
-                                  function: () {
-                                    Navigator.pushNamed(context, Routes.varificationRoute);
-                                  },
-                                  text: AppStrings.sendCode,
-                                  isUpperCase: false),
+                              Center(
+                                child: defaultButton(
+                                    height: 35.h,
+                                    radius: AppConstance.ten,
+                                    textStyle: const TextStyle(
+                                      fontSize: FontSize.s16,
+                                      fontFamily: 'DancingScript',
+                                      color: AppColors.white,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                    shape: false,
+                                    width: 260.w,
+                                    background: AppColors.colorPrimary,
+                                    context: context,
+                                    function: () {
+                                      Navigator.pushNamed(
+                                          context, Routes.varificationRoute);
+                                    },
+                                    text: AppStrings.sendCode,
+                                    isUpperCase: false),
+                              ),
                               SizedBox(
-                                height: MediaQuery.of(context).size.height /
-                                    AppResponsiveHeigh.h40,
+                                height: 30.h,
                               ),
-                              GestureDetector(child: twoTextWithUnderline(fristText: AppStrings.rememberPassword,secondText: AppStrings.loginNow ),onTap: () {
-                                Navigator.pushReplacementNamed(context, Routes.loginRoute);
-                              },),
-
+                              GestureDetector(
+                                child: twoTextWithUnderline(
+                                    fristText: AppStrings.rememberPassword,
+                                    secondText: AppStrings.loginNow),
+                                onTap: () {
+                                  Navigator.pushReplacementNamed(
+                                      context, Routes.loginRoute);
+                                },
+                              ),
                             ],
                           ),
                         ),

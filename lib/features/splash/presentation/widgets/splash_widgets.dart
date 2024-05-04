@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:moneyapp/core/resources/app_colors.dart';
 import 'package:moneyapp/core/resources/assets_manager.dart';
@@ -26,7 +27,7 @@ class _SplashWidgetState extends State<SplashWidget> {
       height: double.infinity,
   color: widget.isChange==true?AppColors.white :AppColors.colorPrimary,
       child: Padding(
-        padding: const EdgeInsets.all(30.0),
+        padding:  EdgeInsets.all(30.0.sp),
         child: Column(crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
           children: [
 
@@ -35,8 +36,8 @@ class _SplashWidgetState extends State<SplashWidget> {
               duration: const Duration(milliseconds: 500),
               child: Image(
                 image:widget.isChange==true?  AssetImage(ImageAssets.secondLogoApp):AssetImage(ImageAssets.logoApp),
-                width: MediaQuery.of(context).size.width/3,
-                height: MediaQuery.of(context).size.height/AppResponsiveHeigh.h150,
+                width: 105.w,
+                height: 150.h,
               ),
             ),
 

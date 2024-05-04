@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:moneyapp/core/resources/app_colors.dart';
 import 'package:moneyapp/core/resources/strings.dart';
 import 'package:moneyapp/core/resources/values_manager.dart';
@@ -10,17 +11,17 @@ Widget itemAddReport(context,text,icon)=>Container(
       color: AppColors.colorPrimary,
       borderRadius: BorderRadius.circular(AppSize.s16)),
   child: Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+    padding:  EdgeInsets.symmetric(horizontal: 25.0.w),
     child: Row(crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,children: [
       Text(
         text,
-        style: TextStyle(
+        style: const TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: AppSize.s20,
           color: AppColors.white,
         ),
       ),
-      Spacer(),
+      const Spacer(),
       Icon(
         icon,
         size: 40,

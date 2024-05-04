@@ -2,6 +2,7 @@
 
 
 import 'package:dio/dio.dart';
+import 'package:moneyapp/core/network/End_point.dart';
 
 
 class DioHelper {
@@ -11,7 +12,7 @@ class DioHelper {
 
     dio = Dio(
       BaseOptions(
-        baseUrl:  '' ,
+        baseUrl:  BASE_URL,
         receiveDataWhenStatusError: true,validateStatus:(_) => true,
         contentType: Headers.jsonContentType,
         responseType:ResponseType.json,

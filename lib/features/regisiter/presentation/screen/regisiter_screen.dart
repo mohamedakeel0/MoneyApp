@@ -36,15 +36,16 @@ class _RegisiterScreenState extends State<RegisiterScreen> {
         return Scaffold(
           backgroundColor: AppColors.white,
           body: SingleChildScrollView(
-            child: Form(key: cubic.formkey,
+            child: Form(
+              key: cubic.formkey,
               child: SizedBox(
                 width: double.infinity,
                 child: Padding(
-                  padding:  EdgeInsets.only(top: 90.0.h),
+                  padding: EdgeInsets.only(top: 90.0.h),
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                         Text(
+                        Text(
                           AppStrings.signUpTitle,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -52,7 +53,7 @@ class _RegisiterScreenState extends State<RegisiterScreen> {
                             color: AppColors.black,
                           ),
                         ),
-                         Text(
+                        Text(
                           AppStrings.titleRegisiter,
                           style: TextStyle(
                             fontWeight: FontWeight.w300,
@@ -65,14 +66,14 @@ class _RegisiterScreenState extends State<RegisiterScreen> {
                         ),
                         Container(
                           width: MediaQuery.of(context).size.width,
-                          height: 600.h,
-                          decoration:  BoxDecoration(
+                          height: MediaQuery.of(context).size.height,
+                          decoration: BoxDecoration(
                               color: AppColors.backGroundPrimary,
                               borderRadius: BorderRadius.only(
                                   topRight: Radius.circular(30.sp),
                                   topLeft: Radius.circular(30.sp))),
                           child: Padding(
-                            padding:  EdgeInsets.symmetric(
+                            padding: EdgeInsets.symmetric(
                                 vertical: 25.0.h, horizontal: 25.w),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -82,58 +83,71 @@ class _RegisiterScreenState extends State<RegisiterScreen> {
                                   children: [
                                     Column(
                                       children: [
-
-                                        buildTextFormAndTitle(context,validationName: AppStrings.validationFristName,
-                                            fristText: AppStrings.fristName,cubit: cubic,
+                                        buildTextFormAndTitle(context,
+                                            validationName:
+                                                AppStrings.validationFristName,
+                                            fristText: AppStrings.fristName,
+                                            cubit: cubic,
                                             textEditingControllerFrist:
-                                            cubic.fristNameController),
-                                        cubic.validationFristName==true?  SizedBox(
-                                          height: 2.h,
-                                        ):SizedBox(),
-                                        cubic.validationFristName==true?    Text(
-                                          AppStrings.validationFristName,
-                                          style: TextStyle(
-                                            fontSize: 14.sp,
-                                            fontFamily: 'DancingScript',
-                                            color: AppColors.red,
-                                            fontWeight: FontWeight.w400,
-                                          ),
-                                        ):SizedBox(),
-                                      ],),
-
-                                    SizedBox(
-                                      width: 20.w
-                                      ,
+                                                cubic.fristNameController),
+                                        cubic.validationFristName == true
+                                            ? SizedBox(
+                                                height: 2.h,
+                                              )
+                                            : SizedBox(),
+                                        cubic.validationFristName == true
+                                            ? Text(
+                                                AppStrings.validationFristName,
+                                                style: TextStyle(
+                                                  fontSize: 13.sp,
+                                                  fontFamily: 'DancingScript',
+                                                  color: AppColors.red,
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                              )
+                                            : SizedBox(),
+                                      ],
                                     ),
-                                    Column(children: [
-                                      buildTextFormAndTitle(context,cubit: cubic,
-                                          fristText: AppStrings.lastName,validationName: AppStrings.validationSecondName,
-                                          textEditingControllerFrist:
-                                          cubic.secondNameController),
-                                      cubic.validationSecondName==true?  SizedBox(
-                                        height: 2.h,
-                                      ):SizedBox(),
-                                      cubic.validationSecondName==true?    Text(
-                                        AppStrings.validationFristName,
-                                        style: TextStyle(
-                                          fontSize: 14.sp,
-                                          fontFamily: 'DancingScript',
-                                          color: AppColors.red,
-                                          fontWeight: FontWeight.w400,
-                                        ),
-                                      ):SizedBox(),
-                                    ],)
-
+                                    SizedBox(
+                                      width: 20.w,
+                                    ),
+                                    Column(
+                                      children: [
+                                        buildTextFormAndTitle(context,
+                                            cubit: cubic,
+                                            fristText: AppStrings.lastName,
+                                            validationName:
+                                                AppStrings.validationSecondName,
+                                            textEditingControllerFrist:
+                                                cubic.secondNameController),
+                                        cubic.validationSecondName == true
+                                            ? SizedBox(
+                                                height: 2.h,
+                                              )
+                                            : SizedBox(),
+                                        cubic.validationSecondName == true
+                                            ? Text(
+                                                AppStrings.validationFristName,
+                                                style: TextStyle(
+                                                  fontSize: 13.sp,
+                                                  fontFamily: 'DancingScript',
+                                                  color: AppColors.red,
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                              )
+                                            : SizedBox(),
+                                      ],
+                                    )
                                   ],
                                 ),
                                 SizedBox(
                                   height: 2.h,
                                 ),
-                                 Text(
+                                Text(
                                   AppStrings.email,
                                   style: TextStyle(
                                     fontWeight: FontWeight.w300,
-                                    fontSize: 14.sp,
+                                    fontSize: 13.sp,
                                     color: AppColors.colorPrimaryDark,
                                   ),
                                 ),
@@ -163,33 +177,38 @@ class _RegisiterScreenState extends State<RegisiterScreen> {
                                     controller: cubic.emailController,
                                     type: TextInputType.emailAddress,
                                     validate: (value) {
-
-                                      if(  cubic.emailController.text.trim().isEmpty){
-                                        cubic.validation(AppStrings.enterYourEmail,true);
-                                      }else{
-                                        cubic.validation(AppStrings.enterYourEmail,false);
-
+                                      if (cubic.emailController.text
+                                          .trim()
+                                          .isEmpty) {
+                                        cubic.validation(
+                                            AppStrings.enterYourEmail, true);
+                                      } else {
+                                        cubic.validation(
+                                            AppStrings.enterYourEmail, false);
                                       }
-
                                     },
                                   ),
                                 ),
-                                cubic.validationEmail==true?  SizedBox(
-                                  height:2.h,
-                                ):SizedBox(),
-                                cubic.validationEmail==true?     Text(
-                                  AppStrings.enterYourEmail,
-                                  style: TextStyle(
-                                    fontSize: 14.sp,
-                                    fontFamily: 'DancingScript',
-                                    color: AppColors.red,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ):SizedBox(),
+                                cubic.validationEmail == true
+                                    ? SizedBox(
+                                        height: 2.h,
+                                      )
+                                    : SizedBox(),
+                                cubic.validationEmail == true
+                                    ? Text(
+                                        AppStrings.enterYourEmail,
+                                        style: TextStyle(
+                                          fontSize: 13.sp,
+                                          fontFamily: 'DancingScript',
+                                          color: AppColors.red,
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                      )
+                                    : SizedBox(),
                                 SizedBox(
                                   height: 2.h,
                                 ),
-                                 Text(
+                                Text(
                                   AppStrings.phone,
                                   style: TextStyle(
                                     fontWeight: FontWeight.w300,
@@ -206,7 +225,7 @@ class _RegisiterScreenState extends State<RegisiterScreen> {
                                   decoration: BoxDecoration(
                                     color: AppColors.white,
                                     borderRadius:
-                                    BorderRadius.circular(AppSize.s10),
+                                        BorderRadius.circular(AppSize.s10),
                                   ),
                                   child: defaultFormField(
                                     context: context,
@@ -214,8 +233,8 @@ class _RegisiterScreenState extends State<RegisiterScreen> {
                                     prefix: null,
                                     prefixIsImage: false,
                                     textStyle:
-                                    Theme.of(context).textTheme.titleLarge,
-                                    iconSize:10.h,
+                                        Theme.of(context).textTheme.titleLarge,
+                                    iconSize: 10.h,
                                     isEnabled: true,
                                     hintText: AppStrings.enterYourPhone,
                                     isError: true,
@@ -223,40 +242,46 @@ class _RegisiterScreenState extends State<RegisiterScreen> {
                                     controller: cubic.phoneController,
                                     type: TextInputType.phone,
                                     validate: (value) {
-
-                                      if(  cubic.phoneController.text.trim().isEmpty){
-                                        cubic.validation(AppStrings.enterYourPhone,true);
-                                      }else{
-                                        cubic.validation(AppStrings.enterYourPhone,false);
-
+                                      if (cubic.phoneController.text
+                                          .trim()
+                                          .isEmpty) {
+                                        cubic.validation(
+                                            AppStrings.enterYourPhone, true);
+                                      } else {
+                                        cubic.validation(
+                                            AppStrings.enterYourPhone, false);
                                       }
-
                                     },
                                   ),
                                 ),
-                                cubic.validationPhone==true?  SizedBox(
-                                  height: 2.h,
-                                ):SizedBox(),
-                                cubic.validationPhone==true?    Text(
-                                  AppStrings.enterYourPhone,
-                                  style: TextStyle(
-                                    fontSize: 14.sp,
-                                    fontFamily: 'DancingScript',
-                                    color: AppColors.red,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ):SizedBox(),
+                                cubic.validationPhone == true
+                                    ? SizedBox(
+                                        height: 2.h,
+                                      )
+                                    : SizedBox(),
+                                cubic.validationPhone == true
+                                    ? Text(
+                                        AppStrings.enterYourPhone,
+                                        style: TextStyle(
+                                          fontSize: 13.sp,
+                                          fontFamily: 'DancingScript',
+                                          color: AppColors.red,
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                      )
+                                    : SizedBox(),
                                 SizedBox(
                                   height: 2.h,
                                 ),
-                                 Text(
+                                Text(
                                   AppStrings.password,
                                   style: TextStyle(
                                     fontWeight: FontWeight.w300,
                                     fontSize: 16.sp,
                                     color: AppColors.colorPrimaryDark,
                                   ),
-                                ), SizedBox(
+                                ),
+                                SizedBox(
                                   height: 2.h,
                                 ),
                                 Container(
@@ -281,49 +306,56 @@ class _RegisiterScreenState extends State<RegisiterScreen> {
                                     isFocusBorder: true,
                                     controller: cubic.passwordController,
                                     isPassword: cubic.isNewPassword,
-              
-                                    suffix:cubic.isNewPassword? Icons.visibility_outlined
+                                    suffix: cubic.isNewPassword
+                                        ? Icons.visibility_outlined
                                         : Icons.visibility_off,
                                     suffixPressed: () {
-              
-                                      cubic.changePasswordVisibility(AppStrings.newPassword);
+                                      cubic.changePasswordVisibility(
+                                          AppStrings.newPassword);
                                     },
                                     type: TextInputType.emailAddress,
                                     validate: (value) {
-
-                                      if(  cubic.passwordController.text.trim().isEmpty){
-                                        cubic.validation(AppStrings.enterYourPassword,true);
-                                      }else{
-                                        cubic.validation(AppStrings.enterYourPassword,false);
-
+                                      if (cubic.passwordController.text
+                                          .trim()
+                                          .isEmpty) {
+                                        cubic.validation(
+                                            AppStrings.enterYourPassword, true);
+                                      } else {
+                                        cubic.validation(
+                                            AppStrings.enterYourPassword,
+                                            false);
                                       }
-
                                     },
                                   ),
                                 ),
-                                cubic.validationPassword==true?  SizedBox(
-                                  height:2.h,
-                                ):SizedBox(),
-                                cubic.validationPassword==true?    Text(
-                                  AppStrings.enterYourPassword,
-                                  style: TextStyle(
-                                    fontSize: 14.sp,
-                                    fontFamily: 'DancingScript',
-                                    color: AppColors.red,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ):SizedBox(),
+                                cubic.validationPassword == true
+                                    ? SizedBox(
+                                        height: 2.h,
+                                      )
+                                    : SizedBox(),
+                                cubic.validationPassword == true
+                                    ? Text(
+                                        AppStrings.enterYourPassword,
+                                        style: TextStyle(
+                                          fontSize: 13.sp,
+                                          fontFamily: 'DancingScript',
+                                          color: AppColors.red,
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                      )
+                                    : SizedBox(),
                                 SizedBox(
                                   height: 2.h,
                                 ),
-                                 Text(
+                                Text(
                                   AppStrings.comfirmPassword,
                                   style: TextStyle(
                                     fontWeight: FontWeight.w300,
                                     fontSize: 16.sp,
                                     color: AppColors.colorPrimaryDark,
                                   ),
-                                ), SizedBox(
+                                ),
+                                SizedBox(
                                   height: 2.h,
                                 ),
                                 Container(
@@ -348,41 +380,49 @@ class _RegisiterScreenState extends State<RegisiterScreen> {
                                     isFocusBorder: true,
                                     controller: cubic.comfirmPasswordController,
                                     isPassword: cubic.isComfiremPassword,
-              
-                                    suffix:cubic.isComfiremPassword? Icons.visibility_outlined
+                                    suffix: cubic.isComfiremPassword
+                                        ? Icons.visibility_outlined
                                         : Icons.visibility_off,
                                     suffixPressed: () {
-              
-                                      cubic.changePasswordVisibility(AppStrings.comfirmPassword);
+                                      cubic.changePasswordVisibility(
+                                          AppStrings.comfirmPassword);
                                     },
                                     type: TextInputType.emailAddress,
                                     validate: (value) {
-
-                                      if(  cubic.comfirmPasswordController.text.trim().isEmpty){
-                                        cubic.validation(AppStrings.enterYourComfirmPassword,true);
-                                      }else{
-                                        cubic.validation(AppStrings.enterYourComfirmPassword,false);
-
+                                      if (cubic.comfirmPasswordController.text
+                                          .trim()
+                                          .isEmpty) {
+                                        cubic.validation(
+                                            AppStrings.enterYourComfirmPassword,
+                                            true);
+                                      } else {
+                                        cubic.validation(
+                                            AppStrings.enterYourComfirmPassword,
+                                            false);
                                       }
-
                                     },
                                   ),
-                                ),     cubic.validationComfirmPassword==true?  SizedBox(
-                                  height:2.h,
-                                ):SizedBox(),
-                                cubic.validationComfirmPassword==true?    Text(
-                                  AppStrings.enterYourComfirmPassword,
-                                  style: TextStyle(
-                                    fontSize: 14.sp,
-                                    fontFamily: 'DancingScript',
-                                    color: AppColors.red,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ):SizedBox(),
+                                ),
+                                cubic.validationComfirmPassword == true
+                                    ? SizedBox(
+                                        height: 2.h,
+                                      )
+                                    : SizedBox(),
+                                cubic.validationComfirmPassword == true
+                                    ? Text(
+                                        AppStrings.enterYourComfirmPassword,
+                                        style: TextStyle(
+                                          fontSize: 13.sp,
+                                          fontFamily: 'DancingScript',
+                                          color: AppColors.red,
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                      )
+                                    : SizedBox(),
                                 SizedBox(
                                   height: 8.h,
                                 ),
-                                 Center(
+                                Center(
                                   child: Text(
                                     AppStrings.setYourPriorities,
                                     style: TextStyle(
@@ -404,9 +444,13 @@ class _RegisiterScreenState extends State<RegisiterScreen> {
                                               cubic.changePriorities(1);
                                             },
                                             child: Icon(
-                                              cubic.counts == 1?
-                                                   Icons.check_box_rounded: Icons.check_box_outline_blank,
-                                              color:  cubic.counts == 1? AppColors.colorPrimary:AppColors.gray2,
+                                              cubic.counts == 1
+                                                  ? Icons.check_box_rounded
+                                                  : Icons
+                                                      .check_box_outline_blank,
+                                              color: cubic.counts == 1
+                                                  ? AppColors.colorPrimary
+                                                  : AppColors.gray2,
                                               size: 20.sp,
                                             )),
                                         SizedBox(
@@ -432,9 +476,13 @@ class _RegisiterScreenState extends State<RegisiterScreen> {
                                               cubic.changePriorities(2);
                                             },
                                             child: Icon(
-                                              cubic.counts ==2?
-                                              Icons.check_box_rounded: Icons.check_box_outline_blank,
-                                              color:  cubic.counts == 2? AppColors.colorPrimary:AppColors.gray2,
+                                              cubic.counts == 2
+                                                  ? Icons.check_box_rounded
+                                                  : Icons
+                                                      .check_box_outline_blank,
+                                              color: cubic.counts == 2
+                                                  ? AppColors.colorPrimary
+                                                  : AppColors.gray2,
                                               size: 20.sp,
                                             )),
                                         SizedBox(
@@ -460,9 +508,13 @@ class _RegisiterScreenState extends State<RegisiterScreen> {
                                               cubic.changePriorities(3);
                                             },
                                             child: Icon(
-                                              cubic.counts ==3?
-                                              Icons.check_box_rounded: Icons.check_box_outline_blank,
-                                              color:  cubic.counts == 3? AppColors.colorPrimary:AppColors.gray2,
+                                              cubic.counts == 3
+                                                  ? Icons.check_box_rounded
+                                                  : Icons
+                                                      .check_box_outline_blank,
+                                              color: cubic.counts == 3
+                                                  ? AppColors.colorPrimary
+                                                  : AppColors.gray2,
                                               size: 20.sp,
                                             )),
                                         SizedBox(
@@ -481,7 +533,7 @@ class _RegisiterScreenState extends State<RegisiterScreen> {
                                   ],
                                 ),
                                 SizedBox(
-                                  height:20.h,
+                                  height: 20.h,
                                 ),
                                 GestureDetector(
                                     onTap: () {
@@ -509,10 +561,13 @@ class _RegisiterScreenState extends State<RegisiterScreen> {
                                       background: AppColors.colorPrimary,
                                       context: context,
                                       function: () {
-                                        if (cubic.formkey.currentState!.validate()) {
-                                          if(cubic.validationAll!=true){
+                                        if (cubic.formkey.currentState!
+                                            .validate()) {
+                                          if (cubic.validationAll != true) {
                                             Navigator.popAndPushNamed(
-                                                context, Routes.doneRegisiterScreenRoute);
+                                                context,
+                                                Routes
+                                                    .doneRegisiterScreenRoute);
                                           }
                                         }
                                       },

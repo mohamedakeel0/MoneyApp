@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 import 'package:moneyapp/core/resources/app_colors.dart';
 import 'package:moneyapp/core/resources/assets_manager.dart';
@@ -47,13 +48,12 @@ class _VarificationScreenState extends State<VarificationScreen> {
         child: SizedBox(
           width: double.infinity,
           child: Padding(
-            padding: const EdgeInsets.only(top: 10.0),
+            padding: EdgeInsets.only(top: 8.0.h),
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(
-                    width: MediaQuery.of(context).size.width /
-                        AppResponsiveWidth.w325,
+                    width: 280.w,
                     child: const Text(
                       AppStrings.titleVarification,
                       textAlign: TextAlign.center,
@@ -66,8 +66,7 @@ class _VarificationScreenState extends State<VarificationScreen> {
                   ),
                   Center(
                     child: Image(
-                      height: MediaQuery.of(context).size.height /
-                          AppResponsiveHeigh.h336,
+                      height: 280.h,
                       width: MediaQuery.of(context).size.width,
                       image: const AssetImage(
                         ImageAssets.varification,
@@ -76,16 +75,17 @@ class _VarificationScreenState extends State<VarificationScreen> {
                   ),
                   Container(
                     width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height -MediaQuery.of(context).size.height /
-                        AppResponsiveHeigh.h300,
+                    height: MediaQuery.of(context).size.height -
+                        MediaQuery.of(context).size.height /
+                            AppResponsiveHeigh.h300,
                     decoration: const BoxDecoration(
                         color: AppColors.backGroundPrimary,
                         borderRadius: BorderRadius.only(
                             topRight: Radius.circular(AppSize.s30),
                             topLeft: Radius.circular(AppSize.s30))),
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 30.0, horizontal: 35.0),
+                      padding:  EdgeInsets.symmetric(
+                          vertical: 25.0.h, horizontal: 30.0.w),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
@@ -107,12 +107,10 @@ class _VarificationScreenState extends State<VarificationScreen> {
                             onEditing: (bool value) {},
                           ),
                           SizedBox(
-                            height: MediaQuery.of(context).size.height /
-                                AppResponsiveHeigh.h35,
+                            height: 35.h,
                           ),
                           defaultButton(
-                              height: MediaQuery.of(context).size.height /
-                                  AppResponsiveHeigh.h40,
+                              height: 40.h,
                               radius: AppConstance.ten,
                               textStyle: const TextStyle(
                                 fontSize: FontSize.s16,
@@ -121,27 +119,25 @@ class _VarificationScreenState extends State<VarificationScreen> {
                                 fontWeight: FontWeight.w400,
                               ),
                               shape: false,
-                              width: MediaQuery.of(context).size.width /
-                                  AppResponsiveWidth.w300,
+                              width: 220.w
+                              ,
                               background: AppColors.colorPrimary,
                               context: context,
                               function: () {
-
                                 Navigator.pushReplacementNamed(
-                                    context, Routes.changePasswordRoute,arguments: false);
+                                    context, Routes.changePasswordRoute,
+                                    arguments: false);
                               },
                               text: AppStrings.verify,
                               isUpperCase: false),
                           SizedBox(
-                            height: MediaQuery.of(context).size.height /
-                                AppResponsiveHeigh.h45,
+                            height: 45.h,
                           ),
                           GestureDetector(
                             child: twoTextWithUnderline(
                                 fristText: AppStrings.didReceived,
                                 secondText: AppStrings.resend),
-                            onTap: () {
-                            },
+                            onTap: () {},
                           ),
                         ],
                       ),

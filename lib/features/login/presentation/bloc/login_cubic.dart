@@ -2,13 +2,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:moneyapp/core/resources/strings.dart';
+import 'package:moneyapp/features/login/domain/use_cases/loginUseCase.dart';
 import 'package:moneyapp/features/login/presentation/bloc/login_state.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 class LoginCubic extends Cubit<LoginState> {
-  LoginCubic() : super(LoginInitailState());
+  LoginCubic(this.getUserLoginUseCase) : super(LoginInitailState());
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
-
+  final UserLoginUseCase getUserLoginUseCase;
   static LoginCubic get(context) => BlocProvider.of(context);
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
@@ -44,4 +45,6 @@ class LoginCubic extends Cubit<LoginState> {
       emit(SuccesChangeSelectBoxState());
     }
   }
+
+
 }

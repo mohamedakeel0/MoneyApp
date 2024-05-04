@@ -46,7 +46,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     return Scaffold(
 
       body: Padding(
-        padding: EdgeInsets.all(height / 27.5),
+        padding: EdgeInsets.all(25.sp),
         child: Column(
           children: [
             itemTopOnBoardingWidget(boardController,context),
@@ -67,7 +67,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 physics: const BouncingScrollPhysics(),
                 controller: boardController,
                 itemBuilder: (context, index) => buildBoardingItem(
-                    boarding[index], height / 27.5, height / 55.03,width),
+                    boarding[index], 30.h, 10.h,width),
                 itemCount: boarding.length,
               ),
             ),
@@ -78,13 +78,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             SmoothPageIndicator(
               controller: boardController,
               count: boarding.length,
-              effect: const ExpandingDotsEffect(
+              effect:  ExpandingDotsEffect(
                 dotColor: Colors.grey,
                 activeDotColor:  AppColors.colorPrimary,
-                dotHeight: 10,
-                expansionFactor: 4,
-                dotWidth: 10,
-                spacing: 5,
+                dotHeight: 8.h,
+                expansionFactor: 4.h,
+                dotWidth: 10.w,
+                spacing: 5.w,
               ),
             ),
             SizedBox(
