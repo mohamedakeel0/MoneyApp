@@ -96,4 +96,5 @@ class AppStrings {
   static const        resend = 'Resend';
   static const        changePassword = 'Change Password';
   static const        search = 'search';
+  static const        ok = 'ok';
 }

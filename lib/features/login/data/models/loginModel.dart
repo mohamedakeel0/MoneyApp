@@ -15,13 +15,13 @@ class LoginModel extends LoginEntity {
   });
   factory LoginModel.fromJson(Map<String, dynamic> json) {
     return LoginModel(
-      message: json['message'] as Null,
-      isAuthenticated: json['isAuthenticated'] as bool,
-      email: json['email'] as String,
-      username: json['username'] as String,
-      roles: (json['roles'] as List<dynamic>).map((role) => role.toString()).toList(),
-      token: json['token'] as String,
-      expiresOn: json['expiresOn'] as String,
+      message: json['message']??'' ,
+      isAuthenticated: json['isAuthenticated']??false ,
+      email: json['email'],
+      username: json['username'] ,
+      roles: List<String>.from(json['roles'].map((e) => e))  ,
+      token: json['token'] ,
+      expiresOn: json['expiresOn'] ,
     );
 
   }}

@@ -5,6 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:moneyapp/core/resources/app_colors.dart';
 import 'package:moneyapp/core/resources/assets_manager.dart';
 import 'package:moneyapp/core/resources/routes_manager.dart';
+import 'package:moneyapp/core/services/app_navigator.dart';
+import 'package:moneyapp/features/onboarding/presentation/screen/on_boarding_screen.dart';
 class SecondSplashScreen extends StatefulWidget {
   const SecondSplashScreen({Key? key}) : super(key: key);
 
@@ -18,7 +20,8 @@ class _SecondSplashScreenState extends State<SecondSplashScreen> {
 
     Timer(const Duration(seconds: 3),
             () async{
-          Navigator.popAndPushNamed(context, Routes.onboardingRoute);
+              Go.pushAndRemoveUntil(OnboardingScreen());
+
 
         });
     super.initState();

@@ -9,15 +9,16 @@ final String? message;
 
   const ErrorMessageModel(
 
-      this.message,
+
       {required this.statusCode,
 
         required this.errors,
+        required this.message,
 
 
       });
   factory ErrorMessageModel.fromJson(Map<String, dynamic> json)=>
-      ErrorMessageModel(json['message'],statusCode: json['status'],
+      ErrorMessageModel(message:json['message'],statusCode: json['status'],
         errors: json['error']==null? [json['message']] : List<dynamic>.from(json['error'].map((e) => e)) ,
      );
   @override

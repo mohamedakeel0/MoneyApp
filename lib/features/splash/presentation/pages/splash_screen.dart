@@ -5,6 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:moneyapp/core/resources/app_colors.dart';
 import 'package:moneyapp/core/resources/assets_manager.dart';
 import 'package:moneyapp/core/resources/routes_manager.dart';
+import 'package:moneyapp/core/services/app_navigator.dart';
+import 'package:moneyapp/features/splash/presentation/pages/second_splash~_screen.dart';
 import 'package:moneyapp/features/splash/presentation/widgets/splash_widgets.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -21,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     Timer(const Duration(seconds:8),
             () async {
-          Navigator.popAndPushNamed(context, Routes.secondSplashRoute);
+         Go.pushAndRemoveUntil(SecondSplashScreen());
         });
     super.initState();
   }

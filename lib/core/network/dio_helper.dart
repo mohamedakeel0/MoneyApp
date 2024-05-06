@@ -33,11 +33,7 @@ class DioHelper {
       "Authorization": "Bearer $token",
     };
 
-    if(query==null){
-
-      query = {'api_token':token};
-
-    }
+ 
 
     return await dio.get(
       url,
@@ -75,11 +71,7 @@ class DioHelper {
       "lang":"",
       "Authorization": "Bearer $token",
     };
-    if(query==null){
 
-      query = {'api_token':token};
-
-    }
     return await dio.post(
       url,
       queryParameters: query,

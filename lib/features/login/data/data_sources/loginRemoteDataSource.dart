@@ -1,4 +1,3 @@
-
 import 'package:moneyapp/core/error/exceptions.dart';
 import 'package:moneyapp/core/network/End_point.dart';
 import 'package:moneyapp/core/network/dio_helper.dart';
@@ -16,28 +15,22 @@ class UserLoginRemoteDataSource extends BaseUserLoginRemoteDataSource {
     final response = await DioHelper.postdata(
       url: login,
       data: {
-        'eamil': loginParameters.email,
+        'email': loginParameters.email,
         'password': loginParameters.password,
 
       },
     );
-print('statusCode${response.realUri}');
-
+    print('statusCode${response.realUri}');
+    print('sdasda${response.data}');
     if (response.statusCode == 200) {
-      if(response.data['status']){
+
+        print('sdasda');
         return LoginModel.fromJson(response.data);
-      }else{
-
-
-        throw ServerException(
-            errorMessageModel: ErrorMessageModel.fromJson(response.data));
-      }
-
-
 
     } else {
       throw ServerException(
-          errorMessageModel: ErrorMessageModel.fromJson(response.data));
+          errorMessageModel: ErrorMessageModel(
+              errors: [], statusCode:response.statusCode==200?true:false, message:response.data));
     }
   }
 }

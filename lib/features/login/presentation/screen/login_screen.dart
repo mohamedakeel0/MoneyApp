@@ -6,13 +6,18 @@ import 'package:moneyapp/core/resources/assets_manager.dart';
 import 'package:moneyapp/core/resources/font_manager.dart';
 import 'package:moneyapp/core/resources/routes_manager.dart';
 import 'package:moneyapp/core/resources/strings.dart';
-import 'package:moneyapp/core/resources/values_manager.dart';
+
+import 'package:moneyapp/core/services/app_navigator.dart';
 import 'package:moneyapp/core/utils/app_constance.dart';
+import 'package:moneyapp/core/utils/enums.dart';
+import 'package:moneyapp/features/home/presentation/screen/home_screen.dart';
+import 'package:moneyapp/features/login/domain/entities/parameterLogin.dart';
 import 'package:moneyapp/features/login/presentation/bloc/login_cubic.dart';
 import 'package:moneyapp/features/login/presentation/bloc/login_state.dart';
 import 'package:moneyapp/features/login/presentation/widget/image_white_background.dart';
 import 'package:moneyapp/features/login/presentation/widget/two_underline_text.dart';
 import 'package:moneyapp/features/login/presentation/widget/under_line_text.dart';
+import 'package:moneyapp/features/regisiter/presentation/screen/regisiter_screen.dart';
 import 'package:moneyapp/shared/default_button.dart';
 import 'package:moneyapp/shared/default_form_field.dart';
 
@@ -51,7 +56,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                         SizedBox(
-                          width: MediaQuery.of(context).size.width - 20,
+                          width: MediaQuery
+                              .of(context)
+                              .size
+                              .width - 20,
                           child: Text(
                             AppStrings.titleLogin,
                             style: TextStyle(
@@ -65,8 +73,14 @@ class _LoginScreenState extends State<LoginScreen> {
                           height: 35.h,
                         ),
                         Container(
-                          width: MediaQuery.of(context).size.width,
-                          height: MediaQuery.of(context).size.height - 190,
+                          width: MediaQuery
+                              .of(context)
+                              .size
+                              .width,
+                          height: MediaQuery
+                              .of(context)
+                              .size
+                              .height - 190,
                           decoration: BoxDecoration(
                               color: AppColors.backGroundPrimary,
                               borderRadius: BorderRadius.only(
@@ -99,7 +113,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                     prefix: null,
                                     prefixIsImage: false,
                                     textStyle:
-                                        Theme.of(context).textTheme.titleLarge,
+                                    Theme
+                                        .of(context)
+                                        .textTheme
+                                        .titleLarge,
                                     iconSize: 10.sp,
                                     isEnabled: true,
                                     hintText: AppStrings.enterYourEmail,
@@ -117,25 +134,26 @@ class _LoginScreenState extends State<LoginScreen> {
                                         cubic.validation(
                                             AppStrings.enterYourEmail, false);
                                       }
+                                      return null;
                                     },
                                   ),
                                 ),
                                 cubic.validationEmail == true
                                     ? SizedBox(
-                                        height: 2.h,
-                                      )
-                                    : SizedBox(),
+                                  height: 2.h,
+                                )
+                                    : const SizedBox(),
                                 cubic.validationEmail == true
-                                    ? Text(
-                                        AppStrings.enterYourEmail,
-                                        style: TextStyle(
-                                          fontSize: FontSize.s16,
-                                          fontFamily: 'DancingScript',
-                                          color: AppColors.red,
-                                          fontWeight: FontWeight.w400,
-                                        ),
-                                      )
-                                    : SizedBox(),
+                                    ? const Text(
+                                  AppStrings.enterYourEmail,
+                                  style: TextStyle(
+                                    fontSize: FontSize.s16,
+                                    fontFamily: 'DancingScript',
+                                    color: AppColors.red,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                )
+                                    : const SizedBox(),
                                 Text(
                                   AppStrings.password,
                                   style: TextStyle(
@@ -158,7 +176,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                     prefix: null,
                                     prefixIsImage: false,
                                     textStyle:
-                                        Theme.of(context).textTheme.titleLarge,
+                                    Theme
+                                        .of(context)
+                                        .textTheme
+                                        .titleLarge,
                                     iconSize: 10.sp,
                                     isEnabled: true,
                                     isError: true,
@@ -177,25 +198,26 @@ class _LoginScreenState extends State<LoginScreen> {
                                             AppStrings.enterYourPassword,
                                             false);
                                       }
+                                      return null;
                                     },
                                   ),
                                 ),
                                 cubic.validationPassword == true
                                     ? SizedBox(
-                                        height: 2.h,
-                                      )
-                                    : SizedBox(),
+                                  height: 2.h,
+                                )
+                                    : const SizedBox(),
                                 cubic.validationPassword == true
                                     ? Text(
-                                        AppStrings.enterYourPassword,
-                                        style: TextStyle(
-                                          fontSize: 16.sp,
-                                          fontFamily: 'DancingScript',
-                                          color: AppColors.red,
-                                          fontWeight: FontWeight.w400,
-                                        ),
-                                      )
-                                    : SizedBox(),
+                                  AppStrings.enterYourPassword,
+                                  style: TextStyle(
+                                    fontSize: 14.sp,
+                                    fontFamily: 'DancingScript',
+                                    color: AppColors.red,
+                                    fontWeight: FontWeight.w300,
+                                  ),
+                                )
+                                    : const SizedBox(),
                                 SizedBox(
                                   height: 10.h,
                                 ),
@@ -219,13 +241,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                                     Text(
                                       AppStrings.rememberMe,
-                                      style: Theme.of(context)
+                                      style: Theme
+                                          .of(context)
                                           .textTheme
                                           .titleLarge!
                                           .copyWith(
-                                              color: AppColors.gray2,
-                                              fontSize: 14.sp,
-                                              fontFamily: 'DancingScript'),
+                                          color: AppColors.gray2,
+                                          fontSize: 14.sp,
+                                          fontFamily: 'DancingScript'),
                                     ),
                                   ],
                                 ),
@@ -233,7 +256,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                   height: 20.h,
                                 ),
                                 Center(
-                                  child: defaultButton(
+                                  child: cubic.loginState !=
+                                      RequestState.loading
+                                      ? defaultButton(
                                       height: 35.h,
                                       radius: AppConstance.ten,
                                       textStyle: TextStyle(
@@ -250,19 +275,30 @@ class _LoginScreenState extends State<LoginScreen> {
                                         if (cubic.formkey.currentState!
                                             .validate()) {
                                           if (cubic.validationAll != true) {
-                                            Navigator.pushNamed(
-                                                context, Routes.homeRoute);
+                                            cubic.userLogin(
+                                                context, LoginParameters(
+                                                email: cubic
+                                                    .emailController.text,
+                                                password: cubic
+                                                    .passwordController
+                                                    .text)).then((value) {
+                                              Go.push(const HomeScreen());
+                                            });
                                           }
                                         }
                                       },
                                       text: AppStrings.loginScreen,
-                                      isUpperCase: false),
+                                      isUpperCase: false)
+                                      : const Center(
+                                          child: CircularProgressIndicator(
+                                            color:AppColors.colorPrimary,)),
                                 ),
                                 SizedBox(
                                   height: 20.h,
                                 ),
                                 GestureDetector(
                                     onTap: () {
+
                                       Navigator.pushNamed(
                                           context, Routes.forgetPasswordRoute);
                                     },
@@ -340,8 +376,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                       fristText: AppStrings.dontHaveAn,
                                       secondText: AppStrings.signUp),
                                   onTap: () {
-                                    Navigator.popAndPushNamed(
-                                        context, Routes.regisiterRoute);
+                                    Go.push(RegisiterScreen());
+
                                   },
                                 ),
                               ],

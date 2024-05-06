@@ -1,11 +1,18 @@
 
 
+
 import 'package:flutter/material.dart';
+import 'package:moneyapp/core/error/exceptions.dart';
+import 'package:moneyapp/core/network/error_message_model.dart';
 import 'package:moneyapp/core/resources/strings.dart';
+import 'package:moneyapp/core/utils/enums.dart';
+import 'package:moneyapp/features/login/domain/entities/loginEntity.dart';
+import 'package:moneyapp/features/login/domain/entities/parameterLogin.dart';
 import 'package:moneyapp/features/login/domain/use_cases/loginUseCase.dart';
 import 'package:moneyapp/features/login/presentation/bloc/login_state.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:moneyapp/shared/custom_dialog_error_.dart';
 class LoginCubic extends Cubit<LoginState> {
   LoginCubic(this.getUserLoginUseCase) : super(LoginInitailState());
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
@@ -17,7 +24,8 @@ class LoginCubic extends Cubit<LoginState> {
   bool? validationEmail;
   bool? validationPassword;
   bool? validationAll;
-
+  LoginEntity? loginEntity;
+  RequestState?loginState=RequestState.loaded;
   void validation(text,value){
     if (!isClosed) {
       emit(LoadingValidationState());
@@ -46,5 +54,44 @@ class LoginCubic extends Cubit<LoginState> {
     }
   }
 
+  Future<void> userLogin(BuildContext context,LoginParameters loginParameters) async {
+    if(!isClosed){
+      loginState=RequestState.loading;
+      emit(LoadingUserLoginState());
 
+    }
+    final resultLogin = await getUserLoginUseCase(LoginParameters(
+        email: loginParameters.email,
+        password: loginParameters.password,
+     ))
+        .catchError((error) {
+      print('dsfa+++++++++++++++++++++');
+      print(error);
+      ServerException errorMessageModel=error;
+      dialogErrorLogin(context,errorText:errorMessageModel.errorMessageModel.message!);
+      print('dsfa+++++++++++++++++++++');
+      if(!isClosed){
+        loginState=RequestState.error;
+        emit(ErrorUserLoginState());
+
+      }
+    });
+    resultLogin.fold((l) {
+
+      dialogErrorLogin(context,errorText:l.message);
+      if(!isClosed){
+        loginState=RequestState.error;
+        emit(ErrorUserLoginState());
+
+      }
+    }, (date) async {
+      loginEntity = date;
+
+      if(!isClosed){
+        loginState=RequestState.loaded;
+        emit(SuccessUserLoginState());
+
+      }
+    });
+  }
 }

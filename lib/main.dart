@@ -4,6 +4,7 @@ import 'package:moneyapp/core/network/cache_helper.dart';
 import 'package:moneyapp/core/network/dio_helper.dart';
 import 'package:moneyapp/core/resources/routes_manager.dart';
 import 'package:moneyapp/core/resources/theme_manager.dart';
+import 'package:moneyapp/core/services/app_navigator.dart';
 import 'package:moneyapp/core/services/services_locator.dart';
 import 'package:moneyapp/features/add_report/presentation/bloc/add_report_cubic.dart';
 import 'package:moneyapp/features/change_password/presentation/bloc/change_password_cubic.dart';
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
 
         theme: getApplicationTheme(),
+        navigatorKey: Go.navigatorKey,
 
         home:   SplashScreen(),
 

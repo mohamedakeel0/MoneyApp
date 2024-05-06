@@ -7,8 +7,10 @@ import 'package:moneyapp/core/resources/font_manager.dart';
 import 'package:moneyapp/core/resources/routes_manager.dart';
 import 'package:moneyapp/core/resources/strings.dart';
 import 'package:moneyapp/core/resources/values_manager.dart';
+import 'package:moneyapp/core/services/app_navigator.dart';
 import 'package:moneyapp/core/utils/app_constance.dart';
 import 'package:moneyapp/core/utils/dumy.dart';
+import 'package:moneyapp/features/login/presentation/screen/login_screen.dart';
 import 'package:moneyapp/features/onboarding/presentation/widget/buildBoardingItem.dart';
 import 'package:moneyapp/features/onboarding/presentation/widget/top_on_boarding_widget.dart';
 import 'package:moneyapp/shared/default_button.dart';
@@ -31,7 +33,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     )!.then((value)
     {
       if (value) {
-        Navigator.popAndPushNamed(context, Routes.loginRoute);
+        Go.pushAndRemoveUntil(const LoginScreen());
+
       }
     });
   }

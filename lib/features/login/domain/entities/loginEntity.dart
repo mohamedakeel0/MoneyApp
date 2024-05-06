@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 class LoginEntity extends Equatable {
-  Null? message;
+  String? message;
   bool? isAuthenticated;
   String? email;
   String? username;
