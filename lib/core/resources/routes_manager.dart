@@ -8,7 +8,6 @@ import 'package:moneyapp/core/utils/dumy.dart';
 import 'package:moneyapp/features/Reporting/presentation/screen/view_image_screen.dart';
 import 'package:moneyapp/features/add_report/presentation/screen/add_report_screen.dart';
 import 'package:moneyapp/features/add_report/presentation/screen/map_screen.dart';
-import 'package:moneyapp/features/camera/presentation/screen/camera_screen.dart';
 import 'package:moneyapp/features/digital_currency/presentation/screen/digital_currency_screen.dart';
 import 'package:moneyapp/features/change_password/presentation/screen/change_password_screen.dart';
 import 'package:moneyapp/features/forget_password/presentation/screen/forget_password_screen.dart';
@@ -89,8 +88,7 @@ class RouteGenerator{
         return MaterialPageRoute(builder: (_)=> const TopFiveCoinScreen());
         case Routes.digitalCurrencyRoute:
         return MaterialPageRoute(builder: (_)=> const DigitalCurrencyScreen());
-        case Routes.cameraRoute:
-        return MaterialPageRoute(builder: (_)=> const CameraScreen());
+
         case Routes.viewImageRoute:
         return MaterialPageRoute(builder: (_)=>  ViewImageScreen(image: settings.arguments.toString(),));
         case Routes.mapRoute:

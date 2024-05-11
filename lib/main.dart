@@ -7,9 +7,11 @@ import 'package:moneyapp/core/resources/theme_manager.dart';
 import 'package:moneyapp/core/services/app_navigator.dart';
 import 'package:moneyapp/core/services/services_locator.dart';
 import 'package:moneyapp/features/add_report/presentation/bloc/add_report_cubic.dart';
+import 'package:moneyapp/features/camera/presentation/bloc/add_image_cubic.dart';
 import 'package:moneyapp/features/change_password/presentation/bloc/change_password_cubic.dart';
 import 'package:moneyapp/features/exchange/presentation/bloc/exchange_cubic.dart';
 import 'package:moneyapp/features/forget_password/presentation/bloc/forget_password_cubic.dart';
+import 'package:moneyapp/features/home/presentation/screen/home_screen.dart';
 import 'package:moneyapp/features/login/presentation/bloc/login_cubic.dart';
 import 'package:moneyapp/features/profile/presentation/bloc/profile_cubic.dart';
 import 'package:moneyapp/features/regisiter/presentation/bloc/regisiter_cubic.dart';
@@ -42,6 +44,7 @@ class MyApp extends StatelessWidget {
       BlocProvider( create: (context) => sl<ForgetPasswordCubic>(),),
       BlocProvider( create: (context) => sl<ProfileCubic>(),),
       BlocProvider( create: (context) => sl<AddReportingCubic>(),),
+      BlocProvider( create: (context) => sl<AddImageCubic>(),),
       BlocProvider( create: (context) => sl<ExchangeCubic>()..determinePosition(context),),
     ],
       child: MaterialApp(
@@ -49,7 +52,7 @@ class MyApp extends StatelessWidget {
         theme: getApplicationTheme(),
         navigatorKey: Go.navigatorKey,
 
-        home:   SplashScreen(),
+        home:   HomeScreen(),
 
 
         onGenerateRoute: RouteGenerator.getRoute,
