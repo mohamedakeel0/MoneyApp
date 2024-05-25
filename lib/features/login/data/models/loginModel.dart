@@ -10,6 +10,8 @@ class LoginModel extends LoginEntity {
     required super.  username,
     required super.  roles,
     required super.  token,
+    required super.  image,
+    required super.  phone,
     required super.  expiresOn,
 
   });
@@ -21,6 +23,8 @@ class LoginModel extends LoginEntity {
       username: json['username'] ,
       roles: List<String>.from(json['roles'].map((e) => e))  ,
       token: json['token'] ,
+      phone: json['phone']??'01281056852' ,
+      image: json['image']??'' ,
       expiresOn: json['expiresOn'] ,
     );
 

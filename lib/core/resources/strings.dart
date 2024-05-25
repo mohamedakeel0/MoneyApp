@@ -97,4 +97,11 @@ class AppStrings {
   static const        changePassword = 'Change Password';
   static const        search = 'search';
   static const        ok = 'ok';
+  static const        logInSuccessfully = 'Log in successfully';
+  static const fieldRequired = "Field Required";
+  static const plzFillOutEmailCorrectly = "Enter email correctly";
+  static const plzFillOutPhoneCorrectly = "Enter phone correctly";
+  static const plzFillOutPassCorrectly = "Enter password correctly";
+  static const confirmationPassShouldBeIdentical =
+      "confirmation pass should be identical";
 }

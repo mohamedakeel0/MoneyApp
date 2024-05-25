@@ -8,11 +8,13 @@ import 'package:moneyapp/core/resources/routes_manager.dart';
 import 'package:moneyapp/core/resources/strings.dart';
 import 'package:moneyapp/core/resources/values_manager.dart';
 import 'package:moneyapp/core/utils/app_constance.dart';
+import 'package:moneyapp/core/utils/enums.dart';
 import 'package:moneyapp/features/login/presentation/bloc/login_cubic.dart';
 import 'package:moneyapp/features/login/presentation/bloc/login_state.dart';
 import 'package:moneyapp/features/login/presentation/widget/image_white_background.dart';
 import 'package:moneyapp/features/login/presentation/widget/two_underline_text.dart';
 import 'package:moneyapp/features/login/presentation/widget/under_line_text.dart';
+import 'package:moneyapp/features/regisiter/domain/entities/parameterLogin.dart';
 import 'package:moneyapp/features/regisiter/presentation/bloc/regisiter_cubic.dart';
 import 'package:moneyapp/features/regisiter/presentation/bloc/regisiter_state.dart';
 import 'package:moneyapp/features/regisiter/presentation/widget/text_form_and_title.dart';
@@ -546,34 +548,59 @@ class _RegisiterScreenState extends State<RegisiterScreen> {
                                 SizedBox(
                                   height: 20.h,
                                 ),
-                                Center(
-                                  child: defaultButton(
-                                      height: 35.h,
-                                      radius: AppConstance.ten,
-                                      textStyle: const TextStyle(
-                                        fontSize: FontSize.s16,
-                                        fontFamily: 'DancingScript',
-                                        color: AppColors.white,
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                      shape: false,
-                                      width: 300.w,
-                                      background: AppColors.colorPrimary,
-                                      context: context,
-                                      function: () {
-                                        if (cubic.formkey.currentState!
-                                            .validate()) {
-                                          if (cubic.validationAll != true) {
-                                            Navigator.popAndPushNamed(
-                                                context,
-                                                Routes
-                                                    .doneRegisiterScreenRoute);
-                                          }
-                                        }
-                                      },
-                                      text: AppStrings.signUp,
-                                      isUpperCase: false),
-                                ),
+                                cubic.regisiterState != RequestState.loading
+                                    ? Center(
+                                        child: defaultButton(
+                                            height: 35.h,
+                                            radius: AppConstance.ten,
+                                            textStyle: const TextStyle(
+                                              fontSize: FontSize.s16,
+                                              fontFamily: 'DancingScript',
+                                              color: AppColors.white,
+                                              fontWeight: FontWeight.w400,
+                                            ),
+                                            shape: false,
+                                            width: 300.w,
+                                            background: AppColors.colorPrimary,
+                                            context: context,
+                                            function: () {
+                                              if (cubic.formkey.currentState!
+                                                  .validate()) {
+                                                if (cubic.validationAll !=
+                                                    true) {
+                                                  cubic.register(
+                                                      context,
+                                                      RegisterParameters(
+                                                        password: cubic
+                                                            .passwordController
+                                                            .text,
+                                                        email: cubic
+                                                            .emailController
+                                                            .text,
+                                                        confirmPassword: cubic
+                                                            .comfirmPasswordController
+                                                            .text,
+                                                        firstName: cubic
+                                                            .fristNameController
+                                                            .text,
+                                                        lastName: cubic
+                                                            .secondNameController
+                                                            .text,
+                                                        phoneNumber: cubic
+                                                            .phoneController
+                                                            .text,
+                                                      ));
+
+                                                }
+                                              }
+                                            },
+                                            text: AppStrings.signUp,
+                                            isUpperCase: false),
+                                      )
+                                    : const Center(
+                                        child: CircularProgressIndicator(
+                                        color: AppColors.colorPrimary,
+                                      )),
                               ],
                             ),
                           ),

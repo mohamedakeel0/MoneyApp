@@ -17,6 +17,10 @@ import 'package:moneyapp/features/login/domain/repositories/loginRepo.dart';
 import 'package:moneyapp/features/login/domain/use_cases/loginUseCase.dart';
 import 'package:moneyapp/features/login/presentation/bloc/login_cubic.dart';
 import 'package:moneyapp/features/profile/presentation/bloc/profile_cubic.dart';
+import 'package:moneyapp/features/regisiter/data/datasource/register_remote_data_source.dart';
+import 'package:moneyapp/features/regisiter/data/repository/register_repository.dart';
+import 'package:moneyapp/features/regisiter/domain/repository/base_register_repository.dart';
+import 'package:moneyapp/features/regisiter/domain/usecases/register_use_case.dart';
 import 'package:moneyapp/features/regisiter/presentation/bloc/regisiter_cubic.dart';
 
 final sl=GetIt.instance;
@@ -24,7 +28,7 @@ class ServicesLocator{
   void init(){
     //Bloc
     sl.registerFactory(() =>LoginCubic(sl()));
-    sl.registerFactory(() =>RegisiterCubic());
+    sl.registerFactory(() =>RegisiterCubic(sl()));
     sl.registerFactory(() =>ForgetPasswordCubic());
     sl.registerFactory(() =>ReportingCubic());
     sl.registerFactory(() =>ProfileCubic());
@@ -39,12 +43,14 @@ class ServicesLocator{
 
     sl.registerLazySingleton(() =>UserLoginUseCase(sl()));
     sl.registerLazySingleton(() =>AddImageUseCase(sl()));
+    sl.registerLazySingleton(() =>RegisterUseCase(sl()));
 
 
 
     //Repository
     sl.registerLazySingleton<BaseUserLoginRepository>(() => UserLoginRepository(sl()));
     sl.registerLazySingleton<BaseAddImageRepository>(() => AddImageRepository(sl()));
+    sl.registerLazySingleton<BaseRegisterRepository>(() => RegisterRepository(sl()));
 
 
 
@@ -54,6 +60,7 @@ class ServicesLocator{
 
     sl.registerLazySingleton<BaseUserLoginRemoteDataSource>(() => UserLoginRemoteDataSource());
     sl.registerLazySingleton<BaseAddImageRemoteDataSource>(() => AddImageRemoteDataSource());
+    sl.registerLazySingleton<BaseRegisterRemoteDataSource>(() => RegisterRemoteDataSource());
 
 
 

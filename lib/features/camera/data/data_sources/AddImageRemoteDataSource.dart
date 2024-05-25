@@ -84,7 +84,7 @@ class AddImageRemoteDataSource extends BaseAddImageRemoteDataSource {
     });
 
     if (response.statusCode == 200) {
-      print('sdasda');
+
       return Prediction.fromJson(response.data);
     } else {
       print('sdasda${response.data}');

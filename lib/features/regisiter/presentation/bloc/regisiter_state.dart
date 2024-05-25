@@ -16,3 +16,6 @@ class LoadingValidationState extends RegisiterState{}
 class SuccessValidationState extends RegisiterState{}
 class LoadingChangePrioritiesState extends RegisiterState{}
 class SuccessChangePrioritiesState extends RegisiterState{}
+class SuccessRegisterState extends RegisiterState{}
+class LoadingRegisterState extends RegisiterState{}
+class ErrorRegisterState extends RegisiterState{}

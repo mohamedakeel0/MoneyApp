@@ -26,7 +26,7 @@ Widget defaultFormField({
   ValueChanged? change,
   ValueChanged? onSaved,
   VoidCallback? suffixPressed,
-  required FormFieldValidator validate,
+  required    String? Function(String?)? validate,
   String? label,
   double? iconSize,
   InputBorder? errorBorder,

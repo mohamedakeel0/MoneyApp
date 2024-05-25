@@ -13,6 +13,7 @@ import 'package:moneyapp/features/exchange/presentation/bloc/exchange_cubic.dart
 import 'package:moneyapp/features/forget_password/presentation/bloc/forget_password_cubic.dart';
 import 'package:moneyapp/features/home/presentation/screen/home_screen.dart';
 import 'package:moneyapp/features/login/presentation/bloc/login_cubic.dart';
+import 'package:moneyapp/features/login/presentation/screen/login_screen.dart';
 import 'package:moneyapp/features/profile/presentation/bloc/profile_cubic.dart';
 import 'package:moneyapp/features/regisiter/presentation/bloc/regisiter_cubic.dart';
 import 'package:moneyapp/features/splash/presentation/pages/splash_screen.dart';
@@ -52,7 +53,7 @@ class MyApp extends StatelessWidget {
         theme: getApplicationTheme(),
         navigatorKey: Go.navigatorKey,
 
-        home:   HomeScreen(),
+        home:   LoginScreen(),
 
 
         onGenerateRoute: RouteGenerator.getRoute,

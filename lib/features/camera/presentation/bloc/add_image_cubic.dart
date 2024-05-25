@@ -68,7 +68,7 @@ class AddImageCubic extends Cubit<AddImageState> {
         emit(ErrorAddImageState());
       }
     }, (date) async {
-      print('date date date date');
+
       print(date);
       resultPrediction(date);
       if (!isClosed) {

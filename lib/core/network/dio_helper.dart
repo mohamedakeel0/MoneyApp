@@ -12,7 +12,7 @@ class DioHelper {
 
     dio = Dio(
       BaseOptions(
-        baseUrl:  convertImage,
+        baseUrl:  BASE_URL,
         receiveDataWhenStatusError: true,validateStatus:(_) => true,
         contentType: Headers.jsonContentType,
         responseType:ResponseType.json,

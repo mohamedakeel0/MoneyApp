@@ -1,28 +1,38 @@
 import 'package:equatable/equatable.dart';
 import 'package:image_picker/image_picker.dart';
+class RegisterParameters {
+  String? firstName;
+  String? lastName;
+  String? email;
+  String? password;
+  String? confirmPassword;
+  String? phoneNumber;
 
-class RegisterParameters extends Equatable {
-  final  String password;
-  final String userName;
-  final String email;
-  final String mobile1;
-  final int id;
-  final PickedFile image;
-  final String comfirmPassword;
+  RegisterParameters(
+      {this.firstName,
+        this.lastName,
+        this.email,
+        this.password,
+        this.confirmPassword,
+        this.phoneNumber});
 
+  RegisterParameters.fromJson(Map<String, dynamic> json) {
+    firstName = json['firstName'];
+    lastName = json['lastName'];
+    email = json['email'];
+    password = json['password'];
+    confirmPassword = json['confirmPassword'];
+    phoneNumber = json['phoneNumber'];
+  }
 
-  const  RegisterParameters({ required this.userName,
-    required this.password,
-    required this.image,
-    required this.email,
-    required this.mobile1,
-    required this.id,
-
-    required this.comfirmPassword,
-  });
-
-
-  @override
-  List<Object?> get props => [password,userName,email,mobile1,id,image,comfirmPassword];
-
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['firstName'] = this.firstName;
+    data['lastName'] = this.lastName;
+    data['email'] = this.email;
+    data['password'] = this.password;
+    data['confirmPassword'] = this.confirmPassword;
+    data['phoneNumber'] = this.phoneNumber;
+    return data;
+  }
 }
