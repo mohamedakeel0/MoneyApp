@@ -8,6 +8,9 @@ import 'package:moneyapp/core/resources/routes_manager.dart';
 import 'package:moneyapp/core/resources/strings.dart';
 import 'package:moneyapp/core/resources/values_manager.dart';
 import 'package:moneyapp/core/utils/app_constance.dart';
+import 'package:moneyapp/core/utils/dumy.dart';
+import 'package:moneyapp/core/utils/enums.dart';
+import 'package:moneyapp/features/change_password/domain/use_cases/change_password_use_case.dart';
 import 'package:moneyapp/features/change_password/presentation/bloc/change_password_cubic.dart';
 import 'package:moneyapp/features/change_password/presentation/bloc/change_password_state.dart';
 import 'package:moneyapp/features/forget_password/presentation/bloc/forget_password_cubic.dart';
@@ -19,15 +22,26 @@ import 'package:moneyapp/shared/default_button.dart';
 import 'package:moneyapp/shared/default_form_field.dart';
 
 class ChangePasswordScreen extends StatefulWidget {
-  bool? isProfile;
+  final ChangePasswordArugu changePasswordArugu;
 
-  ChangePasswordScreen({required this.isProfile, Key? key}) : super(key: key);
+  ChangePasswordScreen({required this.changePasswordArugu, Key? key})
+      : super(key: key);
 
   @override
   State<ChangePasswordScreen> createState() => _ChangePasswordScreenState();
 }
 
 class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
+  bool? isProfile;
+  String? email;
+
+  @override
+  void initState() {
+    isProfile = widget.changePasswordArugu.isProfile;
+    email = widget.changePasswordArugu.email;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     print(MediaQuery.of(context).size.height);
@@ -80,7 +94,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              widget.isProfile == true
+                              isProfile == true
                                   ? const Text(
                                       AppStrings.currentPassword,
                                       style: TextStyle(
@@ -90,16 +104,14 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                                       ),
                                     )
                                   : SizedBox(),
-                              widget.isProfile == true
+                              isProfile == true
                                   ? SizedBox(
-                                      height:
-                                         5.h,
+                                      height: 5.h,
                                     )
                                   : SizedBox(),
-                              widget.isProfile == true
+                              isProfile == true
                                   ? Container(
-                                      height:
-                                          40.h,
+                                      height: 40.h,
                                       clipBehavior: Clip.antiAliasWithSaveLayer,
                                       decoration: BoxDecoration(
                                         color: AppColors.white,
@@ -138,10 +150,9 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                                       ),
                                     )
                                   : SizedBox(),
-                              widget.isProfile == true
+                              isProfile == true
                                   ? SizedBox(
-                                      height:
-                                         5.h,
+                                      height: 5.h,
                                     )
                                   : SizedBox(),
                               const Text(
@@ -193,8 +204,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                                 ),
                               ),
                               SizedBox(
-                                height: 5.
-                                h,
+                                height: 5.h,
                               ),
                               const Text(
                                 AppStrings.comfirmPassword,
@@ -248,7 +258,8 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                                 height: 25.h,
                               ),
                               Center(
-                                child: defaultButton(
+                                child:cubic.codeState!=RequestState.loading
+                                    ? defaultButton(
                                     height: 35.h,
                                     radius: AppConstance.ten,
                                     textStyle: const TextStyle(
@@ -263,11 +274,20 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                                     background: AppColors.colorPrimary,
                                     context: context,
                                     function: () {
-                                      Navigator.pushReplacementNamed(
-                                          context, Routes.successfullyRoute);
+                                      cubic.changePassword(
+                                          context,
+                                          ChangePasswordParameter(
+                                              email: email!,
+                                              confirmPassword: cubic
+                                                  .comfirmPasswordController
+                                                  .text,
+                                              newPassword: cubic
+                                                  .newPasswordController.text));
                                     },
                                     text: AppStrings.done,
-                                    isUpperCase: false),
+                                    isUpperCase: false):const Center(
+                                    child: CircularProgressIndicator(
+                                      color:AppColors.colorPrimary,)),
                               ),
                             ],
                           ),

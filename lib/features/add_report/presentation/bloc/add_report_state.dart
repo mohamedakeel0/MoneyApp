@@ -18,4 +18,8 @@ class CameraUpdateState extends AddReportingState{}
 class InitailCheckPermissionState extends AddReportingState{}
 class ErrorCheckPermissionState extends AddReportingState{}
 class SuccesCheckPermissionState extends AddReportingState{}
-
+class LoadingAddReportState extends AddReportingState{}
+class ErrorAddReportState extends AddReportingState{}
+class SuccesAddReportState extends AddReportingState{}
+class LoadingInformationUserState extends AddReportingState{}
+class SuccesInformationUserState extends AddReportingState{}

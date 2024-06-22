@@ -6,6 +6,7 @@ import 'package:moneyapp/core/resources/assets_manager.dart';
 import 'package:moneyapp/core/resources/routes_manager.dart';
 import 'package:moneyapp/core/resources/strings.dart';
 import 'package:moneyapp/core/utils/app_constance.dart';
+import 'package:moneyapp/core/utils/dumy.dart';
 import 'package:moneyapp/features/Reporting/presentation/widgets/image_border_circle.dart';
 import 'package:moneyapp/features/profile/presentation/bloc/profile_cubic.dart';
 import 'package:moneyapp/features/profile/presentation/bloc/profile_state.dart';
@@ -217,7 +218,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 background: AppColors.orangeLight,
                                 context: context,
                                 function: () {
-                                  Navigator.pushNamed(context, Routes.changePasswordRoute,arguments: true);
+                                  Navigator.pushNamed(
+                                      context, Routes.changePasswordRoute,
+                                      arguments:
+                                      ChangePasswordArugu(isProfile: true,
+                                          email: cubic.emailController.text));
                                 },
                                 text: AppStrings.changePassword,
                                 isUpperCase: false),

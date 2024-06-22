@@ -32,6 +32,7 @@ class AppStrings {
   static const        addReport = 'Add Report';
   static const        addLocation= 'Add Location';
   static const        insertImage = 'Insert Image';
+  static const        scanCurrency = 'Scan  Currency';
   static const        email = 'Email';
   static const        userName = 'User Name';
   static const        newPassword = 'New Password';
@@ -45,6 +46,7 @@ class AppStrings {
   static const       enterYourPhone = 'Enter your Phone';
   static const       enterYourUserName = 'Enter your User Name';
   static const       enterYourPassword = 'Enter your password';
+  static const       enterYourCode = 'Enter your code';
   static const       enterYourComfirmPassword = 'Enter your Comfirm Password';
   static const        validationFristName = 'Enter Frist Name';
   static const        validationSecondName = 'Enter Second Name';
@@ -73,6 +75,7 @@ class AppStrings {
   static const        viewImage = 'View Image';
   static const        buying = 'Buy';
   static const        sell = 'Sell';
+  static const        marketValue = 'Market value';
 
   static const        save = 'Save';
 
@@ -98,10 +101,27 @@ class AppStrings {
   static const        search = 'search';
   static const        ok = 'ok';
   static const        logInSuccessfully = 'Log in successfully';
+  static const        addReportSuccessfully = 'Add Report successfully';
   static const fieldRequired = "Field Required";
   static const plzFillOutEmailCorrectly = "Enter email correctly";
   static const plzFillOutPhoneCorrectly = "Enter phone correctly";
   static const plzFillOutPassCorrectly = "Enter password correctly";
   static const confirmationPassShouldBeIdentical =
       "confirmation pass should be identical";
+  static const description = """
+It'll let the user comprehend their favorite fuel station and their name. Eventually, it'll let the user comprehend the place from wherever they'll get their flat tires repaired. This platform can let the user recognize the regarding nearest location wherever they'll park their vehicles.
+Let the user comprehend their favorite fuel station and their name.
+
+This platform can let the user recognize the regarding nearest location wherever they'll park their vehicles.
+
+It'll let the user comprehend their favorite fuel station and their name. Eventually, it'll let the user comprehend the place from wherever they'll get their flat tires repaired. This platform can let the user recognize the regarding nearest location wherever they'll park their vehicles.
+Let the user comprehend their favorite fuel station and their name.
+
+This platform can let the user recognize the regarding nearest location wherever they'll park their vehicles.
+
+It'll let the user comprehend their favorite fuel station and their name. Eventually, it'll let the user comprehend the place from wherever they'll get their flat tires repaired. This platform can let the user recognize the regarding nearest location wherever they'll park their vehicles.
+Let the user comprehend their favorite fuel station and their name.
+
+This platform can let the user recognize the regarding nearest location wherever they'll park their vehicles.
+""";
 }

@@ -20,53 +20,61 @@ class AddReportScreen extends StatefulWidget {
 
 class _AddReportScreenState extends State<AddReportScreen> {
   @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<AddReportingCubic>().determinePosition(context);
+
+
+    });
+
+
+    super.initState();
+  }
+  @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => sl<AddReportingCubic>()..determinePosition(context),
-      child: BlocConsumer<AddReportingCubic, AddReportingState>(
-        builder: (context, state) {
-          var cubic = AddReportingCubic.get(context);
-          return Scaffold(
-            appBar: defaultAppBar(
-              context,
-              AppStrings.addReport,
-            ),
-            body: Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: (MediaQuery.of(context).size.width -
-                          (MediaQuery.of(context).size.width /
-                              AppResponsiveWidth.w270)) /
-                      2),
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    GestureDetector(
-                        onTap: () {
-                          cubic.uploadImage();
-                        },
-                        child: itemAddReport(context, AppStrings.insertImage,
-                            Icons.image_outlined)),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height /
-                          AppResponsiveHeigh.h50,
-                    ),
-                    GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(
-                              context, Routes.mapRoute,arguments: MapModel(
-                              comeFrom: AppStrings.currency,
-                              lat:  cubic.lat,
-                              lon: cubic.lon));
-                        },
-                        child: itemAddReport(context, AppStrings.addLocation,
-                            Icons.add_location_alt_outlined)),
-                  ]),
-            ),
-          );
-        },
-        listener: (context, state) {},
-      ),
+    return BlocConsumer<AddReportingCubic, AddReportingState>(
+      builder: (context, state) {
+        var cubic = AddReportingCubic.get(context);
+        return Scaffold(
+          appBar: defaultAppBar(
+            context,
+            AppStrings.addReport,
+          ),
+          body: Padding(
+            padding: EdgeInsets.symmetric(
+                horizontal: (MediaQuery.of(context).size.width -
+                        (MediaQuery.of(context).size.width /
+                            AppResponsiveWidth.w270)) /
+                    2),
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                      onTap: () {
+                        cubic.uploadImage();
+                      },
+                      child: itemAddReport(context, AppStrings.insertImage,
+                          Icons.image_outlined)),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height /
+                        AppResponsiveHeigh.h50,
+                  ),
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(
+                            context, Routes.mapRoute,arguments: MapModel(
+                            comeFrom: AppStrings.currency,
+                            lat:  cubic.lat,
+                            lon: cubic.lon));
+                      },
+                      child: itemAddReport(context, AppStrings.addLocation,
+                          Icons.add_location_alt_outlined)),
+                ]),
+          ),
+        );
+      },
+      listener: (context, state) {},
     );
   }
 }

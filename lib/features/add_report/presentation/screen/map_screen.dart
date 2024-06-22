@@ -10,6 +10,7 @@ import 'package:moneyapp/core/resources/font_manager.dart';
 import 'package:moneyapp/core/resources/strings.dart';
 import 'package:moneyapp/core/resources/values_manager.dart';
 import 'package:moneyapp/core/utils/dumy.dart';
+import 'package:moneyapp/features/add_report/domain/use_cases/add_report_use_case.dart';
 import 'package:moneyapp/features/add_report/presentation/bloc/add_report_cubic.dart';
 import 'package:moneyapp/features/add_report/presentation/bloc/add_report_state.dart';
 import 'package:moneyapp/shared/default_button.dart';
@@ -33,6 +34,7 @@ class _MapScreenState extends State<MapScreen> {
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<AddReportingCubic>().getLocation();
+
 
       context.read<AddReportingCubic>(). updateLocation(widget.mapModel!.lat!,widget.mapModel!.lon!);
 
@@ -157,9 +159,10 @@ class _MapScreenState extends State<MapScreen> {
                               background: AppColors.graySoft2,
                               context: context,
                               function: () {
+                                cubic.informationUser(context);
 
 
-                                Navigator.pop(context);
+
 
 
                               },

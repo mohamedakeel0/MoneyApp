@@ -34,7 +34,7 @@ class AddImageScreen extends StatelessWidget {
                         cubic.captureImage(context);
 
                       },
-                      child: itemAddReport(context, AppStrings.insertImage,
+                      child: itemAddReport(context, AppStrings.scanCurrency,
                           Icons.image_outlined)),
 
                 ]),

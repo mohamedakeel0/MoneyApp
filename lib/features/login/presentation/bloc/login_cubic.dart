@@ -65,12 +65,8 @@ class LoginCubic extends Cubit<LoginState> {
       email: loginParameters.email,
       password: loginParameters.password,
     )).catchError((error) {
-      print('dsfa+++++++++++++++++++++');
-      print(error);
       ServerException errorMessageModel = error;
-      dialogErrorLogin(context,
-          errorText: errorMessageModel.errorMessageModel.message!);
-      print('dsfa+++++++++++++++++++++');
+      dialogErrorLogin(context, errorText: errorMessageModel.errorMessageModel.message!);
       if (!isClosed) {
         loginState = RequestState.error;
         emit(ErrorUserLoginState());
@@ -82,8 +78,7 @@ class LoginCubic extends Cubit<LoginState> {
         loginState = RequestState.error;
         emit(ErrorUserLoginState());
       }
-    }, (date) async {
-      loginEntity = date;
+    }, (date) async {loginEntity = date;emailController.text='';passwordController.text='';
       savaDataUser(loginEntity!);
       dialogErrorLogin(context, errorText: AppStrings.logInSuccessfully);
       if (!isClosed) {

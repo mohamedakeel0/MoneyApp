@@ -9,4 +9,8 @@ class ReportingState extends Equatable {
 }
 class InitailReportingState extends ReportingState{}
 
-
+class SuccesReportsState extends ReportingState{}
+class LoadingReportsState extends ReportingState{}
+class SuccesUpdateFilteredReportsState extends ReportingState{}
+class LoadingUpdateFilteredReportsState extends ReportingState{}
+class ErrorReportsState extends ReportingState{}

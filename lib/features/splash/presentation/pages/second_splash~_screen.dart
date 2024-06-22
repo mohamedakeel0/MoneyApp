@@ -18,7 +18,7 @@ class _SecondSplashScreenState extends State<SecondSplashScreen> {
   @override
   void initState() {
 
-    Timer(const Duration(seconds: 3),
+    Timer(const Duration(seconds: 5),
             () async{
               Go.pushAndRemoveUntil(OnboardingScreen());
 

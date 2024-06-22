@@ -15,6 +15,7 @@ import 'package:moneyapp/features/forget_password/presentation/screen/successful
 import 'package:moneyapp/features/forget_password/presentation/screen/varification_screen.dart';
 import 'package:moneyapp/features/home/presentation/screen/home_screen.dart';
 import 'package:moneyapp/features/login/presentation/screen/login_screen.dart';
+import 'package:moneyapp/features/more/presentation/screen/help_screen.dart';
 import 'package:moneyapp/features/more/presentation/screen/privacy_policy_screen.dart';
 import 'package:moneyapp/features/notifications/presentation/screen/notifications_screen.dart';
 import 'package:moneyapp/features/onboarding/presentation/screen/on_boarding_screen.dart';
@@ -36,6 +37,7 @@ class Routes{
   static const String successfullyRoute ='/successfully';
   static const String doneRegisiterScreenRoute ='/doneRegisiter';
   static const String homeRoute ='/home';
+  static const String helpRoute ='/help';
   static const String notificationsRoute ='/notifications';
   static const String profileRoute ='/profile';
   static const String viewImageRoute ='/viewImage';
@@ -67,9 +69,9 @@ class RouteGenerator{
         case Routes.forgetPasswordRoute:
         return MaterialPageRoute(builder: (_)=> const ForgetPasswordScreen());
         case Routes.varificationRoute:
-        return MaterialPageRoute(builder: (_)=> const VarificationScreen());
+        return MaterialPageRoute(builder: (_)=>  VarificationScreen(email:  settings.arguments.toString()));
         case Routes.changePasswordRoute:
-        return MaterialPageRoute(builder: (_)=>  ChangePasswordScreen(isProfile: settings.arguments as bool,));
+        return MaterialPageRoute(builder: (_)=>  ChangePasswordScreen(changePasswordArugu: settings.arguments as ChangePasswordArugu,));
         case Routes.successfullyRoute:
         return MaterialPageRoute(builder: (_)=> const SuccessfullyScreen());
         case Routes.doneRegisiterScreenRoute:
@@ -80,6 +82,8 @@ class RouteGenerator{
         return MaterialPageRoute(builder: (_)=> const NotificationsScreen());
         case Routes.profileRoute:
         return MaterialPageRoute(builder: (_)=> const ProfileScreen());
+        case Routes.helpRoute:
+        return MaterialPageRoute(builder: (_)=> const HelpScreen());
         case Routes.privacyPolicyRoute:
         return MaterialPageRoute(builder: (_)=> const PrivacyPolicyScreen());
         case Routes.addReportRoute:

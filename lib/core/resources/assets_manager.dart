@@ -20,6 +20,7 @@ class ImageAssets{
   static const String dinar='$IMAGE_PATH/dinar.png';
   static const String dolar='$IMAGE_PATH/dolar.png';
   static const String rayal='$IMAGE_PATH/rayal.png';
+  static const String rayalKatry='$IMAGE_PATH/rayal_katry.png';
   static const String yoro='$IMAGE_PATH/yoro.png';
 
   static const String facebook='$IMAGE_PATH/Facebook.png';
@@ -34,6 +35,13 @@ class ImageAssets{
   static const String changePassword='$IMAGE_PATH/changepasswword.png';
   static const String done='$IMAGE_PATH/done.png';
   static const String doneRegisiter='$IMAGE_PATH/doneregisiter.png';
+  static const String bTC='$IMAGE_PATH/BTC.png';
+  static const String eTH='$IMAGE_PATH/ETH.png';
+  static const String uSDT='$IMAGE_PATH/USDT.png';
+  static const String sOL='$IMAGE_PATH/SOL.png';
+  static const String bNB='$IMAGE_PATH/BNB.png';
+  static const String xRP='$IMAGE_PATH/XRP.png';
+  static const String uSDC='$IMAGE_PATH/USDC.png';
   static const String backgroundDoneRegisiter='$IMAGE_PATH/backgroundDoneRegisiter.png';
 
 

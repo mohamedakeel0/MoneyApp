@@ -22,7 +22,7 @@
     <uses-feature android:name="android.hardware.camera" />
 
     <application
-        android:label="moneyapp"
+        android:label="Currency Checker"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

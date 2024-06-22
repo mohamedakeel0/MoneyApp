@@ -7,7 +7,8 @@ import 'package:moneyapp/core/services/app_navigator.dart';
 import 'package:moneyapp/core/utils/app_constance.dart';
 import 'package:moneyapp/shared/default_button.dart';
 
-Future dialogErrorLogin(BuildContext context, {required String errorText}) {
+Future dialogErrorLogin(BuildContext context, {required String errorText,
+  Color?colorText=AppColors.red}) {
   return showDialog(
     barrierDismissible: false,
     useSafeArea: false,
@@ -27,7 +28,7 @@ Future dialogErrorLogin(BuildContext context, {required String errorText}) {
               color: Colors.white,
               borderRadius: BorderRadius.all(Radius.circular(AppConstance.ten)),
             ),
-            height: 130.h,
+            height: 140.h,
             child: Padding(
               padding: const EdgeInsets.symmetric(
                   vertical: AppConstance.ten, horizontal: AppConstance.ten),
@@ -51,7 +52,7 @@ Future dialogErrorLogin(BuildContext context, {required String errorText}) {
                     Text(
                       errorText,
                       style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                          color: AppColors.red,
+                          color: colorText,
                           fontSize: 17.sp,
                           fontFamily: 'DancingScript'),
                     ),

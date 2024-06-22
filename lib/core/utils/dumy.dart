@@ -64,7 +64,7 @@ List<BoardingModel> moreList = [
   BoardingModel(
       image: ImageAssets.help,
       title: AppStrings.help,
-      body: Routes.privacyPolicyRoute),
+      body: Routes.helpRoute),
   BoardingModel(
     image: ImageAssets.logout,
     title: AppStrings.logOut,
@@ -127,3 +127,45 @@ Future<void> clearDataUserLocal() async {
   CacheHelper.saveData(key: CacheStorageKeys.token, value: 'null');
   fetchDataUserLocal();
 }
+class ChangePasswordArugu {
+  final bool isProfile;
+  final String email;
+
+  ChangePasswordArugu({
+    required this.isProfile,
+    required this.email,
+  });
+
+  // fromJson factory constructor
+  factory ChangePasswordArugu.fromJson(Map<String, dynamic> json) {
+    return ChangePasswordArugu(
+      isProfile: json['isProfile'],
+      email: json['email'],
+    );
+  }
+
+  // toJson method
+  Map<String, dynamic> toJson() {
+    return {
+      'isProfile': isProfile,
+      'email': email,
+    };
+  }
+}
+List <TopFiveModel>list=[
+TopFiveModel(image: ImageAssets.yoro, title: 'Eur', buy: '51.70', sell: '52.18'),
+TopFiveModel(image: ImageAssets.dolar, title: 'USD', buy: '48.10', sell: '48.40'),
+TopFiveModel(image: ImageAssets.dinar, title: 'kWD', buy: '152.60', sell: '157.76'),
+  TopFiveModel(image: ImageAssets.rayalKatry, title: 'Qar', buy: '13.06', sell: '13.11'),
+TopFiveModel(image: ImageAssets.rayal, title: 'SAR', buy: '12.72', sell: '12.88'),
+
+];List <TopFiveModel>list2=[
+TopFiveModel(image: ImageAssets.bTC, title: 'BTC', buy: '5175.61', sell: '1.061'),
+TopFiveModel(image: ImageAssets.eTH, title: 'ETH', buy: '2768.7', sell: '332.6 '),
+TopFiveModel(image: ImageAssets.uSDT, title: 'USDT', buy: '1.0084', sell: '97.04 '),
+  TopFiveModel(image: ImageAssets.sOL, title: 'SOL', buy: '116.61 ', sell: '51.008'),
+TopFiveModel(image: ImageAssets.bNB, title: 'BNB', buy: '333.23', sell: '49.833'),
+TopFiveModel(image: ImageAssets.xRP, title: 'XRP', buy: '0.5386', sell: '29.357'),
+TopFiveModel(image: ImageAssets.uSDC, title: 'USDC', buy: '0.9996', sell: '112,938'),
+
+];

@@ -6,7 +6,9 @@ import 'package:moneyapp/core/resources/routes_manager.dart';
 import 'package:moneyapp/core/resources/theme_manager.dart';
 import 'package:moneyapp/core/services/app_navigator.dart';
 import 'package:moneyapp/core/services/services_locator.dart';
+import 'package:moneyapp/features/Reporting/presentation/manager/reporting_cubic.dart';
 import 'package:moneyapp/features/add_report/presentation/bloc/add_report_cubic.dart';
+import 'package:moneyapp/features/add_report/presentation/screen/add_report_screen.dart';
 import 'package:moneyapp/features/camera/presentation/bloc/add_image_cubic.dart';
 import 'package:moneyapp/features/change_password/presentation/bloc/change_password_cubic.dart';
 import 'package:moneyapp/features/exchange/presentation/bloc/exchange_cubic.dart';
@@ -31,7 +33,6 @@ void main() async{
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
       BlocProvider( create: (context) => sl<ProfileCubic>(),),
       BlocProvider( create: (context) => sl<AddReportingCubic>(),),
       BlocProvider( create: (context) => sl<AddImageCubic>(),),
+
       BlocProvider( create: (context) => sl<ExchangeCubic>()..determinePosition(context),),
     ],
       child: MaterialApp(
@@ -53,7 +55,7 @@ class MyApp extends StatelessWidget {
         theme: getApplicationTheme(),
         navigatorKey: Go.navigatorKey,
 
-        home:   LoginScreen(),
+        home:   SplashScreen(),
 
 
         onGenerateRoute: RouteGenerator.getRoute,

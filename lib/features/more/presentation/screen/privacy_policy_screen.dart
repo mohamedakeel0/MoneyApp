@@ -41,16 +41,35 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
           ),
         ),
         SizedBox(height: MediaQuery.of(context).size.height/ AppResponsiveHeigh.h10),
-        SizedBox(height:MediaQuery.of(context).size.height-400 ,width: MediaQuery.of(context).size.width,
+        SizedBox(height:MediaQuery.of(context).size.height-560 ,width: MediaQuery.of(context).size.width,
 
-          child:  Text(
-         'aaaaaaasasdasasdasdas sadasdsadffdasdfsadfasd  sadfasdf sadf sadf asdf sdaf sdaf sadf sadfsadf sadf sadf asd fasd fsad fasdf asd fasd fdsaf asdf sd fdsa fasdf sda fads fas dsa fsdf sdf dsf sdf sda fsd fsdf sd fsad fsdfa sdaf sd fdsa fsdf dsaf sad fsd sda',
+          child:  Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.',
           style: TextStyle(
             fontWeight: FontWeight.w300,
             fontSize: AppSize.s18,
             color: AppColors.black,
           ),
-        ),)
+        ),),
+        Text(
+          '2. Use of your personal data',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: AppSize.s20,
+            color: AppColors.black,
+          ),
+        ),
+        SizedBox(height: MediaQuery.of(context).size.height/ AppResponsiveHeigh.h10),
+
+        SizedBox(height:MediaQuery.of(context).size.height-560 ,width: MediaQuery.of(context).size.width,
+
+          child:  Text(
+            'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae.Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.',
+            style: TextStyle(
+              fontWeight: FontWeight.w300,
+              fontSize: AppSize.s18,
+              color: AppColors.black,
+            ),
+          ),),
       ]),
     ),);
   }

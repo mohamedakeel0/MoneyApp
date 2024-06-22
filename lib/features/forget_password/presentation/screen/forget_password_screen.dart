@@ -8,6 +8,7 @@ import 'package:moneyapp/core/resources/routes_manager.dart';
 import 'package:moneyapp/core/resources/strings.dart';
 import 'package:moneyapp/core/resources/values_manager.dart';
 import 'package:moneyapp/core/utils/app_constance.dart';
+import 'package:moneyapp/core/utils/enums.dart';
 import 'package:moneyapp/features/forget_password/presentation/bloc/forget_password_cubic.dart';
 import 'package:moneyapp/features/forget_password/presentation/bloc/forget_password_state.dart';
 import 'package:moneyapp/features/login/presentation/bloc/login_cubic.dart';
@@ -46,131 +47,153 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
           ),
           backgroundColor: AppColors.white,
           body: SingleChildScrollView(
-            child: SizedBox(
-              width: double.infinity,
-              child: Padding(
-                padding: EdgeInsets.only(top: 8.0.h),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        width: 300.w,
-                        child: const Text(
-                          AppStrings.titleForget,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w300,
-                            fontSize: AppSize.s16,
-                            color: AppColors.grayMedium2,
+            child: Form(
+              key: cubic.formkey,
+              child: SizedBox(
+                width: double.infinity,
+                child: Padding(
+                  padding: EdgeInsets.only(top: 8.0.h),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          width: 300.w,
+                          child: const Text(
+                            AppStrings.titleForget,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w300,
+                              fontSize: AppSize.s16,
+                              color: AppColors.grayMedium2,
+                            ),
                           ),
                         ),
-                      ),
-                      Center(
-                        child: Image(
-                          height: 280.h,
+                        Center(
+                          child: Image(
+                            height: 280.h,
+                            width: MediaQuery.of(context).size.width,
+                            image: const AssetImage(
+                              ImageAssets.forgotpassword,
+                            ),
+                          ),
+                        ),
+                        Container(
                           width: MediaQuery.of(context).size.width,
-                          image: const AssetImage(
-                            ImageAssets.forgotpassword,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height -
-                            MediaQuery.of(context).size.height /
-                                AppResponsiveHeigh.h300,
-                        decoration: const BoxDecoration(
-                            color: AppColors.backGroundPrimary,
-                            borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(AppSize.s30),
-                                topLeft: Radius.circular(AppSize.s30))),
-                        child: Padding(
-                          padding:  EdgeInsets.symmetric(
-                              vertical: 30.0.h, horizontal: 30.0.w),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Text(
-                                AppStrings.email,
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w300,
-                                  fontSize: AppSize.s16,
-                                  color: AppColors.colorPrimaryDark,
+                          height: MediaQuery.of(context).size.height -
+                              MediaQuery.of(context).size.height /
+                                  AppResponsiveHeigh.h300,
+                          decoration: const BoxDecoration(
+                              color: AppColors.backGroundPrimary,
+                              borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(AppSize.s30),
+                                  topLeft: Radius.circular(AppSize.s30))),
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                                vertical: 30.0.h, horizontal: 30.0.w),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  AppStrings.email,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w300,
+                                    fontSize: AppSize.s16,
+                                    color: AppColors.colorPrimaryDark,
+                                  ),
                                 ),
-                              ),
-                              SizedBox(
-                                height: 5.h,
-                              ),
-                              Container(
-                                height: 40.h,
-                                clipBehavior: Clip.antiAliasWithSaveLayer,
-                                decoration: BoxDecoration(
-                                  color: AppColors.white,
-                                  borderRadius:
-                                      BorderRadius.circular(AppSize.s10),
+                                SizedBox(
+                                  height: 5.h,
                                 ),
-                                child: defaultFormField(
-                                  context: context,
-                                  onTap: () {},
-                                  prefix: null,
-                                  prefixIsImage: false,
-                                  textStyle:
-                                      Theme.of(context).textTheme.titleLarge,
-                                  iconSize: MediaQuery.of(context).size.height /
-                                      AppResponsiveHeigh.h10,
-                                  isEnabled: true,
-                                  hintText: AppStrings.enterYourEmail,
-                                  isError: true,
-                                  isFocusBorder: true,
-                                  controller: cubic.emailController,
-                                  type: TextInputType.emailAddress,
-                                  validate: (value) {
-                                    if (value!.isEmpty) {}
-                                    return null;
+                                Container(
+                                  height: 40.h,
+                                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                                  decoration: BoxDecoration(
+                                    color: AppColors.white,
+                                    borderRadius:
+                                        BorderRadius.circular(AppSize.s10),
+                                  ),
+                                  child: defaultFormField(
+                                    context: context,
+                                    onTap: () {},
+                                    prefix: null,
+                                    prefixIsImage: false,
+                                    textStyle:
+                                        Theme.of(context).textTheme.titleLarge,
+                                    iconSize:
+                                        MediaQuery.of(context).size.height /
+                                            AppResponsiveHeigh.h10,
+                                    isEnabled: true,
+                                    hintText: AppStrings.enterYourEmail,
+                                    isError: true,
+                                    isFocusBorder: true,
+                                    controller: cubic.emailController,
+                                    type: TextInputType.emailAddress,
+                                    validate: (value) {
+                                      if (cubic.emailController.text
+                                          .trim()
+                                          .isEmpty) {
+                                        cubic.validation(
+                                            AppStrings.email,
+                                            false);
+                                      } else {
+                                        cubic.validation(
+                                            AppStrings.email, true);
+                                      }
+                                      return null;
+                                    },
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20.h,
+                                ),
+                                Center(
+                                  child: cubic.forgetPasswordState !=
+                                      RequestState.loading
+                                      ?defaultButton(
+                                      height: 35.h,
+                                      radius: AppConstance.ten,
+                                      textStyle: const TextStyle(
+                                        fontSize: FontSize.s16,
+                                        fontFamily: 'DancingScript',
+                                        color: AppColors.white,
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                      shape: false,
+                                      width: 260.w,
+                                      background: AppColors.colorPrimary,
+                                      context: context,
+                                      function: () {
+                                        if (cubic.formkey.currentState!
+                                            .validate()) {
+                                          if(cubic.validationEmail==true){
+                                            cubic.forgetPassword(context, cubic.emailController.text);
+
+
+                                          }
+
+                                        }
+                                      },
+                                      text: AppStrings.sendCode,
+                                      isUpperCase: false):CircularProgressIndicator(),
+                                ),
+                                SizedBox(
+                                  height: 30.h,
+                                ),
+                                GestureDetector(
+                                  child: twoTextWithUnderline(
+                                      fristText: AppStrings.rememberPassword,
+                                      secondText: AppStrings.loginNow),
+                                  onTap: () {
+                                    Navigator.pushReplacementNamed(
+                                        context, Routes.loginRoute);
                                   },
                                 ),
-                              ),
-                              SizedBox(
-                                height: 20.h,
-                              ),
-                              Center(
-                                child: defaultButton(
-                                    height: 35.h,
-                                    radius: AppConstance.ten,
-                                    textStyle: const TextStyle(
-                                      fontSize: FontSize.s16,
-                                      fontFamily: 'DancingScript',
-                                      color: AppColors.white,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                    shape: false,
-                                    width: 260.w,
-                                    background: AppColors.colorPrimary,
-                                    context: context,
-                                    function: () {
-                                      Navigator.pushNamed(
-                                          context, Routes.varificationRoute);
-                                    },
-                                    text: AppStrings.sendCode,
-                                    isUpperCase: false),
-                              ),
-                              SizedBox(
-                                height: 30.h,
-                              ),
-                              GestureDetector(
-                                child: twoTextWithUnderline(
-                                    fristText: AppStrings.rememberPassword,
-                                    secondText: AppStrings.loginNow),
-                                onTap: () {
-                                  Navigator.pushReplacementNamed(
-                                      context, Routes.loginRoute);
-                                },
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                    ]),
+                      ]),
+                ),
               ),
             ),
           ),
