@@ -25,64 +25,84 @@ class AddImageCubic extends Cubit<AddImageState> {
 
   void captureImage(context) {
     if (!isClosed) {
-      emit(LoadingCaptureImageClientState());  }
-    MultipleImageCamera.capture(context: context,
+      emit(LoadingCaptureImageClientState());
+    }
+    MultipleImageCamera.capture(
+        context: context,
         customDoneButton: Padding(
           padding: const EdgeInsets.only(left: 18.0),
           child: Container(
-              width: MediaQuery.of(context).size.width
-                  / AppResponsiveWidth.w40,
-              decoration: BoxDecoration(color: AppColors.green,
+              width: MediaQuery.of(context).size.width / AppResponsiveWidth.w40,
+              decoration: BoxDecoration(
+                color: AppColors.green,
                 borderRadius: BorderRadius.circular(
                     MediaQuery.of(context).size.height /
-                        AppResponsiveHeigh.h10),),
-              child: Icon(Icons.done_all_sharp, color: AppColors.white,)),
+                        AppResponsiveHeigh.h10),
+              ),
+              child: Icon(
+                Icons.done_all_sharp,
+                color: AppColors.white,
+              )),
         )).then((value) {
       images = value;
       uploadAddImage(images[0].file);
       if (!isClosed) {
-        emit(SuccessCaptureImageClientState());}});
+        emit(SuccessCaptureImageClientState());
+      }
+    });
   }
 
   Future<void> uploadAddImage(File image) async {
     if (!isClosed) {
       loginState = RequestState.loading;
-      emit(LoadingAddImageState());}
+      emit(LoadingAddImageState());
+    }
     final resultLogin = await addImageUseCase(image).catchError((error) {
       if (!isClosed) {
-        loginState = RequestState.error;emit(ErrorAddImageState());
+        loginState = RequestState.error;
+        emit(ErrorAddImageState());
       }
     });
     resultLogin.fold((l) {
       if (!isClosed) {
         loginState = RequestState.error;
-        emit(ErrorAddImageState());}
+        emit(ErrorAddImageState());
+      }
     }, (date) async {
       resultPrediction(date);
       if (!isClosed) {
         loginState = RequestState.loaded;
-        emit(SuccessAddImageState());}
-    });}
+        emit(SuccessAddImageState());
+      }
+    });
+  }
 
   Future<void> resultPrediction(String image) async {
     if (!isClosed) {
       loginState = RequestState.loading;
-      emit(LoadingAddImageState());}
-    final resultLogin = await addImageUseCase.resultPrediction(image).catchError((error) {
+      emit(LoadingAddImageState());
+    }
+    final resultLogin =
+        await addImageUseCase.resultPrediction(image).catchError((error) {
       if (!isClosed) {
         loginState = RequestState.error;
-        emit(ErrorAddImageState());}});
+        emit(ErrorAddImageState());
+      }
+    });
     resultLogin.fold((l) {
       if (!isClosed) {
         loginState = RequestState.error;
-        emit(ErrorAddImageState());}
+        emit(ErrorAddImageState());
+      }
     }, (date) async {
       prediction = date;
       if (date.prediction == 'Fake Money') {
-        dialogErrorLogin(Go.navigatorKey.currentState!.context, errorText: date.prediction!);
+        dialogErrorLogin(Go.navigatorKey.currentState!.context,
+            errorText: date.prediction!);
       } else {
-        dialogErrorLogin(Go.navigatorKey.currentState!.context, errorText: date.prediction!,
-            colorText: AppColors.colorPrimary);}
+        dialogErrorLogin(Go.navigatorKey.currentState!.context,
+            errorText: date.prediction!, colorText: AppColors.colorPrimary);
+      }
       if (!isClosed) {
         loginState = RequestState.loaded;
         emit(SuccessAddImageState());
